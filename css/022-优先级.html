@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优先级</title>
+	<style type="text/css">
+		/*ul{
+			color: red;
+		}
+        div{
+        	color: blue;
+        }*/
+        /*.p2{
+        	color: red;
+        }
+        p{
+        	color: blue;
+        }
+        #p2{
+        	color: green;
+        }*/
+        /*1.ID多  #ul1 #li1 #p1{
+        	color: red;
+        }
+        #li1 #p1{
+        	color: yellow;
+        }*/
+        /*2.类多  #ul1 .li1 .p1{
+        	color: green;
+        }
+        #ul1 .p1{
+        	color: blue;
+        }*/
+        /*3.标签多  #ul1 .li1 p.p1{
+        	color: red;
+        }
+        #ul1 .li1 .p1{
+        	color: yellow;
+        }*/
+        /*.ul1 li p{
+            color: brown;
+        }
+        .ul1 p{
+        	color: blue;
+        }*/
+        /*听后面的*/ 
+        
+         /*#ul1 li .p1{
+        	color: red;
+        }
+         #ul1 .li1 p{
+        	color: blue;
+        }*/
+        .ul1 #li1 p{
+        	color: yellow !important;
+        } 
+        .ul1 li #p1{
+        	color: red;
+        }
+	</style>
+</head>
+<body>
+	<div>
+		<ul id="ul1" class="ul1">
+			<li id="li1" class="li1">
+				<p id="p1" class="p1">优先级</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

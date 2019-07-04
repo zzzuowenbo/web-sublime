@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [4,1,6,12,4,0,8,12];
+	console.log(arr);
+	function unique(arr){
+		var result = [];
+        for(i=0;i<arr.length;i++){
+        	var same = false;
+        	for(j=0;j<result.length;j++){
+        		if(arr[i] == result[j]){
+                    same = true;
+                    break;
+        		}
+        	}
+        	if(!same){
+        		result.push(arr[i]);
+        	}
+        }
+        return result;
+	}
+	var newArr = unique(arr);
+	console.log(arr);
+	console.log(newArr);
+</script>
+</html>

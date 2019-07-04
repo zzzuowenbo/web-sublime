@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style>
+		li{
+			list-style: none;
+		}
+		.right{
+	 		width: 1200px;
+	 		height: 460px;
+	 		margin-top: 50px;
+	 		margin-left: 60px;
+	 		/*background: yellow;*/
+ 		}
+ 		.right .right-list{
+	 		width: 100%;
+	 		height: 100%;
+	 		position: relative;
+ 		}
+ 		.right .right-list li{
+	 		width: 100%;
+	 		height: 100%;
+	 		position: absolute;
+	 		top: 0;
+	 		left: 0;
+ 		}
+ 		.right .right-list li img{
+	 		width: 100%;
+	 		height: 100%;
+	 		cursor: pointer;
+ 		}
+ 		.right .picture-left{
+	 		width: 40px;
+	 		height: 60px;
+	 		line-height: 60px;
+	 		display: block;
+	 		font-size: 32px;
+	 		color: #b2b0ad;
+	 		text-align: center;
+	 		position: absolute;
+	 		top: 203px;
+	 		left: 70px;
+	 		border-top-right-radius: 5px;
+	 		border-bottom-right-radius: 5px;
+	 		cursor: pointer;
+	 		z-index: 10;
+ 		}
+ 		.right .picture-right{
+	 		width: 40px;
+	 		height: 60px;
+	 		line-height: 60px;
+	 		display: block;
+	 		font-size: 32px;
+	 		color: #b2b0ad;
+	 		text-align: center;
+	 		position: absolute;
+	 		top: 203px;
+	 		right: 60px;
+	 		border-top-left-radius: 5px;
+	 		border-bottom-left-radius: 5px;
+	 		cursor: pointer;
+	 		z-index: 10;
+ 		}
+ 		.right .picture-right:hover{
+	 		background: rgba(0,0,0,0.6);
+ 		}
+ 		.right .picture-left:hover{
+	 		background: rgba(0,0,0,0.6);
+ 		}
+ 		.right .right-dot{
+	 		position: absolute;
+	 		top: 470px;
+	 		right: 80px;
+	 		z-index: 10;
+ 		}
+ 		.right .right-dot li{
+	 		float: left;
+	 		width: 10px;
+	 		height: 10px;
+	 		background: #96938a;
+	 		border: 2px solid #b5b3ad;
+	 		border-radius: 50%;
+	 		box-sizing: border-box;
+	 		margin-left: 10px;
+	 		cursor: pointer;
+ 		}
+ 		.right .right-dot .active{
+ 			background: black;
+ 		}
+	</style>
+</head>
+<body>
+	<div class="right">
+	    <ul class="right-list">
+	        <li class="picture" style="z-index: 9;">
+	            <img src="../xiaomi/img/b1.jpg" alt="">
+	        </li>
+	        <li class="picture">
+	            <img src="../xiaomi/img/b3.jpg" alt="">
+	        </li>
+	        <li class="picture">
+	            <img src="../xiaomi/img/b2.jpg" alt="">
+	        </li>
+	    </ul>
+	    <i class="iconfont picture-left">&lt;</i>
+	    <i class="iconfont picture-right">&gt;</i>
+	    <ul class="right-dot">
+	        <li class="right-dot-num active"></li>
+	        <li class="right-dot-num"></li>
+	        <li class="right-dot-num"></li>
+	    </ul>
+	</div>     
+</body>
+<script>
+    function tab(){
+    	for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "right-dot-num";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "right-dot-num active";
+    }
+
+	var aImg = document.querySelectorAll('.right-list li');
+	var oLeft = document.querySelector('.picture-left');
+	var oRight = document.querySelector('.picture-right');
+	var aBtns = document.querySelectorAll('.right-dot-num');
+	var oRight1 = document.querySelector('.right');
+	var timer = null;
+
+	var nowIndex = 0;
+	oRight.onclick = function(){
+		nowIndex++;
+		if(nowIndex >= aImg.length){
+			nowIndex = 0;
+		}
+		/*for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "right-dot-num";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "right-dot-num active";*/
+		tab();
+	}
+
+	oLeft.onclick = function(){
+		nowIndex--;
+		if(nowIndex < 0){
+			nowIndex = aImg.length - 1;
+		}
+		/*for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "right-dot-num";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "right-dot-num active";*/
+		tab();
+	}
+
+	for(var j=0;j<aBtns.length;j++){
+		aBtns[j].index = j;
+		aBtns[j].onclick = function(){
+            nowIndex = this.index;
+            tab();
+		}
+	}
+
+	// 自动轮播
+	/*setInterval(function(){
+        nowIndex++;
+		if(nowIndex >= aImg.length){
+			nowIndex = 0;
+		}
+		tab();
+	},1000);*/
+	timer = setInterval(oRight.onclick,1000);
+
+    oRight1.onmouseover = function(){
+    	clearInterval(timer);
+    }
+    oRight1.onmouseout = function(){
+    	timer = setInterval(oRight.onclick,1000);
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取和设置属性</title>
+</head>
+<body>
+	<input type="text" id="txt" value="111" show="408">
+	<button id="btn">添加</button>
+	<textarea name="" id="content" cols="30" rows="10" value="416"></textarea>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oContent = document.getElementById('content');
+	oBtn.onclick = function(){
+		/*var sVal = oTxt.value;
+		var sVal = oTxt["value"];
+		oContent.value = sVal;*/
+
+		var sVal = oTxt.value;
+		// var sVal = oTxt.getAttribute("value");
+        console.log(sVal);
+        /*oTxt.value = 123;
+        oTxt["value"] = 123;*/
+        // oTxt.setAttribute("value",12345);
+
+        oContent.setAttribute("value",sVal);
+
+        oTxt.removeAttribute("show");
+	}
+</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动布局案例1</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 400px;
+			height: 400px;
+			/*border: 1px solid #000;*/
+			margin: 50px auto;
+		}
+		.red{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			float: left;
+		}
+		.gray{
+			width: 90px;
+			height: 25px;
+			background-color: gray;
+            float: right;
+		}
+		.purple{
+			width: 310px;
+			height: 25px;
+			background-color: purple;
+			float: right;
+		}
+        .neirong1{
+        	width: 310px;
+        	height: 305px;
+        	/*border: 1px solid #000;*/
+        	margin-top: 5px;
+        	float: left;
+        	overflow: hidden;
+        }
+        .skyblue{
+        	width: 80px;
+        	height: 305px;
+        	background-color: skyblue;
+        	float: right;
+        	margin-top: 5px;
+        }
+        .top{
+        	overflow: hidden;
+        }
+        .neirong2{
+        	width: 310px;
+        	height: 280px;
+        	/*border: 1px solid #000;*/
+        }
+        .red2{
+        	width: 310px;
+        	height: 20px;
+        	background-color: red;
+        	margin-top: 5px;
+        }
+        .neirong3{
+        	width: 220px;
+        	height: 280px;
+        	/*border: 1px solid #000;*/
+        	float: left;
+        }
+        .pink{
+        	width: 80px;
+        	height: 280px;
+        	background-color: pink;
+        	float: right;
+        }
+        .yellow1{
+        	width: 220px;
+        	height: 150px;
+        	background-color: yellow;
+        }
+        .yellow2{
+        	width: 220px;
+        	height: 125px;
+        	background-color: yellow;
+        	margin-top: 5px;
+        }
+        .footer{
+        	width: 400px;
+        	height: 25px;
+        	background-color: blue;
+        	margin-top: 5px;
+        }
+        .section{
+        	overflow: hidden;
+        }
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="top">
+			<div class="red"></div>
+			<div class="gray"></div>
+			<div class="purple"></div>
+		</div>
+		<div class="section">
+			<div class="neirong1">
+				<div class="neirong2">
+					<div class="neirong3">
+					<div class="yellow1"></div>	
+					<div class="yellow2"></div>
+					</div>
+					<div class="pink">
+					</div>
+				</div>
+				<div class="red2"></div>
+			</div>
+			<div class="skyblue"></div>
+		</div>
+		<div class="footer"></div>
+	</div>
+</body>
+</html>

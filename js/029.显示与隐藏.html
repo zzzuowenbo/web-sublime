@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示与隐藏</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">显示与隐藏</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		if(oBox.style.display == "none"){
+			oBox.style.display = "block";
+		}else{
+			oBox.style.display = "none";
+		}
+	}
+</script>
+</html>

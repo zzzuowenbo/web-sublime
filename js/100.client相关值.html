@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>client相关值</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+			width: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(document.documentElement.clientWidth);
+	console.log(document.documentElement.clientHeight);
+	console.log(document.body.clientWidth);
+	console.log(document.body.clientHeight);
+	var w = 0;
+	var h = 0;
+	if(document.compatMode == 'CSS1Compat'){
+		w = document.documentElement.clientWidth;
+		h = document.documentElement.clientHeight;
+	}else{
+		w = document.body.clientWidth;
+		h = document.body.clientHeight;		
+	}
+	console.log(w,h);
+	console.log(window.innerWidth);
+	console.log(window.innerHeight);
+</script>
+</html>

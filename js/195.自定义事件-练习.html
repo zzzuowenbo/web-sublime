@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件-练习</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var event = new Event("play");
+	document.addEventListener("play",function(){
+		alert("hello");
+	});
+	document.dispatchEvent(event);
+</script>
+</html>

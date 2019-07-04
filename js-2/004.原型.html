@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("my name is "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.EYES = 2;
+	console.log(Person.prototype);
+	console.log(Person.prototype.constructor);
+	console.log(Person.prototype.constructor === Person);
+	console.log(Person.prototype.__proto__);
+	console.log(Object.prototype);
+	console.log(Person.prototype.__proto__ === Object.prototype);
+	console.log(Object.prototype.constructor);
+	console.log(Object.prototype.__proto__);
+	var p1 = new Person("tom",18);
+	console.log(p1);
+	p1.showName();
+	p1.showAge();
+	console.log(p1.EYES);
+	console.log(p1.__proto__);
+	console.log(p1.__proto__ === Person.prototype);
+	console.log(p1.toString());
+</script>
+</html>

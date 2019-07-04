@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>月历</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.top{
+            width: 360px;
+            height: 600px;
+            background: gray;
+            margin: 20px auto;
+		}
+		ul{
+			overflow: hidden;
+		}
+        li{
+        	float: left;
+        	list-style: none;
+        	width: 100px;
+        	height: 100px;
+        	line-height: 100px;
+        	background: black;
+        	color: white;
+        	font-size: 30px;
+        	text-align: center;
+        	margin-top: 20px;
+        	margin-left: 15px;
+        	cursor: pointer;
+        }
+        .bottom{
+        	margin-left: 15px;
+        	margin-top: 20px;
+        }
+        .active{
+        	color: #000;
+        	background: #fff;
+        }
+        p{
+        	margin-top: 8px;
+        }
+	</style>
+</head>
+<body>
+	<div class="top">
+		<ul>
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		<div class="bottom">
+			<h2>1月</h2>
+			<p>休息</p>
+		</div>
+	</div>	
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var oBox = document.querySelector('.bottom');
+	var arr = ["看电影","健身","唱歌","游泳","逛街","听音乐","赏花","踏青","跳舞","养生","旅游","摄影"];
+	oBox.innerHTML = "<h2>1月</h2><p>" + arr[0] + "</p>";
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].index = i;
+		aLi[i].onmouseover = function(){
+			for(var j=0;j<aLi.length;j++){
+     			aLi[j].className = "";
+			}
+			this.className = "active";
+			oBox.innerHTML = "<h2>" + (this.index+1) +"月</h2><p>" + arr[this.index] + "</p>";
+		}		
+	}
+</script>
+</html>

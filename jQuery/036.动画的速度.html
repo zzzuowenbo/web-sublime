@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画的速度</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: tomato;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>开始</button>
+	<div>1</div>
+	<div>2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$('div').eq(0).animate({width:300},1000,'swing');
+			$('div').eq(1).animate({width:300},1000,'linear');
+		});
+	});
+</script>
+</html>

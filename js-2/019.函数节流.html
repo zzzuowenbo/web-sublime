@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数节流</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function throttle(fn,wait){
+		var lastTime = Date.now();
+		return function(){
+			var nowTime = Date.now();
+			if(nowTime - lastTime > wait){
+				fn();
+				lastTime = Date.now();
+			}
+		}
+	}
+	window.onscroll = throttle(function(){
+		console.log(111);
+	},1000);
+</script>
+</html>

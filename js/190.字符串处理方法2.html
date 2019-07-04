@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串处理方法2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "  ZZ bywt 416 zzyyll 408 BB  ";
+	console.log(str.replace(/\d/g,function(match,index,origin){
+		return "*";
+	}))
+	console.log(str);
+	console.log(str.charAt(6));
+	console.log(str.charCodeAt(6));
+	console.log(str.indexOf("z"));
+	console.log(str.lastIndexOf("z"));
+	console.log(encodeURIComponent("http://www.baidu.com"));
+	console.log(decodeURIComponent("http%3A%2F%2Fwww.baidu.com"));
+	console.log(str.concat("512"));
+	console.log(str.slice(5,9));
+	console.log(str.substr(5,4));
+	console.log(str.substring(5,9));
+	console.log(str.toLowerCase());
+	console.log(str.toUpperCase());
+	console.log(str.trim(str));
+</script>
+</html>

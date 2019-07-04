@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			/*animation-name: sport;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: 2;*/
+            /*animation-iteration-count: infinite;*/
+           /* animation-direction: alternate;
+            animation-play-state: running;*/
+            animation: sport 2s 1s linear infinite alternate;
+        }
+		@keyframes sport{
+			from{
+				width: 200px;
+               height: 200px;
+			}
+			to{
+				width: 500px;
+               height: 500px;
+			}
+		}
+		div:hover{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

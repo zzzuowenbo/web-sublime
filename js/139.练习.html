@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var timer = null;
+	oBox.onmouseover = function(){
+		var iSpeed = 0;
+		clearInterval(timer);
+		timer = setInterval(function(){
+			// iSpeed = oBox.offsetTop + 3;
+			iSpeed = iSpeed + 1;
+			iSpeed = Math.ceil(iSpeed);
+			if(oBox.offsetTop == 600){
+            	clearInterval(timer);
+			}else{
+				oBox.style.top = oBox.offsetTop + iSpeed + "px";
+			}
+		},100);	
+	}
+</script>
+</html>

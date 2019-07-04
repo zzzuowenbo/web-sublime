@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [4,0,8,4,16,12,8,6,16,18];
+	console.log(arr);
+	function uniqueArr(){
+		var result = [];
+		var obj = {};
+		for(var i=0;i<arr.length;i++){
+			obj[arr[i]] = "";
+		}
+		for(attr in obj){
+			result.push(attr/1);
+		}
+		return result;
+	}
+	console.log(uniqueArr());
+</script>
+</html>

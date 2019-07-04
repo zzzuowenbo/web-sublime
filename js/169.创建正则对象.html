@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建正则对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abc 408l16 location hello world zelisu";
+	var reg1 = new RegExp("l","g");
+	var reg2 = /l/g;
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str);
+	console.log(str.replace(reg2,"*"));
+</script>
+</html>

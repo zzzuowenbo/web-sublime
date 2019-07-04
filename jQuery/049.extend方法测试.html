@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extend方法测试</title>
+</head>
+<body>
+	<div>1</div>
+</body>
+<script src="js/kquery-1.0.0.js"></script>
+<script>
+	$.fn.extend({
+		test:function(){
+			console.log(111);
+		}
+	})
+	$('div').test();
+</script>
+</html>

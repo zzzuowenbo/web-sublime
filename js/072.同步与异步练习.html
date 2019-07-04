@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同步与异步练习</title>
+</head>
+<body>
+	<ul>
+		<li>1<a href="#">颜色</a></li>
+		<li>2<a href="#">颜色</a></li>
+		<li>3<a href="#">颜色</a></li>
+	</ul>
+</body>
+<script>
+	console.log("hello");
+
+	setTimeout(function(){
+		console.log(123);
+	},0);
+
+    var aA = document.getElementsByTagName('a');
+	for(var i=0;i<aA.length;i++){
+		aA[i].onclick = function(){
+			console.log(this.parentNode.style.backgroundColor = "pink");
+		}
+	}
+    
+    console.log(111);
+</script>
+</html>

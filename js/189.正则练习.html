@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则练习</title>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">验证</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var reg = /^[\u4e00-\u9fa5]{1,7}$|^[a-zA-Z][a-zA-Z0-9]{1,13}$|^[a-zA-Z0-9]{1,13}[a-zA-Z]$|^(?!\d{1,14})$/;
+		if(reg.test(val)){
+			alert("合法!");
+		}else{
+			alert("不合法!");
+		}
+	}
+</script>
+</html>

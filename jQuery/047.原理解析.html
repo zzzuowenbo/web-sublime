@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原理解析</title>
+</head>
+<body>
+	<div>11</div>
+	<div>22</div>
+	<div>33</div>
+	<div>44</div>
+</body>
+<!-- <script src="js/jquery-1.12.4.js"></script> -->
+<script src="js/kquery-1.0.0.js"></script> 
+<script>
+	// console.log($());
+
+	//布尔值为false
+	/*console.log($(false));
+	console.log($(null));
+	console.log($(undefined));
+	console.log($(NaN));
+	console.log($(0));
+	console.log($(''));*/
+
+	//函数
+	/*console.log($(function(){}));
+	window.onload = function(){
+		console.log("window onload");
+	}
+	$(function(){
+		console.log(11);
+	});
+	$(function(){
+		console.log(22);
+	})*/
+
+	//字符串
+	/*console.log($('<h2>标题</h2><div><span>span</span></div>'));
+	console.log($('div'));*/
+
+	//数组
+	/*console.log($([4,0,8,4,16]));
+	console.log($({0:'aa',1:'bb',2:'cc',length:3}));*/
+
+	//对象
+	/*console.log($({name:"rose",age:18}));
+	console.log($(document.querySelector('div')));*/
+
+	//get方法
+	console.log($('div').get());
+	console.log($('div').get(1));
+	console.log($('div').get(-1));
+	console.log($('div').get('a'));
+</script>
+</html>

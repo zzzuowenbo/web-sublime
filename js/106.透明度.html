@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 30px;
+			left: 800px;
+			width: 100px;
+			height: 100px;
+			background: pink;
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	var speed = 0;
+	oBtn.onclick = function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var current = parseFloat(getComputedStyle(oBox,false)["opacity"]);
+			current = Math.round(current*100);
+			if(current < 100){
+                speed = 12;
+			}else{
+				speed = -12;
+			}
+			if(Math.abs(100 - current) < Math.abs(speed)){
+				oBox.style.opacity = 1;
+            	clearInterval(timer);
+			}else{
+				oBox.style.opacity = (current + speed) / 100;
+			}
+		},30);		
+	}
+</script>
+</html>

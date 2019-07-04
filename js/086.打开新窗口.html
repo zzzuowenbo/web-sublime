@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打开新窗口</title>
+</head>
+<body>
+	<button id="btn">打开新窗口</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		/*window.open();
+		window.open("about:blank");
+		window.open("https://www.baidu.com");
+		window.open("https://www.baidu.com","_self");
+		window.open("https://www.baidu.com","_blank");
+		window.open("./083.动态九宫格.html");*/
+		var newWin = window.open("./083.动态九宫格.html");
+		console.log(newWin);
+	}
+</script>
+</html>

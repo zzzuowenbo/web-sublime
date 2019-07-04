@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>顶部固定</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.top{
+			height: 100px;
+			background: gray;
+		}
+		#nav{
+			position: fixed;
+			top: 0;
+			left: 50%;
+			margin-left: -630px;
+			width: 1260px;
+			height: 100px;
+			background: pink;
+		}
+		.main{
+			height: 2000px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div id="nav"></div>
+	<div class="main"></div>
+</body>
+<script src="js/animation.js"></script>
+<script>
+	oNav = document.getElementById('nav');
+	var isShow = false;
+	window.onscroll = function(){
+        var iTop = getScroll();      
+        if(iTop >= 40){
+        	if(!isShow){
+        		console.log(1);
+        		animation(oNav,"height",100);
+        		isShow = true;
+        	}       	
+        }else{
+        	if(isShow){
+        		console.log(2);
+        		animation(oNav,"height",0);
+        		isShow = false;
+        	}        	
+        }
+	}
+</script>
+</html>

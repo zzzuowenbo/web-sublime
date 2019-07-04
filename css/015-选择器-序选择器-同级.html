@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>序选择器-同级</title>
+	<style>
+		/*p:first-child{
+			color: red;
+		}*/
+		/*h1:first-child{
+			color: red;
+		}*/
+		/*p:last-child{
+			color: yellow;
+		}*/
+		/*p:nth-child(2){
+			color: blue;
+		}*/
+		/*p:nth-child(odd){
+			color: blue;
+		}*/
+		/*p:nth-child(even){
+			color: blue;
+		}*/
+		/*p:nth-child(2n){
+			color: blue;
+		}*/
+		/*p:nth-child(2n+1){
+			color: blue;
+		}*/
+		p:nth-last-child(2){
+			color: blue;
+		}
+		h1:only-child{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>标题</h1>
+		<p>序选择器1</p>
+		<p>序选择器2</p>
+		<p>序选择器3</p>
+		<p>序选择器4</p>
+		<p>序选择器5</p>
+	</div>
+	<div>
+		<h1>标题2</h1>
+	</div>
+</body>
+</html>

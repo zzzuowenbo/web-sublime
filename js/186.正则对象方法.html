@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则对象方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "a1b2";
+	var reg = /[a-z]/g;
+	console.log(str);
+	console.log(reg.lastIndex);//0
+	console.log(reg.test(str));//true 从下标0开始匹配到a
+	console.log(reg.lastIndex);//a的下一个位置是1
+	console.log(reg.test(str));//true 从下标1开始匹配到b
+	console.log(reg.lastIndex);//b的下一个位置是3
+	console.log(reg.test(str));//false 从下标3开始匹配,没有字符
+	console.log(reg.lastIndex);//匹配结束,lastIndex重置为0
+</script>
+</html>

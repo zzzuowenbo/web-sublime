@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>window.onload与DOMContentLoaded</title>
+	<script>
+		console.log(11);
+		window.onload=function(){
+			console.log("onload..");
+		}
+		document.addEventListener("DOMContentLoaded",function(){
+			console.log('DOMContentLoaded...');
+		})
+	</script>
+</head>
+<body>
+	<img src="../text/5.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画正反向合并</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 30px;
+			left: 800px;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+	var timer = null;
+	oBtn.onclick = function(){
+		var iSpeed = 0;
+		clearInterval(timer);
+		timer = setInterval(function(){
+			iSpeed = (400 - oBox.offsetLeft)/10;
+			/*if(iSpeed > 0){
+				iSpeed = Math.ceil(iSpeed);
+			}else{
+				iSpeed = Math.floor(iSpeed);
+			}*/
+			iSpeed = iSpeed>0 ?	Math.ceil(iSpeed) : Math.floor(iSpeed);	
+			// if(oBox.offsetLeft == 400){
+			if(!iSpeed){
+            	clearInterval(timer);
+			}else{
+				oBox.style.left = oBox.offsetLeft + iSpeed + "px";
+			}
+		},30);		
+	}
+</script>
+</html>

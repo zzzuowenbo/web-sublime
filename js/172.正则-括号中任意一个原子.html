@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-括号中任意一个原子</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str1 = "abc1234cdhe78890o9j9iu";
+	var reg1 = /[a-z]/g;
+	var reg2 = /[0-9]/g;
+	console.log(str1);
+	console.log(str1.replace(reg1,"*"));
+	console.log(str1.replace(reg2,"*"));
+
+	var str2 = "hello你好 world世界";
+	function getLen(str){
+		return str2.replace(/[\u4e00-\u9fa5]/g,"aa").length;
+	}
+	console.log(str2);
+	console.log(str2.length);
+	console.log(getLen(str2));
+</script>
+</html>

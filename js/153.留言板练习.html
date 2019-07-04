@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板练习</title>
+	<style>
+		ul,li{
+			list-style: none;
+			position: relative;
+		}
+		a{
+			position: absolute;
+			top: 0;
+			left: 50px;
+			display: block;
+			margin-left: 50px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">发布</button>
+	<ul id="list">
+		<!-- <li><a href="#" class="del">删除</a></li> -->
+	</ul>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('list');
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var oLi = document.createElement('li');
+		oLi.innerHTML = val;
+		var oA = document.createElement('a');
+		oA.className = "del";
+		oA.href = "#";
+		oA.innerHTML = "删除";
+		oLi.appendChild(oA);
+		oUl.appendChild(oLi);
+		oUl.insertBefore(oLi,oUl.firstChild);
+		oTxt.value = "";
+	}
+	oUl.onclick = function(ev){
+		var oTarget = ev.target;
+		if(oTarget.className == "del"){
+			oUl.removeChild(oTarget.parentNode);
+		}		
+	}	
+</script>
+</html>

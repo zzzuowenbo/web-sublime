@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兄弟选择器</title>
+	<style type="text/css">
+		/*.xiongdi + p{
+			color: red;
+		}*/
+		.xiongdi ~ p{
+			color:  rgb(200,100,100);
+		}
+		/*.xiongdi ~ span{
+			color: yellow;
+		}*/
+	</style>
+</head>
+<body>
+	<p>11</p>
+	<span>77</span>
+	<p class="xiongdi">22</p>
+	<p>33</p>
+	<span>66</span>
+	<p>44</p>
+	<p>55</p>
+	<span>88</span>
+</body>
+</html>

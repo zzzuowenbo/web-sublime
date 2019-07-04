@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标事件属性</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onclick = function(ev){
+		console.log(event.clientY);
+		console.log(event.clientX);
+		console.log(event.pageY);
+		console.log(event.pageX); 
+		console.log(event.screenY);
+		console.log(event.screenX); 		
+	}
+	window.onmousewheel = function(ev){
+		console.log(event.wheelDelta);
+	}
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>共通事件类型</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+
+	function typeAll(ev){
+		if(ev.type == "mouseover"){
+			oBox.style.background = "pink";
+		}else if(ev.type == "click"){
+			oBox.style.background = "green";
+		}
+	}
+	oBox.onmouseover = typeAll;
+	oBox.onclick = typeAll;	
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容处理</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+			background: rgba(0,0,0,0.4);
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	document.body.onclick = function(ev){
+        var oEvent = ev || window.ev;
+        console.log(oEvent);
+	}
+	function test(){
+		console.log("event");
+	}
+
+	addEvent(document.body,"click",test);
+	removeEvent(document.body,"click",test);
+	function addEvent(elem,eventType,handle){
+		if(elem.addElementListener){
+			elem.addEventListener(eventType,handle,false);
+		}else{
+			elem.attachEvent("on"+eventType,handle);
+		}
+	}
+	function removeEvent(elem,eventType,handle){
+		if(elem.removeElementListener){
+			elem.removeEventListener(eventType,handle,false);
+		}else{
+			elem.detachEvent("on"+eventType,handle);
+		}
+	}
+</script>
+</html>

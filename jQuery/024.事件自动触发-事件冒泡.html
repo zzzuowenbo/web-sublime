@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件自动触发-事件冒泡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			overflow: hidden;
+		}
+		.box2{
+			width: 50px;
+			height: 50px;
+			background: pink;
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.box1').on('click',function(){
+			alert("box1");
+		});
+		$('.box2').on('click',function(ev){
+			alert('box2');
+		});
+		// $('.box2').trigger('click');
+		 $('.box2').triggerHandler('click');
+	});
+</script>
+</html>

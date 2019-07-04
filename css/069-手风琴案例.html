@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 1000px;
+			height: 440px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			list-style: none;
+			overflow: hidden;
+		}
+		img{
+			/*width: 830px;*/
+			height: 440px;
+		}
+		ul li{
+			width: 200px;
+			height: 440px;
+			float: left;
+			transition: width 1s 0s linear;
+		}
+		.ul1 li:hover{
+            width: 600px;
+		}
+		ul:hover li{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="ul1">
+		<li><img src="../resource/ad1.jpg"></li>
+		<li><img src="../resource/drigon2.jpg"></li>
+		<li><img src="../resource/yu.jpg"></li>
+		<li><img src="../resource/drigon.jpg"></li>
+		<li><img src="../resource/liu.jpg"></li>
+	</ul>
+</body>
+</html>

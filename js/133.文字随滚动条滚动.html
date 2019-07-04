@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字随滚动条滚动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 400px;
+			margin: 50px auto;
+		}
+		#scroll{
+			float: right;
+			position: relative;
+			width: 30px;
+			height: 400px;
+			background: gray;
+		}
+		#box{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background: pink;
+		}
+		#content{
+			position: relative;
+			float: right;
+			width: 370px;
+			height: 400px;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+		#txt{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 370px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="scroll">
+			<div id="box"></div>
+		</div>
+		<div id="content">
+			<div id="txt">
+   					近日，习近平总书记对张富清同志先进事迹作出重要指示，社会各界反响热烈。人们感动于老英雄淡泊名利、无私奉献的精神,敬佩老党员一辈子深藏功名、坚守初心的境界。
+				　　大家纷纷表示，习近平总书记的重要指示，将推动全社会形成见贤思齐、甘于奉献的良好氛围，要深入学习贯彻习近平总书记重要指示精神，以张富清为榜样，积极弘扬奉献精神，不忘初心、牢记使命，淡泊名利，砥砺前行，努力做新时代的奋斗者。
+				　　致敬英雄，保持赤诚之心
+				　　“保持信念之光不灭，信仰之树常青”
+				　　习近平总书记在重要指示中强调，老英雄张富清60多年深藏功名，一辈子坚守初心、不改本色，事迹感人。
+				　　张富清的事迹通过媒体报道后，迅速引起当地乃至全社会的关注，大家对深藏功名、坚守初心的老英雄张富清由衷敬佩。张富清身边的亲人、同事、朋友，从最初的惊讶到后来被他的事迹深深感动了。
+				　　“清楚了解父亲的事后，再回想他对我们从小的严格教导，我们对父亲有了更深的理解。我们做儿女的要以父亲为榜样，淡泊名利、多干实事。”张富清的小儿子张健全说。
+				　　每每谈起第一次见到张富清奖章和立功书的场景，来凤县退役军人事务局信息采集专班工作人员聂海波都会很激动：“老人不是故意隐藏军功，而是觉得不需要拿出来跟人炫耀，更不会以此向党和政府提要求，这种淡泊名利的做法令人敬佩，也让我对人生价值有了更深的思考。”
+				　　“他仿佛有无穷的精力和干劲，带着群众干了一件又一件实事，从未发过牢骚，是典型的实干家。”曾经与张富清共事的田洪立感慨，张富清把为人民服务看作自己的本分，不居功、不自傲，是一名真正的共产党员。
+				　　“老英雄战功赫赫，转业后却选择最偏远的山区、做最艰苦的工作、过最平凡的生活。这种甘于奉献、不怕苦不怕累的精神深深震撼了我。”从驻郑州某部交流到来凤县人武部任政委的刘洋感慨地说，“我们学习战斗英雄，就要以英雄为榜样，强化担当奉献意识，努力干好本职工作。”
+				　　“我曾经以为，英雄是在记忆中的，而张富清让我感受到，英雄就在身边。”中国建设银行来凤县支行行长李甘霖说，“要向张富清学习，保持信念之光不灭，信仰之树常青。”
+				　　永葆初心，书写精彩人生
+				　　“不计得失、不慕虚名，扎扎实实为民办事”
+				　　转业到来凤的数十年，张富清深入生活、扎根人民，岗位在变、身份在变，但他对党忠诚、为民造福的初心始终没变。习近平总书记在重要指示中指出，“他用自己的朴实纯粹、淡泊名利书写了精彩人生，是广大部队官兵和退役军人学习的榜样。” 
+				　　“含泪读了张富清老人坚守初心、不改本色的感人事迹，灵魂深处很受触动。他激励我们退役军人要为国家、为人民奉献终身。”重庆退役军人魏春说。
+				　　网友“为人民服务”在人民日报相关报道后留言：低调二字不难写，奉献一生实不易。
+				　　在部队，张富清主动担任突击队员，在枪林弹雨中冲锋在前；在地方，他也始终以一名突击队员的自觉，迎难而上，夙夜在公、为民谋利。“张富清是战场上的英雄，也是扎根基层的英雄。”湖北省通山县闯王镇镇长李雪梅说，作为一名贫困山区的基层干部，她要向老英雄学习，“不计得失、不慕虚名，扎扎实实为民办事。”
+				　　“老人是一面旗帜，引领我们做一个朴实纯粹的人、一个清正有为的干部、一个忠诚干净的共产党员。”广东省政府督查室的刘治兵说，让他感触最深的，是张富清的一句话：“党的干部，要把位置‘站’正。”
+				　　北京大学生张宇说：“张富清将人生放在对社会贡献的大坐标里衡量自己，是我们年轻人学习的楷模。”
+				　　甘于奉献，担当时代使命
+				　　“到艰苦环境中去锤炼自己、提高能力”
+				　　“要积极弘扬奉献精神，凝聚起万众一心奋斗新时代的强大力量。” 习近平总书记对张富清同志先进事迹作出重要指示中强调。老英雄张富清的事迹和精神，激励各行各业的人们艰苦奋斗、尽职尽责、敬业奉献。张富清的境界、精神，将被不断传颂、弘扬。
+				　　湖北省军区党委积极借助身边典型，深入开展以“学习身边榜样、争建强军新功”为主题的战斗精神教育课，号召广大官兵和民兵预备役人员向张富清学习，教育引导大家自觉以英雄为榜样，组织开展“学战斗英雄、砺练兵斗志”练兵比武活动，激励大家传承和发扬革命英雄主义精神，积极投身强军兴军。
+				　　“老人在鄂西山区多年，是一部建功立业的奋斗史，也是一曲无私奉献的赞歌。”河南省安阳市内黄县亳城镇扶贫干部万亚昆说，“张富清的感人事迹激励着我们，要到艰苦环境中去锤炼自己、提高能力，担负起伟大时代赋予的使命。”
+				　　新中国70年的辉煌历程，依靠前辈们不断攻坚克难、默默奉献；实现中华民族伟大复兴的中国梦，需要一代又一代人不畏艰难、不懈奋斗。
+				　　“正是有了无数像张富清这样的先进人物，我们党和国家的事业才能不断前进，赢得一个又一个胜利。”中国地质大学马克思主义学院教授岳奎说，每一个中华儿女都要以英雄为榜样，见贤思齐，甘于奉献。全社会都弘扬奉献精神，就能凝聚起奋斗新时代的强大力量，实现中华民族伟大复兴的中国梦。
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var oScroll = document.getElementById('scroll');
+	var oBox = document.getElementById('box');
+	var oContent = document.getElementById('content');
+	var oTxt = document.getElementById('txt');
+	oBox.onmousedown = function(ev){
+		var disY = ev.clientY - oBox.offsetTop;
+		var t = 0;
+
+		document.onmousemove = function(ev){
+			t = ev.clientY - disY;
+			/*if(t < 0){
+				t = 0;
+			}else if(t > oScroll.offsetHeight - oBox.offsetHeight){
+				t = oScroll.offsetHeight - oBox.offsetHeight;
+			}
+			var scale = t / (oScroll.offsetHeight - oBox.offsetHeight);
+			oTxt.style.top = -(oTxt.offsetHeight -oContent.offsetHeight) * scale + "px";
+
+			oBox.style.top = t + "px";*/
+			handleMove();
+		}
+
+		oScroll.onmousewheel = function(ev){
+			if(ev.wheelDelta < 0){
+				t += 10;
+			}else{
+				t -= 10;
+			}
+			handleMove();
+		}
+		function handleMove(){
+			if(t < 0){
+				t = 0;
+			}else if(t > oScroll.offsetHeight - oBox.offsetHeight){
+				t = oScroll.offsetHeight - oBox.offsetHeight;
+			}
+			var scale = t / (oScroll.offsetHeight - oBox.offsetHeight);
+			oTxt.style.top = -(oTxt.offsetHeight -oContent.offsetHeight) * scale + "px";
+
+			oBox.style.top = t + "px";
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

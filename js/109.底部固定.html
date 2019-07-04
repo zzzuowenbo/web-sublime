@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>底部固定</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		div{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	function animation(obj,attr,iTarget){
+    	//防止用户多次点击
+        clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			//获取当前该属性的值
+			var current = parseFloat(getComputedStyle(obj,false)[attr]);
+			if(attr == "opacity"){//判断是否为透明度属性,将其转为百分制
+				current = Math.round(current*100);
+			}
+			if(current < iTarget){//运动方向取值
+                iSpeed = 6;
+			}else{
+				iSpeed = -6;
+			}
+			if(Math.abs(iTarget - current) < Math.abs(iSpeed)){//动画的终止条件
+                if(attr == "opacity"){//判断是否为透明度属性
+                	obj.style[attr] = 1;
+                }else{
+                    obj.style[attr] = iTarget + "px";
+                }				
+            	clearInterval(obj.timer);
+			}else{//动画不终止
+				if(attr == "opacity"){//判断是否为透明度属性
+					obj.style[attr] = (current + iSpeed) / 100;
+				}else{
+                    obj.style[attr] = current + iSpeed +"px";
+				}				
+			}
+		},30);		
+    }
+
+    function getScroll(){
+    	return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    }
+
+	var oBox = document.getElementById('box');
+	window.onload = window.onresize = window.onscroll = function(){
+		var h = 0;
+
+		if(document.compatMode == 'CSS1Compat'){
+			h = document.documentElement.clientHeight;
+		}else{
+			h = document.body.clientHeight;		
+		}
+         
+        var iTop = h - oBox.offsetHeight + getScroll();
+        // oBox.style.top = iTop + "px";		
+		animation(oBox,"top",iTop);
+	}
+</script>
+</html>

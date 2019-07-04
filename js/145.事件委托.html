@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+</head>
+<body>
+	<button id="btn">添加</button>
+	<ul id="list">
+		<li>1<a class="del" href="#">删除</a></li>
+		<li>2<a class="del" href="#">删除</a></li>
+		<li>3<a class="del" href="#">删除</a></li>
+		<li>4<a class="del" href="#">删除</a></li>
+		<li>5<a class="del" href="#">删除</a></li>
+		<li>6<a class="del" href="#">删除</a></li>
+	</ul>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var oLi = document.createElement('li');
+		var oA = document.createElement('a');
+		oA.innerHTML = "删除";
+		oA.className = "del";
+		oA.href = "#";
+		oLi.innerHTML = "new";
+		oUl.appendChild(oLi);
+		oLi.appendChild(oA);
+	}
+
+	var oUl = document.getElementById('list');
+	oUl.onclick = function(ev){
+		var oTarget = ev.target;
+		if(oTarget.className == "del"){
+			oUl.removeChild(oTarget.parentNode);
+		}		
+	}	
+</script>
+</html>

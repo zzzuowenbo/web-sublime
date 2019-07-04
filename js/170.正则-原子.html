@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则-原子</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "$408?16  	bywt b y w t";
+	var reg1 = /\?/;
+	var reg2 =/\t/;
+	var reg3 =/bywt/;
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"ylzh"));
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作class</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		.box2{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<button>切换</button>
+	<div>1</div>
+	<div>2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').addClass('box1 box2');
+		$('div').removeClass('box2');
+
+		var oBtn = $('button')[0];
+		oBtn.onclick = function(){
+			$('div').toggleClass('box2');
+		}
+	});
+</script>
+</html>

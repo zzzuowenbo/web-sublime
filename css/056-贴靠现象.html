@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贴靠现象</title>
+	<style>
+		.father{
+			margin: 50px auto;
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		.div1{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+		.div2{
+			float: left;
+			width: 200px;
+			height: 100px;
+			background: gray;
+		}
+		.div3{
+			float: left;
+			width: 600px;
+			height: 100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="div1"></div>
+		<div class="div2"></div>
+	    <div class="div3"></div>
+	</div>
+</body>
+</html>

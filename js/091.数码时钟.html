@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数码时钟</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 300px;
+			height: 200px;
+			line-height: 200px;
+			font-size: 40px;
+			margin: 100px auto;
+			text-align: center;
+			background: black;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- 18:19:00 -->
+	</div>
+</body>
+<script>
+	function toTime(num){
+		return num<10 ? "0"+num : ""+num;
+	}
+	var oBox = document.getElementById('box');
+	function showTime(){
+		var date = new Date();
+		var iHour = date.getHours();
+		var iMinutes = date.getMinutes();
+		var iSecond = date.getSeconds();
+		oBox.innerHTML = toTime(iHour) + ":" + toTime(iMinutes) + ":" +toTime(iSecond);
+	}
+	setInterval(showTime,1000);
+	showTime();
+</script>
+</html>

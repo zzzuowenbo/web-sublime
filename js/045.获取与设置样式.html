@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取与设置样式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+            width: 100px;
+            height: 100px;
+            background: teal;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">获取</button>
+	<button id="btn2">设置</button>
+	<div id="box"></div>
+</body>
+<script>
+	function css(obj,attr,value){
+        if(arguments.length == 2){
+        	alert(getComputedStyle(obj,false)[attr]);
+		}else{
+			obj.style[attr] = value;
+		}		
+	}
+	var oBtn1 = document.getElementById('btn1'); 
+	var oBtn2 = document.getElementById('btn2');
+	var oBox = document.getElementById('box');
+	oBtn1.onclick = function(){
+		css(oBox,"backgroundColor");
+	}
+	oBtn2.onclick = function(){
+		css(oBox,"backgroundColor","pink");
+	}
+</script>
+</html>

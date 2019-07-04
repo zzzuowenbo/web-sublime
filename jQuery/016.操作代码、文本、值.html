@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>操作代码、文本、值</title>
+</head>
+<body>
+	<div>11</div>
+	<div>操作代码</div>
+	<div>
+		22
+		<p>33</p>
+	</div>
+	<button id="btn">获取</button>
+	<input type="text" id="txt">
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('div').eq(0).html());
+		// $('div').html('<h1>999</h1>');
+
+		// console.log($('div').text());
+		// $('div').eq(0).text('<h1>999</h1>');
+
+		var oBtn = document.getElementById('btn');
+		var oTxt = document.getElementById('txt');
+		oBtn.onclick = function(){
+			// console.log($(oTxt).val());
+			console.log($(oTxt).val('aaa'));
+		}
+	});
+</script>
+</html>

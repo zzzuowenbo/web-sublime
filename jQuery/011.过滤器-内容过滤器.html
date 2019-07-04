@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器-内容过滤器</title>
+</head>
+<body>
+	<div></div>
+	<div>div</div>
+	<div><p>div11</p></div>
+	<div><span>div22</span></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div:empty'));
+		console.log($('div:parent'));
+		console.log($('div:contains(div)'));
+		console.log($('div:contains(11)'));
+		console.log($('div:has(p)'));
+	});
+</script>
+</html>

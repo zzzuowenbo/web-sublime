@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象常用方法</title>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2" data-name="rose"></div>
+	<div class="box3"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').index());
+		console.log($(document.querySelector('.box3')).index());
+		console.log($('.box2').index());
+
+		$('div').each(function(index,element){
+			console.log(index,element);
+		});
+
+		$('.box2').data("baidu","test");
+		console.log($('.box2').data("baidu"));
+		console.log($('.box2').data("name"));
+
+		console.log($('div').is('.box3'));
+	});
+</script>
+</html>

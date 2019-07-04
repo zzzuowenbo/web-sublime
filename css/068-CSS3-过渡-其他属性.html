@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过渡-其他属性</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 600px;
+			height: 600px;
+			background: gray;
+			margin: 0 auto;
+		}
+		.div1 div{
+			width: 100px;
+			height: 60px;
+			background: pink;
+			margin-top: 10px;
+			transition-duration: 3s;
+			transition-property: margin-left;
+		}
+        .div1 div:nth-child(1){
+            transition-timing-function: normal;
+        }
+        .div1 div:nth-child(2){
+            transition-timing-function: ease;
+        }
+        .div1 div:nth-child(3){
+            transition-timing-function: linear;
+        }
+        .div1 div:nth-child(4){
+            transition-timing-function: ease-in;
+        }
+        .div1 div:nth-child(5){
+            transition-timing-function: ease-out;
+        }
+        .div1 div:nth-child(6){
+            transition-timing-function: ease-in-out;
+        }
+        .div1 div:nth-child(7){
+            transition-timing-function: cubic-bezier(0,0,1,1);
+        }
+        .div1:hover div{
+        	margin-left: 500px;
+        }
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div>normal</div>
+		<div>ease</div>
+		<div>linear</div>
+		<div>ease-in</div>
+		<div>ease-out</div>
+		<div>ease-in-out</div>
+		<div>cubic-bezier</div>
+	</div>
+</body>
+</html>

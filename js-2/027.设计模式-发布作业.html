@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设计模式-发布作业</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.name = name;
+			this.students = [];
+		}
+		Teacher.prototype = {
+			constructor: Teacher,
+			register: function(student){
+				this.students.push(student);
+			},
+			publish: function(msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listen(msg);
+				}
+			}
+		}
+		w.Teacher = Teacher;
+	})(window);
+	(function(w){
+		function Student(name,teacher){
+			this.name = name;
+			// console.log(teacher);
+			// teacher.students.push(this);
+			teacher.register(this);
+		}
+		Student.prototype = {
+			constructor: Student,
+			listen: function(msg){
+				console.log(this.name + " got msg " + msg);
+			}
+		}
+		w.Student = Student;
+	})(window);
+
+	var t1 = new Teacher("Mr Zhang");
+	var s1 = new Student("rose",t1);
+	var s2 = new Student("jack",t1);
+	t1.publish("hello world");
+	console.log(t1);
+</script>
+</html>

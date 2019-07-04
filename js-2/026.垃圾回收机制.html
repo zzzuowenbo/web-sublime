@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垃圾回收机制</title>
+</head>
+<body>
+	<button id="btn">测试</button>
+</body>
+<script>
+	/*bindEvent();
+	function bindEvent(){
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+			alert(oBtn.id);
+		}
+	}*/
+
+	bindEvent();
+	function bindEvent(){
+		var oBtn = document.getElementById('btn');
+		var id = oBtn.id;
+		oBtn.onclick = function(){
+			alert(id);
+		}
+		oBtn = null;
+	}
+</script>
+</html>

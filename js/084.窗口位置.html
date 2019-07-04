@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>窗口位置</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(window.screenLeft);
+	console.log(window.screenTop);
+	console.log(window.screenX);
+	console.log(window.screenY);
+	var iTop = 0;
+    var iLeft =0;
+	/*if(window.screenTop){
+		iTop = window.screenTop;
+	}else{
+		iTop = window.screenY;
+	}
+	if(window.screenLeft){
+		iLeft = window.screenLeft;
+	}else{
+		iLeft = window.screenX;
+	}*/
+	iTop = window.screenTop || window.screenY;
+	iLeft = window.screenLeft || window.screenX;
+	console.log(iTop,iLeft);
+</script>
+</html>

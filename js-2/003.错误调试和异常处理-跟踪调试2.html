@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误调试和异常处理-跟踪调试2</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
+</body>
+<script>
+	var oTxt = document.getElementById("txt");
+	var oBtn = document.getElementById("btn");
+	function sum(num){
+		try{
+			var result = 0;
+			if(isNaN(parseInt(num))){
+				throw new Error("is not a number");
+			}
+			for(var i=0;i<=num;i++){
+				result += i;
+			}
+			return result;
+		}
+		catch(e){
+			console.log(e);
+		}
+		finally{
+			console.log("always do");
+		}
+	}
+	// debugger
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		console.log(sum(3));
+	}
+</script>
+</html>

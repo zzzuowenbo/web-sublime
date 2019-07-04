@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>秒变时间</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var time = 3700;
+	var hour = parseInt(time / 3600);
+	var minute = parseInt(time % 3600 / 60);
+	var second = (time % 3600 % 60);
+	if(hour < 10){
+		hour = "0" + hour; 
+	}
+	if(minute < 10){
+		minute = "0" + minute; 
+	}
+	if(second < 10){
+		second = "0" + second; 
+	}
+	alert(hour + ":" + minute + ":" + second);
+</script>
+</html>

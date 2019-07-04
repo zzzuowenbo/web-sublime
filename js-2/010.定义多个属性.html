@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义多个属性</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("my name is "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.EYES = 2;
+
+	var p1 = new Person("mike",18);
+	Object.defineProperties(p1,{
+		LEGS:{
+			value: 2,
+			enumerable: true,
+			writable: false,
+			configurable: false
+		},
+		EARS:{
+			value: 6,
+			enumerable: false,
+			writable: true,
+			configurable: false
+		}
+	})
+	console.log(p1);
+	for(attr in p1){
+		console.log(attr,p1[attr]);
+	}
+
+	console.log(Object.getOwnPropertyDescriptor(p1,"name"));
+	console.log(Object.getOwnPropertyDescriptor(p1,"EARS"));
+	console.log(Object.getOwnPropertyDescriptor(p1,"EYES"));
+</script>
+</html>

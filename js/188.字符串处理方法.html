@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串处理方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str1 = 'good day,have a good day';
+	var reg1 = /good/;
+	console.log(str1.search(/good/));
+	console.log(str1.search(reg1));
+	console.log(str1.search("o"));
+
+	var str2 = "today2019-05-29tomorrow2019-05-30";
+	var reg2 = /\d{4}-\d{2}-\d{2}/g;
+	console.log(str2);
+	console.log(str2.match(reg2));
+	var reg22 = /(?<years>\d{4})-(?<months>\d{2})-(?<days>\d{2})/;
+	console.log(str2.match(reg22));
+
+	var str3 = "bywt 408 416";
+	var reg3 = /\s/g;
+	console.log(str3);
+	console.log(str3.split(reg3));
+
+	//回文
+	var str = "by8yb";
+	function showH(){
+		return str === str.split("").reverse().join("");
+	}
+	console.log(showH(str));
+</script>
+</html>

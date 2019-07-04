@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-过渡</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			/*transition-property: width,height;
+			transition-duration: 500ms,3s;
+			transition-delay: 1s,2s;
+			transition-timing-function: linear,ease;*/
+			/*transition: width 500ms 1s linear,height 3s 2s ease;*/
+			/*transition: all 2s 1s linear;*/
+            /*transition: all 2s;*/
+            兼容前缀：
+            -webkit-transition: all 2s;
+            /*-o-transition: all 2s*/
+            transition: all 2s;
+		}
+		div:hover{
+			width: 500px;
+			height: 600px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

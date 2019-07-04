@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的属性-访问</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		this.EYES = 6;
+		this.showAge = function(){
+			console.log("my age is "+this.age);
+		}
+	}
+	Person.prototype.showName = function(){
+		console.log("my name is "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.EYES = 2;
+
+	var p1 = new Person("tom",18);
+	console.log(p1);
+	p1.showName();
+	p1.showAge();
+	console.log(p1.EYES);
+	console.log(p1.LEGS);
+</script>
+</html>

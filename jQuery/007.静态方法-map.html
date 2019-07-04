@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>静态方法-map</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*var arr = [4,0,8,4,16];
+	var jqu = $.map(arr,function(value,index){
+		console.log(value,index);
+		return value;
+	});
+	console.log(jqu);*/
+
+	/*var aBox = document.getElementsByTagName('div');
+	var jqu = $.map(aBox,function(value,index){
+		console.log(value,index);
+		return value;
+	});
+	console.log(jqu);*/
+
+	var likeArr = {0:408,1:416,2:512,length:3};
+	var jqu = $.map(likeArr,function(value,index){
+		console.log(value,index);
+		return value;
+	});
+	console.log(jqu);
+</script>
+</html>

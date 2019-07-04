@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单标签</title>
+</head>
+<body>
+	<form action="https://www.baidu.com" method="get">
+		<p>
+			<label for="username">
+				账号：
+			</label>
+			<input type="text" name="username" value="" id="username" placeholder="用户名" autocomplete="on">
+	  	</p>
+	  	<p>
+	  		<label for="password">
+	  			密码：
+	  		</label>
+	  		<input type="password" name="password" value="111" id="password">
+	  	</p>
+	  	<p>
+           性别：
+           <label for="male">
+           	  男
+           </label>
+           <input type="radio" name="sex" value="male" id="male">
+           <label for="female">
+              女
+           </label>
+           <input type="radio" name="sex" checked="checked" value="female" id="female">
+	  	</p>
+	  	<p>爱好：
+	  	   唱歌<input type="checkbox" name="hobby" value="sing">
+	  	   跳舞<input type="checkbox" name="hobby" value="dance">
+	  	   绘画<input type="checkbox" name="hobby" value="draw" checked>
+	  	</p>
+	  	<p>
+	  		城市：<select name="city">
+	  			<optgroup label="直辖市">
+	  				<option value="bj">北京</option>
+	  				<option value="sh" selected="selected">上海</option>
+	  				<option value="sz">深圳</option>
+	  			</optgroup>
+	  			<optgroup label="省会">
+	  				<option value="bj">西安</option>
+	  				<option value="sh">石家庄</option>
+	  				<option value="sz">郑州</option>
+	  			</optgroup>
+	  		</select>
+	  	</p>
+	  	<p>
+	  		自我介绍：<textarea rows="5px" cols="15px">
+	  			
+	  		</textarea>
+	  	</p>
+	  	<p>
+	  		<input type="image" src="">
+	  	</p>
+	  	<p>
+	  		<input type="hidden" name="hidden" value="偷偷">
+	  	</p>
+	  	<p>
+	  		<input type="file" name="file">
+	  	</p>
+	  	<p>
+	  		邮箱：<input type="email" name="email">
+	  	</p>
+	  	<p>
+	  		数字：<input type="number" name="number">
+	  	</p>
+        <p>
+            日历：<input type="date" name="date">
+        </p>
+	  	<p>
+	  		颜色：<input type="color" name="color">
+	  	</p>
+	  	<p>
+	  		<input type="submit" value="提交">
+	  		<input type="reset" value="清空">
+	  	</p>
+	</form>
+</body>
+</html>

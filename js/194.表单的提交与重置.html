@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单的提交与重置</title>
+</head>
+<body>
+	<form action="https:www.baidu.com" target="_blank">
+		<div>
+			<input type="text">
+			<input type="submit">
+			<input type="image">
+			<button type="submit" id="btn1">提交</button>
+			<button id="btn2">提交</button>
+		</div>
+		<div>
+			<input type="text">
+			<input type="reset">
+			<button type="reset" id="reset1">重置</button>
+		</div>
+	</form>
+	<button id="btn3">提交</button>
+	<button id="reset2">重置</button>
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	oForm.onsubmit = function(){
+		console.log("submit");
+	}
+	oBtn3.onclick = function(){
+		oForm.submit();
+	}
+
+	var oReset1 = document.getElementById('reset1');
+	var oReset2 = document.getElementById('reset2');
+	oForm.onreset = function(){
+		console.log("reset");
+	}
+	oReset2.onclick = function(){
+		oForm.reset();
+	}
+</script>
+</html>

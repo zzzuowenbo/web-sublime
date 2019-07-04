@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修正模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abcdABCD123456";
+	var reg1 = /[a-z]/g;
+	var reg2 = /[a-z]/gi;
+	var reg3 = /[a-z]/;
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	console.log(reg1.ignoreCase);
+	console.log(reg2.ignoreCase);
+	console.log(reg1.global);
+	console.log(reg3.global);
+</script>
+</html>

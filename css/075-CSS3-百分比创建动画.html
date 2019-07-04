@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-百分比创建动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			position: relative;
+			width: 500px;
+			height: 500px;
+			background: pink;
+			margin: 50px auto;        
+        }
+        .div2{
+        	position: absolute;
+        	width: 100px;
+        	height: 100px;
+        	background: gray;
+        	animation: sport 5s linear infinite;
+        }
+		@keyframes sport{
+			0%{
+                left: 0;
+                top: 0;
+			}
+			25%{
+                left: 400px;
+                top: 0;
+			}
+			50%{
+				left: 400px;
+                top: 400px;
+			}
+			75%{
+				left: 0px;
+                top: 400px;
+			}
+			100%{
+                left: 0;
+                top: 0;
+			}
+		}
+		.div1:hover .div2{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2"></div>
+	</div>
+</body>
+</html>

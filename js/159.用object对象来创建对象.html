@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用object对象来创建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var person = new Object();
+	person.name = "mike";
+	person.sex = "male";
+	person.age = 20;
+	person.sayHi = function(){
+		console.log("my name is " + this.name);
+	}
+
+	var person1 = new Object();
+	person1.name = "jack";
+	person1.sex = "male";
+	person1.age = 20;
+	person1.sayHi = function(){
+		console.log("my name is " + this.name);
+	}
+
+	console.log(person);
+	console.log(person1);
+	console.log(person.sayHi == person1.sayHi);
+</script>
+</html>

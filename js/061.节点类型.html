@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点类型</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('ul1');
+	var aNodes = oUl.childNodes;
+	for(var i=0;i<aNodes.length;i++){
+		if(aNodes[i].nodeType == 1){
+			aNodes[i].style.color = 'red';
+		}
+	}
+	console.log(document);
+	console.log(document.nodeType);
+</script>
+</html>

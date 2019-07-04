@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1 div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			float: left;
+		}
+		.father2 div{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+		}
+		/*.father1{
+			height: 100px;
+		}*/
+		.father1{
+			margin-bottom: 10px;
+			/*overflow: hidden;*/
+		}
+		/*.father2{
+			margin-top: 10px;
+		}*/
+		/*.father2{
+			clear: both;
+			margin-top: 10px;
+		}*/
+		/*.wall{
+			clear: both;
+			height: 10px;
+		}*/
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+			visibility: hidden;
+		}
+		.clearfix{
+			*zoom: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1 clearfix">
+		<div class="div1">1</div>
+		<div class="div2">2</div>
+		<div class="div3">3</div>
+	</div>
+	<!-- <div class="wall"></div> -->
+	<div class="father2">
+		<div class="div11">11</div>
+		<div class="div22">22</div>
+		<div class="div33">33</div>
+	</div>
+</body>
+</html>

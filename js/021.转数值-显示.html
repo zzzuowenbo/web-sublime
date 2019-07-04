@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转数值-显示</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">转换</button>
+</body>
+<script>
+	var a = document.getElementById('txt');
+	var b = document.getElementById('btn');
+	b.onclick = function(){
+        alert(parseInt(a.value));
+        // alert(parseFloat(a.value));
+	}
+</script>
+</html>

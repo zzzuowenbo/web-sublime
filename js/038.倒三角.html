@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒三角</title>
+	<style>
+		.sp{
+			display: inline-block;
+			text-align: center;
+			width: 20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	for(i=1;i<6;i++){
+		for(k=1;k<6-i;k++){
+			document.write("<span class='sp'></span>");
+		}
+		for(j=1;j<=i;j++){
+			document.write("<span class='sp'>*</span>");
+		}
+		document.write("<br>");
+	}
+</script>
+</html>

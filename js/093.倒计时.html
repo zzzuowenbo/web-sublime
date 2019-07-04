@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000;
+		}
+		div{
+			text-align: center;
+			margin: 100px auto;
+			font-size: 40px;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		距离活动结束还有10小时20分钟30秒
+	</div>
+</body>
+<script>
+	function toTime(num){
+		return num<10 ? "0"+num : ""+num;
+	}
+	var oBox = document.getElementById('box');
+	var endTime = new Date("2019-5-15 23:59:59");
+	var timer = 0;
+	function countDown(){
+		var allMinSeconds = endTime.getTime() - Date.now();
+		if(allMinSeconds <= 0){
+			allMinSeconds = 0;
+			clearInterval(timer);
+		}
+		var allSeconds = parseInt(allMinSeconds / 1000);
+		var iHour = parseInt(allSeconds / 3600);
+		var iMinutes = parseInt(allSeconds % 3600 / 60);
+		var iSeconds = parseInt(allSeconds % 3600 % 60);
+		oBox.innerHTML = "距离活动结束还有"+ toTime(iHour) +"小时"+ toTime(iMinutes) +"分钟"+ toTime(iSeconds) +"秒";
+	}
+	timer = setInterval(countDown,1000);
+    countDown();
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象转换</title>
+</head>
+<body>
+	<div id="box1">1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var oBox1 = document.getElementById('box1');
+		// dom=>jquery
+		console.log(oBox1);
+		console.log($(oBox1));
+
+		// jquery=>dom
+		console.log($('#box1')[0]);
+		console.log($('div')[2]);
+		console.log($('#box1').get(0));
+		console.log($('div').get(0));
+		console.log($('div').get(5));
+	});
+</script>
+</html>

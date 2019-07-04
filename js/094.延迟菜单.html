@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延迟菜单</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			margin: 100px auto;
+			width: 500px;
+		}
+		#left{
+			float: left;
+			width: 50px;
+			height: 500px;
+			background: gray;
+		}
+		#right{
+			float: left;
+			margin-left: 20px;
+			width: 400px;
+			height: 500px;
+			background: pink;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="left"></div>
+		<div id="right"></div>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oLeft = document.getElementById('left');
+	var oRight = document.getElementById('right');
+	var timer = null;
+	oLeft.onmouseover = oRight.onmouseover = function(){
+		clearTimeout(timer,300);
+		oRight.style.display = "block";
+	}
+	oLeft.onmouseout = oRight.onmouseout = function(){
+		timer = setTimeout(function(){
+			oRight.style.display = "none";
+		},300)	
+	}
+</script>
+</html>

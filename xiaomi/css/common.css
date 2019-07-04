@@ -1,0 +1,41 @@
+.container{
+	width: 1228px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*清除浮动*/
+.clearfix:after{
+	display: block;
+	content: "";
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix{
+	*zoom: 1;
+}
+
+/*a标签样式*/
+a{
+	text-decoration: none;
+	font-size: 12px;
+	color: #b0b0b0;
+}
+a:hover{
+	color: #fff;
+}
+
+.light{
+	font-size: 12px;
+    color: #363b40; 
+    margin: 0 4px;
+}
+.col1{
+	width: 234px;
+	float: left;
+}
+.col2{
+	width: 978px;
+	float: right;
+}

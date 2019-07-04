@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的属性-属性的判断</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("my name is "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.EYES = 2;
+
+	var p1 = new Person("mike",18);
+	console.log(p1);
+
+	console.log(p1.hasOwnProperty("age"));
+	console.log(p1.hasOwnProperty("EYES"));
+
+	console.log("name" in p1);
+	console.log("EYES" in p1);
+
+	function isHas(obj,attr){
+		return !obj.hasOwnProperty(attr) && (attr in obj);
+	}
+	console.log(isHas(p1,"name"));
+	console.log(isHas(p1,"EYES"));
+</script>
+</html>

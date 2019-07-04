@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件</title>
+</head>
+<body>
+	<form action="https://www.baidu.com" id="form1" target="_blank">
+		<input type="text" id="txt">
+		<input type="submit" id="sub">
+		<input type="reset" id="res">
+		<p id="content"></p>
+	</form>
+</body>
+<script>
+	var oForm1 = document.getElementById('form1');
+	var oTxt = document.getElementById('txt');
+	var oSub = document.getElementById('sub');
+	var oRes = document.getElementById('res');
+	var oContent = document.getElementById('content');
+
+	oTxt.onfocus = function(){
+		oContent.innerHTML = "请输入3~8个正确字符";
+		oContent.style.color = "gray";
+	}
+	oTxt.onblur = function(){
+		var val = oTxt.value.length;
+		if(val<3 || val>8){
+			oContent.innerHTML = "输入不合法";
+			oContent.style.color = "red";
+		}else{
+			oContent.innerHTML = "输入合法";
+			oContent.style.color = "green";
+		}		
+	}
+	oTxt.onchange = function(){
+		console.log("输入信息有改动");
+	}
+	oTxt.oninput = function(){
+		var val = oTxt.value.length;
+		if(val<3 || val>8){
+			oContent.innerHTML = "输入不合法";
+			oContent.style.color = "red";
+		}else{
+			oContent.innerHTML = "输入合法";
+			oContent.style.color = "green";
+		}
+	}
+	oForm1.onsubmit = function(){
+		console.log(111);
+	}
+	oForm1.onreset = function(){
+		console.log(222);
+	}
+	
+</script>
+</html>

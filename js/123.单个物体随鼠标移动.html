@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单个物体随鼠标移动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: teal;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="js/animation.js"></script>
+<script>
+	var oBox = document.getElementById('box');
+	document.onmousemove = function(ev){
+		oBox.style.left = getScrollLeft() + ev.clientX + 'px';
+		oBox.style.top = getScroll() + ev.clientY + 'px';
+	}
+</script>
+</html>

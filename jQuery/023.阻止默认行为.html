@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止默认行为</title>
+</head>
+<body>
+	<p>
+		<a href="https://www.baidu.com" target="_blank">百度</a>
+	</p>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('p').on('click',function(){
+			alert("p");
+		});
+		$('a').on('click',function(ev){
+			alert("a");
+			// ev.preventDefault();
+			return false;
+		});
+	});
+</script>
+</html>

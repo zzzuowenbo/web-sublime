@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求和2</title>
+</head>
+<body>
+	<input type="text" id="text1">
+	<span>+</span>
+	<input type="text" id="text2">
+	<span>-</span>
+	<input type="text" id="text3">
+	<span>*</span>
+	<input type="text" id="text4">
+	<span>/</span>
+	<input type="text" id="text5">
+	<span>=</span>
+	<input type="text" id="text6">
+	<button id="btn">计算</button>
+</body>
+<script>
+	var txt1 = document.getElementById('text1');
+	var txt2 = document.getElementById('text2');
+	var txt3 = document.getElementById('text3');
+	var txt4 = document.getElementById('text4');
+	var txt5 = document.getElementById('text5');
+	var txt6 = document.getElementById('text6');
+    var button = document.getElementById('btn');
+    button.onclick = function(){
+    	var val1 = parseFloat(txt1.value);
+		var val2 = parseFloat(txt2.value);
+		var val3 = parseFloat(txt3.value);
+		var val4 = parseFloat(txt4.value);
+		var val5 = parseFloat(txt5.value);
+        if(isNaN(val1)){
+        	alert("请在第一个输入框输入正确数字!");
+        }else if(isNaN(val2)){
+        	alert("请在第二个输入框输入正确数字!");
+        }else if(isNaN(val3)){
+        	alert("请在第三个输入框输入正确数字!");
+        }else if(isNaN(val4)){
+        	alert("请在第四个输入框输入正确数字!");
+        }else if(isNaN(val5)){
+        	alert("请在第五个输入框输入正确数字!");
+        }else{
+        	txt6.value = val1 + val2 - val3 * val4 / val5;
+        }
+    }
+</script>
+</html>

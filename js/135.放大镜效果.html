@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜效果</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: relative;
+			margin: 50px 100px;
+		}
+		#bigbox{
+			position: relative;
+			width: 450px;
+			height: 450px;
+			border: 1px solid #000;
+		}
+		#bigbox img{
+			width: 100%;
+			height: 100%;
+		}
+		#mask{
+			position: absolute;
+            top: 0;
+            left: 0;
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			opacity: 0.4;
+			cursor: move;
+			display: none;
+		}
+        #smallbox li{
+        	list-style: none;
+        	width: 54px;
+        	height: 54px;
+        	float: left;
+        	margin-right: 20px;
+        	opacity: 0.5;
+        }
+        #smallbox .active{
+        	opacity: 1;
+        	border: 3px solid red;
+        }
+        #largebox{
+        	position: absolute;
+        	top: 0;
+        	left: 452px;
+        	width: 600px;
+        	height: 600px;
+        	border: 1px solid #000;
+        	overflow: hidden;
+        	display: none;
+        }
+        #largebox img{
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="bigbox">
+			<img src="image/p_b_0001.jpg" alt="">
+			<div id="mask"></div>
+		</div>	
+		<ul id="smallbox">
+			<li class="active"><img src="image/p_s_0001.jpg" alt=""></li>
+			<li><img src="image/p_s_0002.jpg" alt=""></li>
+			<li><img src="image/p_s_0003.jpg" alt=""></li>
+		</ul>					
+		<div id="largebox">
+			<img src="image/p_l_0001.jpg" alt="">
+		</div>
+	</div>
+</body>
+<script>
+	var oWrap = document.getElementById('wrap');
+	var oBigBox = document.getElementById('bigbox');
+	var oMask = document.getElementById('mask');
+	var aSmallImg = document.querySelectorAll('#smallbox li');
+	var oLargeBox = document.getElementById('largebox');
+	var oLargeImg = document.querySelector('#largebox img');
+	var oBigImg = document.querySelector('#bigbox img');
+
+    for(var i=0;i<aSmallImg.length;i++){
+    	aSmallImg[i].index = i;
+    	aSmallImg[i].onmouseover = function(){
+    		for(var j=0;j<aSmallImg.length;j++){
+    			aSmallImg[j].className = "";
+    		}
+    		this.className = "active";
+    		oBigImg.src = "image/p_b_000"+ (this.index+1) +".jpg";
+    		oLargeImg.src = "image/p_l_000"+ (this.index+1) +".jpg";
+    	}
+    }
+
+    oBigBox.onmouseover = function(){
+    	oMask.style.display = "block";
+    	oLargeBox.style.display = "block";
+    	oMask.onmousemove = function(ev){
+    		var l = ev.clientX - oMask.offsetWidth*0.5 - oWrap.offsetLeft;
+    		var t = ev.clientY - oMask.offsetHeight*0.5 - oWrap.offsetTop;
+            if(l < 0){
+                l = 0;
+            }else if(l > oBigBox.offsetWidth - oMask.offsetWidth){
+                l = oBigBox.offsetWidth - oMask.offsetWidth;
+            }
+            if(t < 0){
+                t = 0;
+            }else if(t > oBigBox.offsetHeight - oMask.offsetHeight){
+                t = oBigBox.offsetHeight - oMask.offsetHeight;
+            }
+            var percentX = l / (oBigBox.offsetWidth - oMask.offsetWidth);
+            var percentY = t / (oBigBox.offsetHeight - oMask.offsetHeight);
+            oLargeImg.style.top = (oLargeBox.offsetHeight - oLargeImg.offsetHeight)*percentY + "px";
+            oLargeImg.style.left = (oLargeBox.offsetWidth - oLargeImg.offsetWidth)*percentX + "px";
+    		oMask.style.left = l + "px";
+    		oMask.style.top = t + "px";
+    	}
+    }
+    oBigBox.onmouseout = function(){
+    	oMask.style.display = "none";
+    	oLargeBox.style.display = "none";
+    }
+</script>
+</html>

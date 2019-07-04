@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+		/*[title]{
+			color: red;
+		}*/
+		/*[title="a3"]{
+			color: teal;
+		}*/
+		/*[title |="shuxing"]{
+			color: red;
+		}*/
+		/*[title ^="shuxing"]{
+			color: green;
+		}*/
+		/*[title $="com"]{
+			color: yellow;
+		}*/
+		/*[title ~="com"]{
+			color: red;
+		}*/
+		[title *="com"]{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<a href="a1">属性选择器1</a>
+	<br>
+	<a href="#" title="shuxing-com">属性选择器2</a>
+	<br>
+	<a href="#" title="shuxing.com">属性选择器3</a>
+	<p title="p1">属性选择器4</p>
+	<a href="#" title="shuxing com">属性选择器4</a>
+	<br>
+	<a href="#" title="a3">属性选择器5</a>
+	<br>
+	<a href="#" title="com">属性选择器6</a>
+	<br>
+	<a href="#" title="shuxing">属性选择器7</a>
+	<br>
+</body>
+</html>

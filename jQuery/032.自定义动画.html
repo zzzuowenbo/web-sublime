@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: teal;
+			opacity: 0.3;
+		}
+	</style>
+</head>
+<body>
+	<button>动画</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			/*$('div').animate({
+				width:200,
+				height:"200px",
+				opacity:1
+			},1000,function(){
+				alert("animate...");
+			});*/
+
+			$('div').animate({
+				width:"+=200",
+				height:"+=200",
+				opacity:1
+			},1000,function(){
+				alert("animate...");
+			});
+		})
+	});
+</script>
+</html>

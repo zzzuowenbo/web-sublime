@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>url解析</title>
+</head>
+<body>
+
+</body>
+<script>
+	var str = "the website is: https://www.baidu.com";		
+	var reg1 = /[0-9a-z]+:\/\/[0-9a-z]+\.[a-z0-9-]+\.[a-z]{2,5}/;
+	var reg2 = /([0-9a-z]+):\/\/([0-9a-z]+)\.([a-z0-9-]+)\.([a-z]{2,5})/;
+	console.log(str);
+	console.log(str.match(reg1));
+	console.log(str.match(reg2));
+</script>
+</html>

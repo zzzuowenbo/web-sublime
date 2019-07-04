@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>核心函数调用</title>
+</head>
+<body>
+	<div class="box1">1</div>
+	<div class="box1">11</div>
+	<div id="box2">2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var jqu = $(function(){
+		var oBox = document.getElementById('box2');
+		console.log($('.box1'));
+		console.log($('#box2'));
+		console.log($('<p>111</p>'));
+		console.log($(oBox));
+	});
+	console.log(jqu);
+</script>
+</html>

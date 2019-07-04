@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$.ajax({
+				url:"041.data.json",
+				type:"POST",
+				/* type:"GET",
+				   data: {"name":"jack","age":20},*/
+				data:'{"name":"jack","age":20}',
+				// dataType:'text'
+				dataType:'json',
+				success:function(data,statusMsg,jqXHR){
+					console.log(data);
+					// console.log(data.name);
+					console.log(statusMsg);
+					console.log(jqXHR);
+				},
+				error:function(jqXHR,statusMsg){
+					console.log(jqXHR);
+					console.log(statusMsg);
+				},
+				complete:function(jqXHR,statusMsg){
+					console.log(jqXHR);
+					console.log(statusMsg);
+				},
+				// timeout:0.5
+				timeout:3000,
+				statusCode:{
+					404:function(){
+						console.log("not fonud!!!");
+					},
+					200:function(){
+						console.log("success!!!");
+					}
+				},
+				headers:{test:"test"}
+			});
+		});		
+	});
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin重叠父子</title>
+	<style>
+		.div1{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			/*border-top: 1px solid red;*/
+			/*padding-top: 1px;*/
+			overflow: hidden;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2"></div>
+	</div>
+</body>
+</html>

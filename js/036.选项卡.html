@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		#ul1{
+			overflow: hidden;
+		}
+		#ul1 li{
+			list-style: none;
+			float: left;
+			text-align: center;
+			width: 50px;
+			cursor: pointer;
+		}
+		#ul2 li{
+			list-style: none;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			border: 1px solid #000;
+			display: none;
+		}
+        .active{
+        	color: #ff6700;
+        	border-bottom: 1px solid #ff6700;
+        }
+	</style>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="active">11</li>
+		<li>22</li>
+		<li>33</li>
+		<li>44</li>
+	</ul>
+	<ul id="ul2">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	var a = document.querySelectorAll('#ul1 li');
+	var b = document.querySelectorAll('#ul2 li');
+	for(var i=0;i<a.length;i++){
+		a[i].index = i;
+		a[i].onmouseover = function(){
+			for(var j=0;j<a.length;j++){
+				a[j].className = "";
+				b[j].style.display = "none";
+			} 
+			this.className = "active";
+			b[this.index].style.display = "block";
+	    } 
+	}
+</script>
+</html>

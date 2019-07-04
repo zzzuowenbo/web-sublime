@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>其他伪类选择器</title>
+	<style type="text/css">
+		p:before{
+		   content:"how are you?"
+		}
+		p:after{
+			content: "thank you!"
+		}
+		/*[type="text"]:focus{
+			outline-color: red;
+		}*/
+		/*[type="checkbox"]:checked{
+			color: red;
+			width: 50px;
+		}*/
+		input:focus{
+			outline-color: red;
+		}
+		input:checked{
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<p>i am fine.</p>
+	<input type="text" name="">
+	<input type="checkbox" name="">
+</body>
+</html>

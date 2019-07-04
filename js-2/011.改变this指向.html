@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变this指向</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(name,age){
+		console.log(this,name,age);
+	}
+	show("amy",18);
+	show.call("amy",18);
+	show.call({sex:"female"},"amy",18);
+	show.call(null,"amy",18);
+	show.apply("amy",[18]);
+	show.apply({sex:"female"},["amy",18]);
+	show.apply(null,["amy",18]);
+	show.bind()("amy",18);
+	show.bind({sex:"female"})("amy",18);
+	show.bind(null)("amy",18);
+	var result = show.bind();
+	console.log("111:",result);
+</script>
+</html>

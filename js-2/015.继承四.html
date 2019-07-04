@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承四</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("my name is "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+
+	function Student(name,age,hobby){
+		Person.call(this,name,age);
+		this.hobby = hobby;
+	}
+	
+	// Student.prototype.__proto__ = Person.prototype;
+
+	Student.prototype = Object.create(Person.prototype);
+	Student.prototype.constructor = Student;
+	console.log(Student.prototype);
+	Student.prototype.showHobby = function(){
+		console.log("I like "+this.hobby);
+	}
+
+	var student1 = new Student("rose",18,"dance");
+	student1.showName();
+	student1.showAge();
+	student1.showHobby();
+
+	
+	/*var person1 = new Person("rose",18);
+	person1.showName();
+	person1.showAge();
+	person1.showHobby();*/
+	
+</script>
+</html>

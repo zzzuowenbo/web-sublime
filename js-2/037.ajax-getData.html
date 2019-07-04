@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax-getData</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		var oAjax = new XMLHttpRequest();
+		// oAjax.open("GET","http://127.0.0.1:3000/036.data.json",true);
+		oAjax.open("GET","http://127.0.0.1:3000/?name=rose",true);
+		oAjax.send();
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){
+				if(oAjax.status == 200){
+					var strToObj = JSON.parse(oAjax.responseText);
+					// console.log(strToObj);
+					console.log(strToObj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>

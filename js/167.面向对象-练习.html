@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象-练习</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age,subject){
+		this.name = name;
+		this.age = age;
+		this.subject = subject;
+	}
+	Person.prototype.showSub = function(){
+		console.log("my subject is " + this.subject);
+	}
+
+	var person1 = new Person("jack",18,"math");
+	person1.showSub();
+	console.log(person1);
+
+	var person2 = new Person("mike",19,"computer");
+	person2.showSub();
+	console.log(person2);
+</script>
+</html>

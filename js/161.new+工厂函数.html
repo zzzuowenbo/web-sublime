@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new+工厂函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createPerson(name,age){
+		/*解释含义,通过new创建的
+		var createPerson{};
+		this = createPerson;*/
+		this.name = name;
+		this.age = age;
+		this.showName = function(){
+			console.log("my name is " + this.name);
+		}
+		this.showAge = function(){
+			console.log("i am " + this.age + " years old");
+		}
+	};
+	var person1 = new createPerson("rose",18);
+	person1.showAge();
+	person1.showName();
+	console.log(person1);
+
+	var person2 = new createPerson("jack",16);
+	person2.showAge();
+	person2.showName();
+	console.log(person2);
+
+	console.log(person1.showName == person2.showName);
+</script>
+</html>

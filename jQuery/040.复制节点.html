@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复制节点</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button>11</button>
+	<button>22</button>
+	<div>11</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert("div");
+		});
+		$('button').eq(0).on('click',function(){
+			var $div = $('div').clone(false);
+			$('body').append($div);
+		});
+		$('button').eq(1).on('click',function(){
+			var $div = $('div').clone(true);
+			$('body').append($div);
+		});
+	});
+</script>
+</html>

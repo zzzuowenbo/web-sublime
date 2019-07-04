@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			var jqXHR = $.ajax({
+				url:"041.data.json",
+				/*success:function(data,statusMsg,jqXHR){
+					console.log(data);
+					// console.log(data.name);
+					console.log(statusMsg);
+					console.log(jqXHR);
+				},
+				error:function(jqXHR,statusMsg){
+					console.log(jqXHR);
+					console.log(statusMsg);
+				},
+				complete:function(jqXHR,statusMsg){
+					console.log(jqXHR);
+					console.log(statusMsg);
+				},*/
+
+			});
+			// jqXHR.abort()
+			jqXHR
+			.done(function(data,statusMsg,jqXHR){
+				console.log(data);
+				console.log(statusMsg);
+				console.log(jqXHR);
+			})
+			.fail(function(jqXHR,statusMsg){
+				console.log(jqXHR);
+				console.log(statusMsg);
+			})
+			/*失败
+			.always(function(jqXHR,statusMsg){
+				console.log(jqXHR);
+				console.log(statusMsg);
+			})*/
+			//成功
+			.always(function(data,statusMsg){
+				console.log(data);
+				console.log(statusMsg);
+			})
+		});		
+	});
+</script>
+</html>

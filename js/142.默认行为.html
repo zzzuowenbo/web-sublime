@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认行为</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 400px;
+			background: teal;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	document.oncontextmenu = function(ev){
+		oBox.style.display = "block";
+		oBox.style.top = ev.clientY + "px";
+		oBox.style.left = ev.clientX + "px";
+
+		// ev.preventDefault();
+		return false;
+	}
+	oBox.onclick = function(ev){
+		ev.stopPropagation();
+	}
+    document.onclick = function(){
+    	oBox.style.display = "none";
+    }
+</script>
+</html>

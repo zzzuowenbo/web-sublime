@@ -1,0 +1,59 @@
+body{
+	font-size: 14px;
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+.container{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.transition{
+	transition: all 0.5s;
+}
+/*清除浮动开始*/
+.clearfix:after{
+	content: "";
+	height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.clearfix{
+	*zoom : 1;
+}
+/*清除浮动结束*/
+
+/*a标签通用样式开始*/
+a{
+	font-size: 12px;
+	color: black;
+	text-decoration: none;
+}
+a.link:hover{
+	color: #e34f48;
+}
+/*a标签通用样式结束*/
+
+/*下拉层通用样式开始*/
+.dropdown{
+	position: relative;
+}
+.dropdown-layer{
+	position: absolute;
+	display: none;
+}
+.dropdown-left{
+	left: 0;
+}
+.dropdown-right{
+	right: 0;
+}
+/*下拉层通用样式结束*/

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>限制在父容器内的拖拽</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		#son{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background: teal;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oSon = document.getElementById('son');
+	oSon.onmousedown = function(ev){
+		var disX = ev.clientX - oSon.offsetLeft;
+		var disY = ev.clientY - oSon.offsetTop;
+		var l = 0;
+		var t = 0;
+
+		document.onmousemove = function(ev){
+			l = ev.clientX - disX;
+			t = ev.clientY - disY;
+			if(l < 0){
+				l = 0;
+			}else if(l > oBox.offsetWidth - oSon.offsetWidth){
+				l = oBox.offsetWidth - oSon.offsetWidth;
+			}
+			if(t < 0){
+				t = 0;
+			}else if(t > oBox.offsetHeight - oSon.offsetHeight){
+				t = oBox.offsetHeight - oSon.offsetHeight;
+			}
+			oSon.style.left = l + "px";
+			oSon.style.top = t + "px";
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

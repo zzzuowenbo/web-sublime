@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用JS内置的构造函数创建对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var person = new Array();
+	person.name = "mike";
+	person.sex = "male";
+	person.age = 20;
+	person.sayHi = function(){
+		console.log("my name is " + this.name);
+	}
+	person.sayHi();
+	person.sort = function(){
+		console.log("hello");
+	}
+	// person.sort();
+	console.log(person.sort());
+	console.log(person);
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function to2Str(num){//定义了一个用来处理时间的函数
+		return num < 10 ? '0'+num : ''+num;//函数的返回值，无论个位，还是两位，都会返回出两位数
+	}
+	var oBox = document.getElementById('box');//获取DOM元素
+	var aImg = oBox.children;//获取子元素
+	var timer = 0;//定义一个变量，一会用来控制定时器的开关
+	var orderTime = new Date('2018-12-07 19:00:00');//依据指定的日期时间字符串来创建一个Date对象
+	var endTime = orderTime.getTime();//返回一个数值，表示从1970-1-1 00:00:00距离设置日期对象所代表时间的毫秒数
+	function time(){//设置一个倒计时函数
+		var allTime = (endTime - Date.now())/1000;//设置时间距离当前时间的秒数
+		if(allTime <= 0 ){//判断倒计时时间是否为0
+			allTime = 0;//若已到0，则令时间为0，不继续向下走
+			clearInterval(timer);//清空定时器
+		}
+		var oH = parseInt(allTime/3600);//将秒数换算为小时
+		var oM = parseInt((allTime%3600)/60);//将秒数换算为分钟
+		var oS = parseInt(allTime%3600)%60;//将秒数换算为秒数
+		var time = to2Str(oH)+to2Str(oM)+to2Str(oS);//调用处理时间的函数，替换默认设置的时间
+		for(var i =0;i<aImg.length;i++){//循环遍历图片
+			aImg[i].src = 'image/'+time.charAt(i)+'.png';//获取对应字符串的下标
+		}
+	}
+	timer = setInterval(time,1000);//设置循环定时器
+	time();//刷新即执行此函数
+</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习1</title>
+	<style>
+		textarea{
+			resize: none;
+		}
+	</style>
+</head>
+<body>
+	<form action="https://www.baidu.com" method="get">
+		<fieldset>
+			<legend>
+				<h1>用户注册</h1>
+		    </legend>
+		<p>
+			<label for="username">
+				用户名：
+			</label>
+			<input type="text" name="username" value="" id="username" placeholder="昵称" autocomplete="on">
+	  	</p>
+	  	<p>
+	  		<label for="password">
+	  			密码：
+	  		</label>
+	  		<input type="password" name="password" value="" id="password" placeholder="******">
+	  	</p>
+        <p>
+        	<label>
+        		邮箱：<input type="email" name="email" placeholder="552301424@qq.com">
+        	</label>	
+        </p>
+        <p>
+           性别： 
+           <input type="radio" name="sex" value="male" id="male">
+           <label for="male">
+           	  男
+           </label>
+           
+           <input type="radio" name="sex" value="female" id="female" checked="">
+           <label for="female">
+              女
+           </label>
+           <input type="radio" name="sex" value="sec" id="sec">
+           <label for="sec">
+              保密
+           </label>
+	  	</p>
+	  	<p>爱好：
+	  	   <input type="checkbox" name="hobby" value="sing" checked="">篮球
+	  	   <input type="checkbox" name="hobby" value="dance">棒球
+	  	   <input type="checkbox" name="hobby" value="draw">足球
+	  	   <input type="checkbox" name="hobby" value="draw" checked="">排球
+	  	</p>
+	  	<p>
+	  		<label for="old">
+	  			年龄：
+	  		</label>
+	  		<input type="number" name="old" value="" id="old" placeholder="20">
+	  	</p>
+	  	<p>
+	  		<label>
+	  			出生日期：<input type="date" name="date">
+	  		</label>           
+        </p>
+        <p>
+	  		<label for="myself">
+	  			个人主页：
+	  		</label>
+	  		<input type="text" name="myself" value="" id="myself" placeholder="www.zuowenbo.com">
+	  	</p>
+	  	<p>
+	  		地址：<select name="city1">
+	  			<optgroup label="直辖市">
+	  				<option value="bj">北京</option>
+	  				<option value="sh">上海</option>
+	  				<option value="tj">天津</option>
+	  				<option value="cq">重庆</option>
+	  			</optgroup>
+	  			<optgroup label="省份">
+	  				<option value="hb1">河北</option>
+	  				<option value="hn1" selected="selected">河南</option>
+	  				<option value="hb">湖北</option>
+	  				<option value="hn">湖南</option>
+	  				<option value="gd">广东</option>
+	  				<option value="gx">广西</option>
+	  				<option value="jx">江西</option>
+	  				<option value="sx">山西</option>
+	  				<option value="sx1">陕西</option>
+	  				<option value="gs">甘肃</option>
+	  				<option value="sc">四川</option>
+	  				<option value="js">江苏</option>
+	  				<option value="sd">山东</option>
+	  				<option value="hlj">黑龙江</option>
+	  				<option value="zj">浙江</option>
+	  				<option value="ah">安徽</option>
+	  				<option value="fj">福建</option>
+	  				<option value="hn">海南</option>
+	  				<option value="gz">贵州</option>
+	  				<option value="yn">云南</option>
+	  				<option value="ln">辽宁</option>
+	  				<option value="jl">吉林</option>
+	  				<option value="qh">青海</option>
+	  				<option value="tw">台湾</option>
+	  				<option value="nm">内蒙古自治区</option>
+	  				<option value="nx">宁夏回族自治区</option>
+	  				<option value="xj">新疆维吾尔自治区</option>
+	  				<option value="xz">西藏自治区</option>
+	  			</optgroup>
+	  		   	 </select>
+                <select name="city2">
+	  			<optgroup label="市级">
+	  				<option value="jz" selected="selected">焦作市</option>
+	  				<option value="xc">许昌市</option>
+	  				<option value="zz">郑州市</option>
+	  				<option value="xy">信阳市</option>
+	  				<option value="lh">漯河市</option>
+	  				<option value="ay">安阳市</option>
+	  				<option value="ny">南阳市</option>
+	  				<option value="xx">新乡市</option>
+	  			</optgroup>
+	  		   	 </select>
+	  		   	<select name="city3">
+	  			<optgroup label="区级">
+	  				<option value="zz" selected="selected">中站区</option>
+	  				<option value="jf">解放区</option>
+	  				<option value="sy">山阳区</option>
+	  				<option value="mc">马村区</option>
+	  				<option value="xq">新区</option>
+	  				<option value="ws">武涉县</option>
+	  				<option value="xw">修武县</option>
+	  				<option value="ba">博爱县</option>
+	  				<option value="wx">温县</option>
+	  				<option value="qy">沁阳市</option>
+	  				<option value="mz">孟州市</option>
+	  			</optgroup>
+	  		   	 </select> 
+	  	</p>
+	  	<p>
+	  		<label>
+	  			喜欢的颜色：<input type="color" name="color">
+	  		</label>	
+	  	</p>
+	  	<p>
+	  		<label>
+	  			自我介绍：<textarea rows="10px" cols="30px">	
+	  		</textarea>
+	  		</label>	  		
+	  	</p>
+	  	<p>
+	  		<input type="button" name="">
+	  		<input type="reset" value="重置">
+	  		<input type="submit" value="提交">
+	  		<input type="image" src="http://pic75.nipic.com/file/20150821/9448607_145742365000_2.jpg" width="200px">
+	  		<!-- <img src="http://pic75.nipic.com/file/20150821/9448607_145742365000_2.jpg" width="200px" title="图片"> -->
+	  	</p>
+	  	</fieldset>
+	</form>
+</body>
+</html>

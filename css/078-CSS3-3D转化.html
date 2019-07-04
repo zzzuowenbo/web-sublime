@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3-3D转化</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 200px;
+			height: 200px;
+			background: gray;
+			margin: 50px auto;
+			overflow: hidden;
+			perspective: 500px;
+			transform-style: preserve-3d;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			margin-left: 50px;
+			margin-top: 50px;
+			transform: rotateX(45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2"></div>
+	</div>
+</body>
+</html>

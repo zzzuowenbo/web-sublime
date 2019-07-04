@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环中直接找到元素索引</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			background: pink;
+			margin-left: 20px;
+			margin-top: 10px;
+			list-style: none;
+		}
+		.active{
+			background: teal;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var lastIndex = 0;
+	for(var i=0;i<aLi.length;i++){
+		(function(i){
+			aLi[i].onclick = function(){
+				aLi[lastIndex].className = "";
+				this.className = "active";
+				lastIndex = i;
+			}
+		})(i);
+	}
+</script>
+</html>

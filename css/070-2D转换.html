@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D转换</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.div1{
+			width: 100px;
+			height: 100px;
+			background: gray;
+			margin: 100px auto;
+			perspective: 200px;
+		}
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			/*transform: rotate(45deg);*/
+			/*transform: translate(100px,-50px);*/
+			/*transform: translate(50%,50%);*/
+			/*transform: scale(2,0.5);*/
+			/*transform: scale(2);*/
+			/*transform: translate(50px,50px) rotate(45deg) scale(2,2);*/
+			/*transform-origin: center 0;*/
+			/*transform: rotateZ(45deg);*/
+			/*transform: rotateX(45deg);*/
+			transform: rotateY(45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2"></div>
+	</div>
+</body>
+</html>

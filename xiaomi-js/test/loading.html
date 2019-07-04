@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>loading</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.loading{
+			position: relative;
+			width: 3px;
+			height: 20px;
+			background: #ff6700;
+			margin: 0 auto;
+			margin-top: 50px;
+			animation: sport 0.3s linear 0s alternate infinite;
+		}
+		.loading:after,.loading:before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3px;
+			height: 20px;
+			background: #ff6700;
+			content: "";
+		}
+		.loading:after{
+			margin-left: -10px;
+			transform: scale(1,0.6);
+			animation: sport 0.3s linear 0.5s alternate infinite;
+		}
+		.loading:before{
+			margin-left: 10px;
+			transform: scale(1,0.4);
+			animation: sport 0.3s linear 0.3s alternate infinite;
+		}
+		@keyframes sport{
+			from{
+				transform: (1,0.5);
+				opacity: 0.3;
+			}
+			to{
+				transform: (1);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loading"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子选择器</title>
+	<style type="text/css">
+		/*.xuanze2>p{
+			color: red;
+		}*/
+		/*.xuanze1>.xuanze2{
+			color: blue;
+		}*/
+		/*.xuanze1>.xuanze2>p{
+			color: green;
+		}*/
+		.xuanze1>p{
+			color: yellow;
+		}
+		/*.xuanze1>li{
+			color: red;
+		}*/
+	</style>
+</head>
+<body>
+	<ul class="xuanze1">
+		<li class="xuanze2">
+			子选择器
+			<p>子选择器1</p>
+			<p>子选择器2</p>
+		</li>
+		<p>子选择器4</p>
+	</ul>
+	<p class="xuanze3">子选择器3</p>
+</body>
+</html>

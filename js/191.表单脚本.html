@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单脚本</title>
+</head>
+<body>
+	<form action="https://www.baidu.com">
+		<div>
+			<input type="text" name="username">
+		</div>
+		<div>
+			<input type="text" name="password">
+		</div>
+	</form>
+	<form action=""></form>
+</body>
+<script>
+	var aForms = document.forms;
+	console.log(aForms);
+	var Form1 = aForms[0];
+	console.log(Form1);
+	var oInput1 = Form1.elements;
+	console.log(oInput1);
+	var oInput2 = Form1.elements[0];
+	console.log(oInput2);
+	var oInput3 = Form1.elements["password"];
+	console.log(oInput3);
+	var oInput4 = Form1.elements.password;
+	console.log(oInput4);
+	var oInput5 = Form1.password;
+	console.log(oInput5);	
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏伸缩菜单</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 0;
+			left: -400px;
+			width: 400px;
+			height: 400px;
+			background: green;
+		}
+		#son{
+			position: absolute;
+			top: 0;
+			left: 400px;
+			width: 100px;
+			height: 400px;
+			background: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oSon = document.getElementById('son');
+	var timer = 0;
+	var speed = 0;
+	oBox.onmouseover = function(){
+        clearInterval(timer);
+		timer = setInterval(function(){
+			if(oBox.offsetLeft < 0){
+                speed = 12;
+			}else{
+				speed = -12;
+			}
+			if(Math.abs(0 - oBox.offsetLeft) < Math.abs(speed)){
+				oBox.style.left = 0 + "px";
+            	clearInterval(timer);
+			}else{
+				oBox.style.left = oBox.offsetLeft + speed +"px";
+			}
+		},30);		
+	}
+	oBox.onmouseout = function(){
+        clearInterval(timer);
+		timer = setInterval(function(){
+			if(oBox.offsetLeft < -400){
+                speed = 12;
+			}else{
+				speed = -12;
+			}
+			if(Math.abs(-400 - oBox.offsetLeft) < Math.abs(speed)){
+				oBox.style.left = -400 + "px";
+            	clearInterval(timer);
+			}else{
+				oBox.style.left = oBox.offsetLeft + speed +"px";
+			}
+		},30);		
+	}
+</script>
+</html>

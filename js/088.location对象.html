@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>location对象</title>
+</head>
+<body>
+	<button id="btn">跳转</button>
+</body>
+<script>
+	console.log(document.location);
+	console.log(window.location);
+	console.log(document.location === window.location);
+	console.log(document.location.href);
+	console.log(window.location.href);
+
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		// document.location.assign("https://www.baidu.com");
+		// window.location.assign("https://www.baidu.com");
+		// window.location.href = "https://www.baidu.com";
+		window.location = "https://www.baidu.com";
+	}
+</script>
+</html>

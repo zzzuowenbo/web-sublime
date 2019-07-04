@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>免登陆案例</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 40px;
+			background: pink;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="checkbox" 
+	       onmouseover="document.getElementById('box').style.display='block';" 
+	       onmouseout="document.getElementById('box').style.display='none';">免登陆
+	<div id="box">确定?</div>
+</body>
+</html>

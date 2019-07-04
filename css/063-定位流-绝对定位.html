@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位流-绝对定位</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*.div1{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;*/
+			/*top: 200px;*/
+			/*bottom: 100px;*/
+			/*left: 100px;*/
+			/*right: 100px;*/
+            /*margin-left: 100px;*/
+		/*}*/
+		/*.div2{
+			width: 200px;
+			height: 200px;
+			background-color: gray;
+			position: absolute;
+			left: 50px;*/
+		/*}*/
+		.father{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #000;
+			margin: 0 auto;
+			position: relative;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			position: absolute;
+			left: 50%;
+            margin-left: -100px;
+           /* top: 50%;
+            margin-top: -100px;*/
+		}
+	</style>
+</head>
+<body>
+		<!-- <div class="div1"></div>
+	 	<div class="div2"></div> -->
+	 	<div class="father">
+	 		<div class="son"></div>
+	 	</div>
+</body>
+</html>

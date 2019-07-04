@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重2</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [4,1,6,12,4,0,8,12];
+	console.log(arr);
+	function unique(arr){//定义去重函数
+		var result = [];
+        for(i=0;i<arr.length;i++){//循环遍历数组中每一项
+        	if(result.indexOf(arr[i],0) == -1){//从下标为0开始查找是否有重复项
+        		result.push(arr[i]);//如果没有就插入新数组中
+        	}
+        }
+        return result;
+	}
+	var newArr = unique(arr);
+	console.log(arr);//打印原数组
+	console.log(newArr);//打印新数组
+</script>
+</html>
