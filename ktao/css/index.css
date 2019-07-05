@@ -59,6 +59,12 @@
 	height: 100px;
 	background: pink;
 }
+.header .logo{
+	width: 248px;
+	height: 70px;
+	margin-top: 15px;
+	background-image: url(../images/header-logo.png);
+}
 /*搜索部分结束 */
 
 /*焦点区域开始 */
