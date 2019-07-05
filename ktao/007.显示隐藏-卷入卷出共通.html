@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>显示隐藏-卷入卷出</title>
+	<title>显示隐藏-卷入卷出共通</title>
 	<link rel="stylesheet" href="css/common.css">
 	<style>
 		*{
@@ -63,51 +63,48 @@
 		fade:{
 			init:function($elem){
 				$elem.removeClass('transition');
-				init($elem);
+				js._init($elem);
 			},
 			show:function($elem){
-				show($elem,function(){
-					$elem
-					.stop()
-					.fadeIn(function(){
-						$elem.trigger('shown').data('status','shown');
-					});
-				});		
+				js._show($elem,'fadeIn');
 			},
 			hide:function($elem){
-				hide($elem,function(){
-					$elem
-					.stop()
-					.fadeOut(function(){
-						$elem.trigger('hidden').data('status','hidden');
-					});	
-				})							
+				js._hide($elem,'fadeOut');						
 			}
 		},
 		slide:{
 			init:function($elem){
 				$elem.removeClass('transition');
-				init($elem);
+				js._init($elem);
 			},
 			show:function($elem){
-				show($elem,function(){
-					$elem
-					.stop()
-					.slideDown(function(){
-						$elem.trigger('shown').data('status','shown');
-					});
-				});		
+				js._show($elem,'slideDown');	
 			},
 			hide:function($elem){
-				hide($elem,function(){
-					$elem
-					.stop()
-					.slideUp(function(){
-						$elem.trigger('hidden').data('status','hidden');
-					});	
-				})							
+				js._hide($elem,'slideUp');						
 			}
 		}
+	}
+	js._init = function($elem){
+		init($elem);
+	}
+	js._show = function($elem,mode){
+		show($elem,function(){
+			$elem
+			.stop()
+			[mode](function(){
+				$elem.trigger('shown').data('status','shown');
+			});
+		});	
+	}
+	js._hide = function($elem,mode){
+		hide($elem,function(){
+			$elem
+			.stop()
+			[mode](function(){
+				$elem.trigger('hidden').data('status','hidden');
+			});	
+		})		
 	}
 </script>
 <script>

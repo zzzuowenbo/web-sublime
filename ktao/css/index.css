@@ -43,6 +43,9 @@
 	border-top: none;
 	box-sizing: border-box;
 }
+.top .dropdown{
+	margin-left: 10px;
+}
 .top .top-right .dropdown .dropdown-layer li{
 	height: 30px;
 	line-height: 30px;
@@ -64,6 +67,14 @@
 	height: 70px;
 	margin-top: 15px;
 	background-image: url(../images/header-logo.png);
+}
+.header .search{
+	width: 650px;
+	height: 40px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	background: yellow;
 }
 /*搜索部分结束 */
 
