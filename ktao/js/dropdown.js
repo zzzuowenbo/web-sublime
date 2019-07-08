@@ -19,7 +19,7 @@
 				this.$elem.on('click',function(ev){
 					ev.stopPropagation();
 					this.show();
-				})
+				}.bind(this));
 				$(document).on('click',function(){
 					this.hide();
 				}.bind(this))
@@ -36,10 +36,10 @@
 			}else{
 				this.$layer.showHide('show');
 				this.$elem.addClass(this.activeClass);
-			}	
+			}
 		},
 		hide:function(){
-			clearTimeout(this.delay);
+			clearTimeout(this.timer);
 			this.$layer.showHide('hide');
 			this.$elem.removeClass(this.activeClass);
 		}
@@ -49,15 +49,23 @@
 		js:true,
 		mode:'slide',
 		delay:300,
-		eventName:'click'
+		// eventName:'click'
+		eventName:''
 	}
 
 	$.fn.extend({
 		dropdown:function(options){
 			this.each(function(){
 				var $elem = $(this);
-				options = $.extend({},Dropdown.DEFAULTS,options);
-				new Dropdown($elem,options);
+				var dropdown = $elem.data('dropdown');
+				if(!dropdown){
+					options = $.extend({},Dropdown.DEFAULTS,options);
+					dropdown = new Dropdown($elem,options);
+					$elem.data('dropdown',dropdown);
+				}
+				if(typeof dropdown[options] == 'function'){
+					dropdown[options]();
+				}
 			})
 		}
 	})

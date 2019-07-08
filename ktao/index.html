@@ -23,69 +23,74 @@
 				<li class="fl">
 					<a href="javascript:;" class="link">手机逛跨淘</a>
 				</li>
-				<li class="fl">
+				<!-- <li class="fl">
 					<button>测试</button>
-				</li>
+				</li> -->
 			</ul>
 			<ul class="top-right fr">
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/mygoods.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						我的跨淘
 						<i class="fa fa-angle-down transition dropdown-icon" aria-hidden="true"></i>
 					</a>
 					<ul class="dropdown-layer dropdown-left">
-						<li><a href="javascript:;">已买到的宝贝</a></li>
-						<li><a href="javascript:;">我的足迹</a></li>
+						<!-- <li><a href="javascript:;">已买到的宝贝</a></li>
+						<li><a href="javascript:;">我的足迹</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/collect.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						收藏夹
 						<i class="fa fa-star transition dropdown-icon" aria-hidden="true"></i>
 					</a>
 					<ul class="dropdown-layer dropdown-left">
-						<li><a href="javascript:;">收藏的宝贝</a></li>
-						<li><a href="javascript:;">收藏的店铺</a></li>
+						<!-- <li><a href="javascript:;">收藏的宝贝</a></li>
+						<li><a href="javascript:;">收藏的店铺</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/select.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						商品分类
 						<i class="fa fa-bars transition" aria-hidden="true"></i>
 					</a>
 					<ul class="dropdown-layer dropdown-left">
-						<li><a href="javascript:;">男装</a></li>
+						<!-- <li><a href="javascript:;">男装</a></li>
 						<li><a href="javascript:;">女装</a></li>
 						<li><a href="javascript:;">热销童装</a></li>
 						<li><a href="javascript:;">生活用品</a></li>
-						<li><a href="javascript:;">精品服饰与饰品</a></li>
+						<li><a href="javascript:;">精品服饰与饰品</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/sell.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						卖家中心
 						<i class="fa fa-heart transition" aria-hidden="true"></i>
 					</a>
 					<ul class="dropdown-layer dropdown-left">
-						<li><a href="javascript:;">免费开店</a></li>
+						<!-- <li><a href="javascript:;">免费开店</a></li>
 						<li><a href="javascript:;">已卖出的宝贝</a></li>
 						<li><a href="javascript:;">出售中的宝贝</a></li>
 						<li><a href="javascript:;">卖家服务市场</a></li>
 						<li><a href="javascript:;">卖家培训中心</a></li>
 						<li><a href="javascript:;">体验中心</a></li>
-						<li><a href="javascript:;">问商友</a></li>
+						<li><a href="javascript:;">问商友</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/service.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						<i class="fa fa-users transition" aria-hidden="true"></i>
 						联系客服
 					</a>
 					<ul class="dropdown-layer dropdown-right">
-						<li><a href="javascript:;">消费者客服</a></li>
+						<!-- <li><a href="javascript:;">消费者客服</a></li>
 						<li><a href="javascript:;">卖家客服</a></li>
 						<li><a href="javascript:;">消费者服务中心</a></li>
-						<li><a href="javascript:;">商家服务中心</a></li>
+						<li><a href="javascript:;">商家服务中心</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
 			</ul>
@@ -96,10 +101,19 @@
 	<!-- 搜索部分开始 -->
 	<div class="header">
 		<div class="container">
-			<div class="logo fl"></div>
-			<div class="search fl">
-				<div class="search-left"></div>
-				<div class="search-right"></div>
+			<h1 class="fl">
+				<a href="#" class="header-logo"></a>
+			<h1>
+			<div class="search fl clearfix">
+				<form action="https://s.taobao.com/search" class="search-form">
+					<input type="text" class="search-input fl" autocomplete="off" name="q">
+					<input type="submit" class="search-btn fl">
+				</form>
+				<ul class="search-layer">
+					<!-- <li>11</li>
+					<li>11</li>
+					<li>11</li> -->
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -150,5 +164,6 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/showhide.js"></script>
 <script src="js/dropdown.js"></script>
+<script src="js/search.js"></script>
 <script src="js/index.js"></script>
 </html>

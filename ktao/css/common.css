@@ -57,3 +57,11 @@ a.link:hover{
 	right: 0;
 }
 /*下拉层通用样式结束*/
+.dropdown-loading{
+	width: 32px;
+	height: 32px;
+	margin: 20px;
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
