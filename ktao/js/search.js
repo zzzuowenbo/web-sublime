@@ -3,11 +3,11 @@
 		data:{},
 		count:0,
 		addData:function(key,val){
-			this[key] = val;
+			this.data[key] = val;
 			this.count++;
 		},
 		getData:function(key){
-			return this[key];
+			return this.data[key];
 		}
 	}
 

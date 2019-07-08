@@ -1,5 +1,4 @@
 (function($){
-	// 一次数据加载函数
 	function loadHtmlOnce($elem,callback){
 		var url = $elem.data('load');
 		if(!url) return;
@@ -12,6 +11,7 @@
 
 	/*顶部导航区域开始*/
 	var $topDropdown = $('.top .dropdown');
+	// var isloaded = false;
 	$topDropdown.dropdown({
 		js:true,
 		mode:'slide'
@@ -19,21 +19,23 @@
 	//数据加载
 	$topDropdown.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
 		if(ev.type == 'dropdown-show'){
-			loadHtmlOnce($(this),buildTopLayer);
+			loadHtmlOnce($(this),function($elem,data){
+				var $layer = $elem.find('.dropdown-layer');
+				var html = '';
+				for(var i=0;i<data.length;i++){
+					html += '<li><a href="'+data[i].url+'">'+data[i].name+'</a></li>'
+				}
+				setTimeout(function(){
+					$layer.html(html);
+					$elem.data('isLoaded',true);
+				},1000);
+			})
 		}
 	});
-	// 头部下拉列表一次数据加载
-	function buildTopLayer($elem,data){
-		var $layer = $elem.find('.dropdown-layer');
-		var html = '';
-		for(var i=0;i<data.length;i++){
-			html += '<li><a href="'+data[i].url+'">'+data[i].name+'</a></li>'
-		}
-		setTimeout(function(){
-			$layer.html(html);
-			$elem.data('isLoaded',true);
-		},1000);
-	}
+
+	/*$('button').on('click',function(){
+		$dropdown.dropdown('show');
+	});*/
 	/*顶部导航区域结束*/
 
 	/*头部区域开始*/
@@ -73,29 +75,27 @@
 	});
 	$categoryDropdown.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
 		if(ev.type == 'dropdown-show'){
-			loadHtmlOnce($(this),buildCategoryLayer);
+			loadHtmlOnce($(this),function($elem,data){
+				var $layer = $elem.find('.dropdown-layer');
+				var html = '';
+				for(var i=0;i<data.length;i++){
+					html += '<dl class="category-details">'
+					html +=		'<dt class="category-details-title fl">'
+					html +=			'<a href="#" class="category-details-title-link">'+data[i].title+'</a>'
+					html +=		'</dt>'
+					html +=		'<dd class="category-details-item fl">'
+					for(var j=0;j<data[i].items.length;j++){
+						html +=			'<a href="#" class="link">'+data[i].items[j]+'</a>'
+					}
+					html +=		'</dd>'
+					html +=	'</dl>'
+				}
+				setTimeout(function(){
+					$layer.html(html);
+					$elem.data('isLoaded',true);
+				},1000);
+			})
 		}
 	});
-	// 左侧下拉列表一次数据加载
-	function buildCategoryLayer($elem,data){
-		var $layer = $elem.find('.dropdown-layer');
-		var html = '';
-		for(var i=0;i<data.length;i++){
-			html += '<dl class="category-details">'
-			html +=		'<dt class="category-details-title fl">'
-			html +=			'<a href="#" class="category-details-title-link">'+data[i].title+'</a>'
-			html +=		'</dt>'
-			html +=		'<dd class="category-details-item fl">'
-			for(var j=0;j<data[i].items.length;j++){
-				html +=			'<a href="#" class="link">'+data[i].items[j]+'</a>'
-			}
-			html +=		'</dd>'
-			html +=	'</dl>'
-		}
-		setTimeout(function(){
-			$layer.html(html);
-			$elem.data('isLoaded',true);
-		},1000);
-	}
 	/*分类列表结束*/
 })(jQuery)
