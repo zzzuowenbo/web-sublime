@@ -242,12 +242,12 @@
 	}
 	/*轮播图区域开始*/
 	.focus .carousel-wrap,
-	.focus .carousel-wrap .carousel-item img {
+	.focus .carousel-wrap .carousel-item img{
 		width: 728px;
 		height: 504px;
 	}
 	.focus .carousel-wrap,
-	.focus .carousel-wrap .carousel-item img {
+	.focus .carousel-wrap .carousel-item img{
 		width: 728px;
 		height: 504px;
 	}
@@ -280,7 +280,7 @@
 		background: #fff;
 	}
 
-	.carousel-wrap .control {
+	.carousel-wrap .control{
 		display: none;
 		position: absolute;
 		top:50%;

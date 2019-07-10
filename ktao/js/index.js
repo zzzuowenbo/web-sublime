@@ -98,4 +98,7 @@
 		},1000);
 	}
 	/*分类列表结束*/
+
+	var $coursel = $('.carousel .carousel-wrap');
+	$coursel.coursel({});
 })(jQuery)
