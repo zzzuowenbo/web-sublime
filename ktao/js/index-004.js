@@ -110,7 +110,6 @@
 	}
 	/*分类列表结束*/
 
-	/*轮播图区域开始*/
 	var $coursel = $('.carousel .carousel-wrap');
 	var item = {};
 	var totalNum = $coursel.find('.carousel-img').length-1;
@@ -118,33 +117,21 @@
 	var loadFn = null;
 	$coursel.on('coursel-show',loadFn = function(ev,index,elem){
 		if(!item[index]){
-			$coursel.trigger('coursel-load',[index,elem]);
+			console.log(index);
+			var $elem = $(elem);
+			var $img = $elem.find('.carousel-img');
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(){
+				$img.attr('src',imgUrl);
+			},function(){
+				$img.attr('src','images/focus-carousel/placeholder.png');
+			});
+			item[index] = 'isLoaded';
+			totalLoadedNum++;
+			if(totalLoadedNum > totalNum){
+				$coursel.off('coursel-show',loadFn);
+			}
 		}
 	});
-	$coursel.on('coursel-load',function(ev,index,elem){
-		console.log(index);
-		var $elem = $(elem);
-		var $img = $elem.find('.carousel-img');
-		var imgUrl = $img.data('src');
-		loadImage(imgUrl,function(){
-			$img.attr('src',imgUrl);
-		},function(){
-			$img.attr('src','images/focus-carousel/placeholder.png');
-		});
-		item[index] = 'isLoaded';
-		totalLoadedNum++;
-		if(totalLoadedNum > totalNum){
-			$coursel.trigger('coursel-loaded');
-		}
-	});
-	$coursel.on('coursel-loaded',function(){
-		$coursel.off('coursel-show',loadFn);
-	})
 	$coursel.coursel({});
-	/*轮播图区域结束*/
-
-	/*今日热销区域开始*/
-	var $todaysCoursel = $('.todays .carousel-wrap');
-	$todaysCoursel.coursel({});
-	/*今日热销区域结束*/
 })(jQuery)

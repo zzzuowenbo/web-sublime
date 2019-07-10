@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>划入划出-共通</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			top: 30px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<button>复原</button>
+	<button>移动</button>
+	<div class="box transition">11</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	function init($elem){
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+	}
+
+	function to(x,y,callback){
+		x = (typeof x == "number") ? x : this.currentX;
+		y = (typeof y == "number") ? y : this.currentY;
+		// console.log(x,y);
+		if(this.currentX == x && this.currentY == y) return;
+		this.$elem.trigger('move');
+		console.log("move...");
+		typeof callback == 'function' && callback();
+		this.currentX = x;
+		this.currentY = y;
+	}
+
+	function Slicent($elem){
+		init.call(this,$elem);
+	}
+	Slicent.prototype = {
+		constructor:Slicent,
+		to:function(x,y){
+			to.call(this,x,y,function(){
+				this.$elem.css({
+					left:x,
+					top:y
+				});
+				this.$elem.trigger('moved');
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	}
+
+	function Js($elem){
+		init.call(this,$elem);
+	}
+	Js.prototype = {
+		constructor:Js,
+		to:function(x,y){
+			to.call(this,x,y,function(){
+				this.$elem
+				.stop()
+				.animate({
+		 			left:x,
+					top:y
+				},function(){
+					this.$elem.trigger('moved');
+				}.bind(this));
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y);
+		}
+	}
+</script>
+<script>
+	// var move = new Slicent($('.box'));
+	var move = new Js($('.box'));
+	$('.box').on('move moved',function(ev){
+		console.log(ev.type);
+	})
+	$('button').eq(0).on('click',function(){
+		// move.to(0,30);
+		move.x(0);
+		// move.y(30);
+	});
+	$('button').eq(1).on('click',function(){
+		// move.to(200,200);
+		move.x(200);
+		// move.y(200);
+	});
+</script>
+</html>

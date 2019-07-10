@@ -14,56 +14,62 @@
 	Coursel.prototype = {
 		constructor:Coursel,
 		init:function(){
-			this.$courselItem.trigger("coursel-show",[this.now,this.$courselItem.eq(this.now)]);
-			var _this = this;
 			if(this.options.slide){
 				this.$elem.addClass('slide');
 				this.$courselItem.eq(this.now).css({left:0});
-				this.itemWidth = this.$courselItem.eq(this.now).width();			
+				this.itemWidth = this.$courselItem.eq(this.now).width();
+				this.$courselBtn.eq(this.now).addClass('active');
+				this.$elem.hover(function(){
+					this.$courselControl.show();
+				}.bind(this),function(){
+					this.$courselControl.hide();
+				}.bind(this));
 				this.$courselItem.move(this.options);
-				this._tab = this._toggle;
-				this.$courselItem.on('move',function(ev){
-					var index = _this.$courselItem.index(this);
-					if(_this.now != index){
-						_this.$courselItem.trigger("coursel-show",[index,this]);
-					}
+				this.$elem.on('click','.control-left',function(){
+					this._toggle(this._getCorrectIndex(this.now-1),-1);
+				}.bind(this));
+				this.$elem.on('click','.control-right',function(){
+					this._toggle(this._getCorrectIndex(this.now+1),1);					
+				}.bind(this));
+				if(this.options.autoplay){
+					this.autoplay();
+					this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this));
+				}
+				var _this = this;
+				this.$courselBtn.on('click',function(){
+					var index = _this.$courselBtn.index(this);
+					_this._toggle(index);
 				});
 			}else{
 				this.$elem.addClass('fade');
 				this.$courselItem.eq(this.now).show();
 				this.$courselBtn.eq(this.now).addClass('active');
+				this.$elem.hover(function(){
+					this.$courselControl.show();
+				}.bind(this),function(){
+					this.$courselControl.hide();
+				}.bind(this));
 				this.$courselItem.showHide(this.options);
-				this._tab = this._fade;
-				this.$courselItem.on('show',function(ev){
-					var index = _this.$courselItem.index(this);
-					_this.$courselItem.trigger("coursel-show",[index,this]);
+				this.$elem.on('click','.control-left',function(){
+					this._fade(this._getCorrectIndex(this.now-1));
+				}.bind(this));
+				this.$elem.on('click','.control-right',function(){
+					this._fade(this._getCorrectIndex(this.now+1));					
+				}.bind(this));
+				if(this.options.autoplay){
+					this.autoplay();
+					this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this));
+				}
+				var _this = this;
+				this.$courselBtn.on('click',function(){
+					var index = _this.$courselBtn.index(this);
+					_this._fade(index);
 				});
 			}
-			// 共通部分
-			this.$courselBtn.eq(this.now).addClass('active');
-			this.$elem.hover(function(){
-				this.$courselControl.show();
-			}.bind(this),function(){
-				this.$courselControl.hide();
-			}.bind(this));
-			this.$elem.on('click','.control-left',function(){
-				this._tab(this._getCorrectIndex(this.now-1),-1);
-			}.bind(this));
-			this.$elem.on('click','.control-right',function(){
-				this._tab(this._getCorrectIndex(this.now+1),1);					
-			}.bind(this));
-			if(this.options.autoplay){
-				this.autoplay();
-				this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this));
-			}
-			this.$courselBtn.on('click',function(){
-				var index = _this.$courselBtn.index(this);
-				_this._tab(index);
-			});
 		},
 		_fade:function(index){
 			if(index == this.now) return;
-			// console.log(index);
+			console.log(index);
 			this.$courselItem.eq(this.now).showHide('hide');
 			this.$courselItem.eq(index).showHide('show');
 			this.$courselBtn.eq(this.now).removeClass('active');
@@ -105,8 +111,8 @@
 		activeIndex:0,
 		js:true,
 		mode:'fade',
-		// autoplay:1000
-		autoplay:0
+		autoplay:1000
+		// autoplay:0
 	}
 
 	$.fn.extend({
