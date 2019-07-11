@@ -111,50 +111,29 @@
 	/*分类列表结束*/
 
 	/*轮播图区域开始*/
-	// 懒加载共通部分开始
-	function courselLazyLoad($elem){
-		var item = {};
-		var totalNum = $elem.find('.carousel-img').length-1;
-		var totalLoadedNum = 0;
-		var loadFn = null;
-		$elem.on('coursel-show',loadFn = function(ev,index,elem){
-			if(!item[index]){
-				$elem.trigger('coursel-load',[index,elem]);
-			}
-		});
-		$elem.on('coursel-load',function(ev,index,elem){
+	var $coursel = $('.carousel .carousel-wrap');
+	var item = {};
+	var totalNum = $coursel.find('.carousel-img').length-1;
+	var totalLoadedNum = 0;
+	var loadFn = null;
+	$coursel.on('coursel-show',loadFn = function(ev,index,elem){
+		if(!item[index]){
 			console.log(index);
 			var $elem = $(elem);
-			var $imgs = $elem.find('.carousel-img');
-			$imgs.each(function(){
-				var $img = $(this);
-				var imgUrl = $img.data('src');
-				loadImage(imgUrl,function(){
-					$img.attr('src',imgUrl);
-				},function(){
-					$img.attr('src','images/focus-carousel/placeholder.png');
-				});
+			var $img = $elem.find('.carousel-img');
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(){
+				$img.attr('src',imgUrl);
+			},function(){
+				$img.attr('src','images/focus-carousel/placeholder.png');
 			});
 			item[index] = 'isLoaded';
 			totalLoadedNum++;
 			if(totalLoadedNum > totalNum){
-				$elem.trigger('coursel-loaded');
+				$coursel.off('coursel-show',loadFn);
 			}
-		});
-		$elem.on('coursel-loaded',function(){
-			$elem.off('coursel-show',loadFn);
-		});
-	}
-	// 懒加载共通部分结束
-
-	var $coursel = $('.carousel .carousel-wrap');
-	courselLazyLoad($coursel);
+		}
+	});
 	$coursel.coursel({});
 	/*轮播图区域结束*/
-
-	/*今日热销区域开始*/
-	var $todaysCoursel = $('.todays .carousel-wrap');
-	courselLazyLoad($todaysCoursel);
-	$todaysCoursel.coursel({});
-	/*今日热销区域结束*/
 })(jQuery)

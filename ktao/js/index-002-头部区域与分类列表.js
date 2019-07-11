@@ -25,8 +25,7 @@
 						$elem.data('isLoaded',true);
 					},1000);			
 				})
-			}
-			
+			}			
 		}
 	});
 
@@ -97,8 +96,7 @@
 						$elem.data('isLoaded',true);
 					},1000);			
 				})
-			}
-			
+			}			
 		}
 	});
 	/*分类列表结束*/
