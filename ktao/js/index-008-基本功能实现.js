@@ -36,32 +36,6 @@
 	}
 	//加载一次数据结束
 
-	/*懒加载共通部分开始*/
-	function lazyLoad(options){
-		var item = {},
-			totalLoadedNum = 0,
-			loadFn = null,
-			totalNum = options.totalNum,
-			$elem = options.$elem,
-			eventName = options.eventName,
-			eventPrifix = options.eventPrifix;
-		$elem.on(eventName,loadFn = function(ev,index,elem){
-			if(!item[index]){
-				$elem.trigger(eventPrifix+'-load',[index,elem,function(){
-					item[index] = 'isLoaded';
-					totalLoadedNum++;
-					if(totalLoadedNum > totalNum){
-						$elem.trigger(eventPrifix+'-loaded');
-					}
-				}]);
-			}
-		});
-		$elem.on(eventPrifix+'-loaded',function(){
-			$elem.off(eventName,loadFn);
-		});
-	}
-	/*懒加载共通部分结束*/
-
 	/*顶部导航区域开始*/
 	var $topDropdown = $('.top .dropdown');
 	$topDropdown.dropdown({
@@ -153,7 +127,7 @@
 
 	/*轮播图区域开始*/
 	// 轮播图与今日热销懒加载共通部分开始
-	/*function courselLazyLoad($elem){
+	function courselLazyLoad($elem){
 		var item = {};
 		var totalNum = $elem.find('.carousel-img').length-1;
 		var totalLoadedNum = 0;
@@ -185,65 +159,23 @@
 		$elem.on('coursel-loaded',function(){
 			$elem.off('coursel-show',loadFn);
 		});
-	}*/
+	}
 	// 轮播图与今日热销懒加载共通部分结束
 
 	var $coursel = $('.carousel .carousel-wrap');
-	// courselLazyLoad($coursel);
-	lazyLoad({
-		totalNum:$coursel.find('.carousel-img').length-1,
-		$elem:$coursel,
-		eventName:'coursel-show',
-		eventPrifix:'coursel'
-	})
-	$coursel.on('coursel-load',function(ev,index,elem,success){
-			// console.log(index);
-			var $elem = $(elem);
-			var $imgs = $elem.find('.carousel-img');
-			$imgs.each(function(){
-				var $img = $(this);
-				var imgUrl = $img.data('src');
-				loadImage(imgUrl,function(){
-					$img.attr('src',imgUrl);
-				},function(){
-					$img.attr('src','images/focus-carousel/placeholder.png');
-				});
-				success();
-			});		
-		});
+	courselLazyLoad($coursel);
 	$coursel.coursel({});
 	/*轮播图区域结束*/
 
 	/*今日热销区域开始*/
 	var $todaysCoursel = $('.todays .carousel-wrap');
-	// courselLazyLoad($todaysCoursel);
-	lazyLoad({
-		totalNum:$todaysCoursel.find('.carousel-img').length-1,
-		$elem:$todaysCoursel,
-		eventName:'coursel-show',
-		eventPrifix:'coursel'
-	})
-	$todaysCoursel.on('coursel-load',function(ev,index,elem,success){
-			// console.log(index);
-			var $elem = $(elem);
-			var $imgs = $elem.find('.carousel-img');
-			$imgs.each(function(){
-				var $img = $(this);
-				var imgUrl = $img.data('src');
-				loadImage(imgUrl,function(){
-					$img.attr('src',imgUrl);
-				},function(){
-					$img.attr('src','images/focus-carousel/placeholder.png');
-				});
-				success();
-			});		
-		});
+	courselLazyLoad($todaysCoursel);
 	$todaysCoursel.coursel({});
 	/*今日热销区域结束*/
 
 	/*楼层部分开始*/
 	// 楼层懒加载部分开始
-	/*function floorImgLazyLoad($elem){
+	function floorImgLazyLoad($elem){
 		var item = {};
 		var totalNum = $elem.find('.floor-img').length-1;
 		var totalLoadedNum = 0;
@@ -254,7 +186,7 @@
 			}
 		});
 		$elem.on('tab-load',function(ev,index,elem){
-			// console.log(index);
+			console.log(index);
 			var $elem = $(elem);
 			var $imgs = $elem.find('.floor-img');
 			$imgs.each(function(){
@@ -275,7 +207,7 @@
 		$elem.on('tab-loaded',function(){
 			$elem.off('tab-show',loadFn);
 		});
-	}*/
+	}
 	// 楼层懒加载部分结束
 
 	// 楼层html懒加载部分开始
@@ -333,7 +265,7 @@
 		return html;
 	}
 
-	/*function floorHtmlLazyLoad(){
+	function floorHtmlLazyLoad(){
 		var item = {};
 		var totalNum = $floor.length-1;
 		var totalLoadedNum = 0;
@@ -344,17 +276,11 @@
 			}
 		});
 		$doc.on('floor-load',function(ev,index,elem){
-			// console.log(index);
+			console.log(index);
 			getDataOnce($doc,'data/floor/floorData.json',function(data){
 				var html = buildFloorHtml(data[index]);
 				$(elem).html(html);
-				// floorImgLazyLoad($(elem));
-				lazyLoad({
-					totalNum:$(elem).find('.carousel-img').length-1,
-					$elem:$(elem),
-					eventName:'tab-show',
-					eventPrifix:'tab'
-				})
+				floorImgLazyLoad($(elem));
 				$(elem).tab({});
 			})
 			item[index] = 'isLoaded';
@@ -366,7 +292,7 @@
 		$doc.on('floor-loaded',function(){
 			$doc.off('floor-show',loadFn);
 		});
-	}*/
+	}
 	// 楼层html懒加载部分结束
 
 	function isVisible($elem){
@@ -375,44 +301,7 @@
 	var $floor = $('.floor');
 	var $win = $(window);
 	var $doc = $(document);
-	$floor.on('tab-load',function(ev,index,elem,success){
-			// console.log(index);
-		var $elem = $(elem);
-		var $imgs = $elem.find('.floor-img');
-		$imgs.each(function(){
-			var $img = $(this);
-			var imgUrl = $img.data('src');
-			loadImage(imgUrl,function(){
-				$img.attr('src',imgUrl);
-			},function(){
-				$img.attr('src','images/focus-carousel/placeholder.png');
-			});
-		});
-		success();
-	});
-	// floorHtmlLazyLoad();
-	lazyLoad({
-		totalNum:$floor.length-1,
-		$elem:$doc,
-		eventName:'floor-show',
-		eventPrifix:'floor'
-	})
-	$doc.on('floor-load',function(ev,index,elem,success){
-		// console.log(index);
-		getDataOnce($doc,'data/floor/floorData.json',function(data){
-			var html = buildFloorHtml(data[index]);
-			$(elem).html(html);
-			// floorImgLazyLoad($(elem));
-			lazyLoad({
-				totalNum:$(elem).find('.carousel-img').length-1,
-				$elem:$(elem),
-				eventName:'tab-show',
-				eventPrifix:'tab'
-			})
-			$(elem).tab({});
-		})
-		success();
-	});
+	floorHtmlLazyLoad();
 	/*$doc.on('floor-show',function(ev,index,elem){
 		console.log(index,elem);
 	})*/
@@ -433,51 +322,4 @@
 	});*/
 	// $floor.tab({});
 	/*楼层部分结束*/
-
-	/*电梯部分开始*/
-	var $elevator = $('.elevator');
-	var $elevatorItem = $('.elevator-item');
-	function getFloorNum(){
-		var num = -1;
-		$floor.each(function(index,elem){
-			num = index;
-			if($(elem).offset().top > $win.height() + $win.scrollTop()){
-				num = index - 1;
-				return false;
-			}
-		})
-		return num;
-	}
-
-	function setElevator(){
-		var num = getFloorNum();
-		if(num == -1){
-			$elevator.fadeOut();
-		}else{
-			$elevator.fadeIn();
-		}
-		$elevatorItem.removeClass('elevator-active');
-		$elevatorItem.eq(num).addClass('elevator-active');
-	}
-	$win.on('load scroll resize',function(){
-		clearTimeout($elevator.showElevatorTimer);
-		$elevator.showElevatorTimer = setTimeout(setElevator,200);
-	})
-
-	$elevator.on('click','.elevator-item',function(){
-		var index = $elevatorItem.index(this);
-		$('html,body').animate({
-			scrollTop:$floor.eq(index).offset().top
-		});
-	})
-	/*电梯部分结束*/
-
-	/*工具条部分开始*/
-	var $backToTop = $('#backToTop');
-	$backToTop.on('click',function(){
-		$('html,body').animate({
-			scrollTop:0
-		});
-	})
-	/*工具条部分结束*/
 })(jQuery)

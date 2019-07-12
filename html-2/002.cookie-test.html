@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie-test</title>
+</head>
+<body>
+	cookie
+</body>
+<script>
+	function setCookie(key,val,iDate){
+		var oDate = new Date();
+		oDate.setDate(oDate.getDate() + iDate);
+        document.cookie = key+"="+val+";Expires="+oDate;
+	}
+	setCookie('username','rose',8);
+	setCookie('age','18',8);
+
+	function getCookie(key){
+		var str = document.cookie;
+		var attr1 = str.split(';');
+		for(var i=0;i<attr1.length;i++){
+			var attr2 = attr1[i].split('=');
+			for(var j=0;j<attr2.length;j++){
+				if(key.trim() == attr2[0].trim()){
+					return attr2[1];
+					break;
+				}
+			}
+		}
+	}
+	console.log(getCookie('username'));
+
+	function removeCookie(key){
+		setCookie(key,false,-1);
+	}
+	removeCookie('age');
+</script>
+</html>

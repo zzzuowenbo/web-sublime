@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>storage</title>
+</head>
+<body>
+	storage
+</body>
+<script>
+	/*localStorage开始*/
+	localStorage.setItem('username','rose');
+	localStorage.setItem('age','18');
+
+	console.log(localStorage.getItem('username'));
+
+	// localStorage.removeItem('age');
+
+	// localStorage.clear();
+
+	console.log(localStorage.length);
+
+	console.log(localStorage.key(0));
+	/*localStorage结束*/
+
+	/*sessionStorage开始*/
+	sessionStorage.setItem('username','jack');
+	sessionStorage.setItem('age','20');
+
+	console.log(sessionStorage.getItem('username'));
+
+	// sessionStorage.removeItem('age');
+
+	// sessionStorage.clear();
+
+	console.log(sessionStorage.length);
+
+	console.log(sessionStorage.key(0));
+	/*sessionStorage结束*/
+</script>
+</html>
