@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		canvas{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script>
+	//获取canvas的DOM元素
+	var oCanvas = document.getElementById('canvas');
+	//设置画布的宽高
+	oCanvas.width = 600;
+	oCanvas.height = 300;
+
+	//获取canvas的上下文环境
+	var ctx = oCanvas.getContext('2d');
+	
+	ctx.moveTo(0,0);//指定起始坐标
+	ctx.lineTo(100,100);//直线终点坐标
+	ctx.strokeStyle = '#f00';//指定描边的样式
+	ctx.lineWidth = 1;//设置线条的宽度
+	ctx.stroke();//描边
+</script>
+</html>

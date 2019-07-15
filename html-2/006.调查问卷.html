@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调查问卷</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.continer{
+			width: 1000px;
+			height: 800px;
+		}
+		.search{
+			width: 400px;
+			height: 600px;
+			float: left;
+		}
+		.target-list{
+			width: 400px;
+			height: 600px;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="continer">
+		<div class="search">
+			<h1>调查问卷</h1>
+		</div>
+		<div class="target-list">
+			<div class="target" draggable=true>
+				<label>姓名</label>
+				<input type="text">
+			</div>
+			<div class="target" draggable=true>
+				<label>年龄</label>
+				<input type="text">
+			</div>
+			<div class="target">
+				<label>爱好</label draggable=true>
+				<input type="checkbox">唱歌
+				<input type="checkbox">跳舞
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var dom = null;
+		$('.search')
+		.on('drop',function(){		
+			$(this).append($.clone(dom));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+
+		$('.target')
+		.on('dragstart',function(){
+			dom = this;
+		})
+	});
+</script>
+</html>

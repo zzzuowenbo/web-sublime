@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本拖拽</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 300px;
+			height: 300px;
+			background: green;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2" draggable=true></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.box2')
+		.on('dragstart',function(){
+			console.log('dragstart');
+		})
+		.on('drag',function(){
+			console.log('drag');
+		})
+		.on('dragend',function(){
+			console.log('dragend');
+		})
+
+		$('.box1')
+		.on('drop',function(){
+			$('.box1').append($('.box2'));
+		})
+		.on('dragover',function(ev){
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){
+			console.log('dragenter');
+		})
+		.on('dragleave',function(){
+			console.log('dragleave');
+		})
+		.on('dragend',function(){
+			console.log('dragend');
+		})
+		.on('drag',function(){
+			console.log('drag');
+		})
+	});
+</script>
+</html>
