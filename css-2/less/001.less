@@ -1,4 +1,133 @@
+@w:100px;
+@h:100px;
 @c:#ffc0cb;
-body{
+/*body{
     background-color: @c;
+}*/
+div{
+	margin-top: 10px;
 }
+.box1{
+	width: @w;
+	height: @h;
+	background-color:@c;
+	font-size: 32px;
+}
+
+.box2{
+	.box1;
+}
+
+/*.border-r{
+	-ms-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}*/
+
+/*.border-r(@r){
+	-ms-border-radius:@r;
+	-webkit-border-radius:@r;
+	-o-border-radius:@r;
+	-moz-border-radius:@r;
+	border-radius:@r;
+}
+.box2{
+	.border-r(10px);
+}*/
+
+.border-r(@r:20px){
+	border-radius:@r;
+}
+.box2{
+	.border-r();
+}
+.box3{
+	.box1;
+	.border-r();
+}
+
+/*.triangle{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 20px;
+	border-color: pink transparent transparent transparent;
+}*/
+
+.triangle(@_,@w,@c){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+}
+.triangle(top,@w,@c){
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+}
+.triangle(right,@w,@c){
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}
+.triangle(bottom,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent @c transparent;
+}
+.triangle(left,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+}
+.box4{
+	.triangle(bottom,20px,pink);
+}
+
+ul{
+	width: 200px;
+	list-style: none;
+	li{
+		line-height: 30px;
+		height: 40px;
+		span{
+			float: left;
+		}
+		a{
+			float: right;
+		}
+		&:hover{
+			background-color:pink;
+		}
+	}
+}
+
+.cale-fs(@f){
+	font-size: @f + 20px;
+}
+.box5{
+	.cale-fs(16);
+}
+
+.box6{
+	// font-size: calc(10px + 20px);
+	font-size: ~'calc(10px + 20px)';
+}
+
+.box7{
+	.box1 !important;
+}
+
+.set(@attr,@val){
+	// @{attr}:@val;
+	// @{attr}:unit(@val,px);
+	@{attr}:unit(@val/2,px)
+}
+.box8{
+	// .set(width,20px);
+	.set(width,20);
+}
+
+
+
+
+

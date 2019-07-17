@@ -1,3 +1,93 @@
-body {
+/*body{
+    background-color: @c;
+}*/
+div {
+  margin-top: 10px;
+}
+.box1 {
+  width: 100px;
+  height: 100px;
   background-color: #ffc0cb;
+  font-size: 32px;
+}
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #ffc0cb;
+  font-size: 32px;
+}
+/*.border-r{
+	-ms-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}*/
+/*.border-r(@r){
+	-ms-border-radius:@r;
+	-webkit-border-radius:@r;
+	-o-border-radius:@r;
+	-moz-border-radius:@r;
+	border-radius:@r;
+}
+.box2{
+	.border-r(10px);
+}*/
+.box2 {
+  border-radius: 20px;
+}
+.box3 {
+  width: 100px;
+  height: 100px;
+  background-color: #ffc0cb;
+  font-size: 32px;
+  border-radius: 20px;
+}
+/*.triangle{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 20px;
+	border-color: pink transparent transparent transparent;
+}*/
+.box4 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 20px;
+  border-color: transparent transparent #ffc0cb transparent;
+}
+ul {
+  width: 200px;
+  list-style: none;
+}
+ul li {
+  line-height: 30px;
+  height: 40px;
+}
+ul li span {
+  float: left;
+}
+ul li a {
+  float: right;
+}
+ul li:hover {
+  background-color: pink;
+}
+.box5 {
+  font-size: 36px;
+}
+.box6 {
+  font-size: calc(10px + 20px);
+}
+.box7 {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: #ffc0cb !important;
+  font-size: 32px !important;
+}
+.box8 {
+  width: 10px;
 }

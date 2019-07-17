@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+p {
+  font-size: 0.85333333rem;
+}
+img {
+  float: left;
+  width: 5rem;
+}
