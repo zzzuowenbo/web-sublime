@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的扩展运算</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	/*let arr = [1,2,3];
+	console.log(arr);
+	console.log(...arr);*/
+
+	/*function sum(n1,n2){
+		return n1+n2;
+	}
+	let arr = [8,16];
+	console.log(sum(...arr));*/
+
+	/*function sum(...arr){
+		let result = 0;
+		for(var i=0,len=arr.length;i<len;i++){
+			result += arr[i];
+		}
+		return result;
+	}
+	console.log(sum(8,16));*/
+
+	/*let arr = [408,416,512,8,16];
+	// console.log(Math.max.apply(null,arr));
+	console.log(Math.max(...arr));*/
+
+	let arr = [408,416,512,8,16];
+	// let arr2 = arr.concat();
+	// let arr3 = arr.slice();
+	let arr1 = [...arr];
+	console.log(arr);
+	// console.log(arr2,arr3);
+	console.log(arr1);
+
+	let oLi = document.getElementsByTagName('li');
+	let arrLi = [...oLi];
+	// console.log([...oLi]);
+	console.log(oLi);
+	console.log(arrLi);
+</script>
+</html>
