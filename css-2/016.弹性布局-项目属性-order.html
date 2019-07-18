@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局-项目属性-order</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			display: flex;
+			width: 800px;
+			margin-top: 50px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid #000;
+		}
+		.box1 div{
+			height: 100px;
+		}
+		.box2{
+			width: 50px;
+			background: gray;
+		}
+		.box3{
+			width: 100px;
+			background: pink;
+			order: 1;
+		}
+		.box4{
+			width: 200px;
+			background: green;
+			order: 2;
+		}
+		.box5{
+			width: 300px;
+			background: tomato;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2">box2</div>
+		<div class="box3">box3</div>
+		<div class="box4">box4</div>
+		<div class="box5">box5</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义变量2</title>
+</head>
+<body>
+	<button>btn1</button>
+	<button>btn2</button>
+	<button>btn3</button>
+</body>
+<script>
+	var oBtn = document.getElementsByTagName('button');
+	for(let i=0;i<oBtn.length;i++){
+		oBtn[i].onclick = function(){
+			console.log(i);
+		}
+	}
+</script>
+</html>

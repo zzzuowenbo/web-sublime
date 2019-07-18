@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习3</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+		header,footer{
+			flex: 0 0 10vh;
+		}
+		header{
+			background: gray;
+		}
+		section{
+			display: flex;
+			flex-grow: 1;
+			flex-direction: row;
+		}
+		nav,aside{
+			flex: 0 0 10vw;
+		}
+		nav{
+			background: pink;
+		}
+		aside{
+			background: tomato;
+		}
+		footer{
+			background: green;
+		}
+		.main{
+			flex-grow: 1;
+		}
+	</style>
+</head>
+<body>
+	<header>header</header>
+	<section>
+		<nav>nav</nav>
+		<div class="main">main</div>
+		<aside>aside</aside>
+	</section>
+	<footer>footer</footer>
+</body>
+</html>
