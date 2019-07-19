@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数this</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function Timer(id){
+        this.id = id;       
+        setTimeout(function(){
+            console.log(this,this.id);
+        },100)  
+    }
+    var id = 408;
+    let t = new Timer(416);*/
+
+    function Timer(id){
+        this.id = id;       
+        setTimeout(()=>{
+            console.log(this,this.id);
+        },100)  
+    }
+    var id = 408;
+    let t = new Timer(416);
+</script>
+</html>
