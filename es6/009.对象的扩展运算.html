@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的扩展运算</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let obj1 = {
+		name:'rose',
+		age:18,
+		hobby:{
+			name:'sing'
+		}
+	}
+	let obj2 = {...obj1};
+	// let obj2 = obj1;
+	// obj1.name = 'tom';
+	obj2.name = 'jack';
+	obj2.hobby.name = 'dance';
+	// obj1.hobby.name = 'draw';
+	console.log(obj1,obj2);
+</script>
+</html>

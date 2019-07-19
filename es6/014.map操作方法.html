@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>map操作方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let m = new Map();
+	let obj1 ={name:'tom'};
+	m.set('name','rose');
+	m.set('age',18);
+	m.set(obj1,'111');
+	// m.clear();
+	console.log(m.get('name'));
+	console.log(m.get('hobby'));
+	console.log(m.delete('age'));
+	console.log(m.has('name'));
+	console.log(m.has('age'));
+	console.log(m.get(obj1));
+	console.log(m.has(obj1));
+	console.log(m.delete(obj1));
+	console.log(m);
+	console.log(m.size);
+</script>
+</html>

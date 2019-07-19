@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象的扩展运算-深拷贝</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	let obj1 = {
+		name:'rose',
+		age:18,
+		hobby:{
+			name:'sing'
+		}
+	}
+
+	/*let obj2 = JSON.parse(JSON.stringify(obj1));
+	obj2.name = 'jack';
+	obj2.hobby.name = 'dance';
+	console.log(obj1,obj2);*/
+
+	/*const obj2 = $.extend(true,{},obj1);
+	obj2.name = 'jack';
+	obj2.hobby.name = 'dance';
+	console.log(obj1,obj2);*/
+
+	function getDataType(data){
+		if(data instanceof Array){
+			return 'array';
+		}else if(data instanceof Object){
+			return 'object';
+		}
+	}
+	// console.log(getDataType({}));
+
+	function deepCopy(data){
+		let type = getDataType(data);
+		let result;
+		if(type == 'array'){
+			result = [];
+		}else if(type == 'object'){
+			result = {};
+		}else{
+			return data;
+		}
+		for(let key in data){
+			let val = data[key];
+			let valType = getDataType(val);
+			if(valType == 'array' || valType == 'object'){
+				result[key] = deepCopy(val);
+			}else{
+				result[key] = val;
+			}
+		}
+		return result;
+	}
+
+	const obj2 = deepCopy(obj1);
+	obj2.name = 'jack';
+	obj2.hobby.name = 'dance';
+	console.log(obj1,obj2);
+</script>
+</html>
