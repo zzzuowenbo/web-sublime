@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>race方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const getTimerPromise = (delay)=>new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('ok ' + delay);
+		},delay)
+	})
+	const promise = [100,200,300].map(delay=>getTimerPromise(delay));
+
+	const p1 = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			// resolve('ok ' + 150);
+			reject('err ' + 150);
+		},150)
+	})
+
+	promise.push(p1);
+	const p = Promise.race(promise);
+	console.log(p);
+	p
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+</script>
+</html>

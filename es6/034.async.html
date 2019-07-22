@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*async function fn(){
+		return 'ok';
+	}
+	console.log(fn());
+	fn()
+	.then(data=>{
+		console.log(data);
+	})*/
+
+	let p;
+	async function fn(){
+		p = Promise.resolve('ok');
+		return p;
+	}
+	const p1 = fn();
+	console.log(p1);
+	console.log(p);
+	p1
+	.then(data=>{
+		console.log(data);
+	})
+</script>
+</html>

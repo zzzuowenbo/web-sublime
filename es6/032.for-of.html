@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for-of</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(){
+		yield 1
+		yield 2
+		yield 3
+	}
+	const g = gen();
+	for(let v of g){
+		console.log(v);
+	}
+</script>
+</html>

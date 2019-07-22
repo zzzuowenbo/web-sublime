@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise静态方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//resolve方法
+	/*const p1 = Promise.resolve();
+	console.log(p1);
+
+	const p2 = Promise.resolve(p1);
+	console.log(p2);
+	console.log(p1==p2);
+
+	const obj1 = {
+		then:function(){
+			console.log('then...');
+		}
+	}
+	const p3 = Promise.resolve(obj1);
+	console.log(p3);
+
+	const obj2 = {
+		noThen:function(){
+			console.log('noThen...');
+		}
+	}
+	const p4 = Promise.resolve(obj2);
+	console.log(p4);
+
+	const p5 = Promise.resolve('abc');
+	console.log(p5);*/
+
+	//reject方法
+	/*const p1 = Promise.reject('error...');
+	console.log(p1);
+	p1
+	.catch(err=>{
+		console.log(err);
+	})*/
+
+	//all方法
+	/*const p1 = Promise.resolve('data1...');
+	const p2 = Promise.resolve('data2...');
+	const p3 = Promise.resolve('data3...');
+	const p4 = Promise.reject('data4...');
+	const p = Promise.all([p1,p2,p3,p4]);
+	console.log(p);
+	p
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})*/
+
+	const getImgPromise = (src)=>new Promise((resolve,reject)=>{
+		const img = new Image();
+		img.onload = function(){
+			resolve('ok');
+		};
+		img.onerror = function(){
+			reject('error');
+		}
+		img.src = src;
+	});
+	const promise = ['./img/5.jpg','./img/1.jpg','./img/2.jpg'].map(src=>getImgPromise(src));
+	console.log(promise);
+	const p = Promise.all(promise);
+	console.log(p);
+	p
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+</script>
+</html>

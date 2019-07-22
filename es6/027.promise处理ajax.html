@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise处理ajax</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*$.get('https://api.github.com/users/kuazhu',(data1)=>{
+		console.log(data);
+		$.get(data1.followers_url,data2=>{
+			console.log(data2);
+			$.get(data2[0].followers_url,data3=>{
+				console.log(data3);
+			})
+		})
+	});*/
+	const getAjaxPromise = (url,type='get')=>new Promise((resolve,reject)=>{
+		$.ajax({
+			url:url,
+			type:type,
+			success:(data)=>{
+				resolve(data);
+			},
+			error:(jqXHR,statusMsg)=>{
+				reject(statusMsg);
+			}
+		})
+	})
+	getAjaxPromise('https://api.github.com/users/kuazhu','get')
+	.then(data=>{
+		// console.log(data);
+		return getAjaxPromise(data.followers_url);
+	})
+	.then(data=>{
+		return getAjaxPromise(data[0].followers_url);
+	})
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+</script>
+</html>

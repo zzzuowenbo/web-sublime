@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>then方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('ok');
+			// reject('error');
+		},0);
+	});
+
+	/*const p1 = promise
+	.then(data=>{
+		console.log(data);
+		return 'success';
+	})
+	p1.
+	then(data=>{
+		console.log(data);
+	})*/
+
+	/*promise
+	.then(data=>{
+		console.log(data);
+	})
+	.then(data=>{
+		console.log(data);
+	})*/
+
+	let p2;
+	const p1 = promise
+	.then(data=>{
+		console.log(data);
+		p2 = new Promise((resolve,reject)=>{
+			resolve('hello');
+		});
+		return p2;
+	})
+	p1.
+	then(data=>{
+		console.log(data);		
+	})
+	console.log(p1==p2);
+</script>
+</html>
