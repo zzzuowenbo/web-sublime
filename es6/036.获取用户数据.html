@@ -13,6 +13,7 @@
 		$.ajax({
 			url:url,
 			type:type,
+			dataType:'json',
 			success:(data)=>{
 				resolve(data);
 			},
@@ -34,7 +35,7 @@
         console.log(data)
     })
 
-    /*async function getUsers(){
+    async function getUsers(){
         const promiseA = getAjaxPromise('./data/a.json')
         const promiseB = getAjaxPromise('./data/b.json')
         const userA = await promiseA
@@ -44,6 +45,6 @@
     getUsers()
     .then(data=>{
         console.log(data)
-    })*/
+    })
 </script>
 </html>
