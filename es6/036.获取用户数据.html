@@ -23,6 +23,7 @@
 		})
 	})
 
+	//存在继发关系
 	 async function getOrder(username){
         const user = await getAjaxPromise('./data/'+username+'.json')
         // console.log(user);
@@ -35,6 +36,7 @@
         console.log(data)
     })
 
+    //不存在继发关系
     async function getUsers(){
         const promiseA = getAjaxPromise('./data/a.json')
         const promiseB = getAjaxPromise('./data/b.json')

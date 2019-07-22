@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log('my name is '+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am '+this.age+' years old');
+	}
+
+	Person.sayHi = function(){
+		console.log('hello');
+	}
+
+	var p1 = new Person('rose',18);
+	console.log(p1);
+	p1.showName();
+	p1.showAge();
+	Person.sayHi();
+
+	function Student(name,age,hobby){
+		Person.call(this,name,age);
+		this.hobby = hobby;
+	}
+
+	Student.prototype = Object.create(Person.prototype);
+	Student.prototype.constructor = Student;
+
+	Student.prototype.showHobby = function(){
+		console.log('my hobby is '+this.hobby);
+	}
+
+	Student.sayHi = Person.sayHi;
+
+	var s1 = new Student('jack',20,'sing');
+	console.log(s1);
+	s1.showName();
+	s1.showAge();
+	s1.showHobby();
+	Student.sayHi();
+</script>
+</html>

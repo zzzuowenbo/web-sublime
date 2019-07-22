@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字面量</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const username = 'rose';
+	const age = 18;
+
+	/*const obj = {
+		username:username,
+		age:age,
+		sayName:function(){
+			console.log('my name is '+this.username);
+		},
+		sayAge:function(){
+			console.log('I am '+this.age+' years old');
+		}
+	}*/
+	
+	const obj = {
+		username,
+		age,
+		sayName(){
+			console.log('my name is '+this.username);
+		},
+		sayAge(){
+			console.log('I am '+this.age+' years old');
+		}
+	}
+	console.log(obj);
+	obj.sayName();
+	obj.sayAge();
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// const p1 = new Person('rose',18);
+	class Person{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		showName(){
+			console.log('my name is '+this.name);
+		}
+		showAge(){
+			console.log('I am '+this.age+' years old');
+		}
+		static sayHi(){
+			console.log('hello');
+		}
+	}
+	const p1 = new Person('rose',18);
+	console.log(p1);
+	p1.showName();
+	p1.showAge();
+	Person.sayHi();
+
+	class Student extends Person{
+		constructor(name,age,hobby){
+			super(name,age);
+			this.hobby = hobby;
+		};
+		showHobby(){
+			console.log('my hobby is '+this.hobby);
+		};
+	}
+	const s1 = new Student('jack',20,'sing');
+	console.log(s1);
+	s1.showName();
+	s1.showAge();
+	s1.showHobby();
+	Student.sayHi();
+</script>
+</html>
