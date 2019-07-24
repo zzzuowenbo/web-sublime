@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	const arrLike = {
+		0:'data1',
+		1:'data2',
+		length:2
+	}
+	console.log(arrLike);
+	console.log(Array.from(arrLike));
+
+	function fn(){
+		console.log(arguments);
+		console.log(Array.from(arguments));
+	}
+	fn(11,22);
+
+	const oDiv = document.getElementsByTagName('div');
+	console.log(oDiv);
+	console.log(Array.from(oDiv));
+	console.log([...oDiv]);
+
+	const arr = [4,8,16,5,12];
+	console.log(arr.find(n=>n>6));
+	console.log(arr.find(n=>n>20));
+	console.log(arr.findIndex(n=>n>6));
+	console.log(arr.findIndex(n=>n>20));
+	console.log(arr.includes(16,0));
+	console.log(arr.includes(16,3));
+</script>
+</html>
