@@ -6,7 +6,7 @@
 	$input.on('keydown',function(ev){
 		if(ev.keyCode == 13){
 			$.ajax({
-				url:"/add",
+				url:"/item/add",
                 type:'post',
                 dataType:'json',
                 data:{
@@ -15,7 +15,7 @@
                 success:function(result){
                     if(result.code == 0){
                     	var data = result.data;
-                    	var $dom = $(`<li class="todo-item" data-id=${data.id}>${data.task}</li>`);
+                    	var $dom = $(`<li class="todo-item" data-id="${data.id}">${data.task}</li>`);
                     	$list.append($dom);
                     	$input.val('');
                     }else{
@@ -30,11 +30,8 @@
 	$list.on('click','li',function(){
 		var $this = $(this);
 		$.ajax({
-			url:'/del',
+			url:'/item/del'+$this.data('id'),
 			dataType:'json',
-			data:{
-				id: $this.data('id')
-			},
 			success:function(result){
 				if(result.code == 0){
 					$this.remove();
