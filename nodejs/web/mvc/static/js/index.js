@@ -30,7 +30,7 @@
 	$list.on('click','li',function(){
 		var $this = $(this);
 		$.ajax({
-			url:'/item/del'+$this.data('id'),
+			url:'/item/del/'+$this.data('id'),
 			dataType:'json',
 			success:function(result){
 				if(result.code == 0){
