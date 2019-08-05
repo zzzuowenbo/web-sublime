@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>base</title>
+</head>
+<body>
+	<h3>text</h3>
+	<button id="post">post</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("#post").on('click',function(){
+            $.ajax({
+                url:"/",
+                type:"post",
+                data:{
+                	username:"rose",
+                	password:"408416"
+                },
+                success:function(result){
+                    console.log(result);
+                }
+            })
+        });
+	});
+</script>
+</html>

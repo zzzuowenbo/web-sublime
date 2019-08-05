@@ -42,6 +42,10 @@ userSchema.methods.findBlogs = function(cb){
 	this.model('blog').find({author:this._id},cb);
 }
 
+userSchema.statics.findByPhone = function(val,cb){
+	this.findOne({phone:val},cb);
+}
+
 const userModel = mongoose.model('user', userSchema);
 
 module.exports = userModel;
