@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>我的个人博客后台管理中心</title>
+    <title>我的博客后台管理中心</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">我的个人博客</a>
+          <a class="navbar-brand" href="#">我的博客</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <div class="btn-group user-info">
@@ -44,6 +44,7 @@
           <ul class="nav nav-sidebar">
             <li><a href="/admin/users">用户列表</a></li>
             <li><a href="/category">分类管理</a></li>
+            <li><a href="/article">文章管理</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -58,5 +59,7 @@
 <script src="/lib/jquery/jquery-1.12.4.min.js"></script> 
 <script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="/js/logout.js"></script>
+<script src="/js/admin.js"></script>
+{% block footer %}{% endblock %}
   </body>
 </html>

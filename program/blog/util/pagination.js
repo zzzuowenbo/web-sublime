@@ -1,8 +1,7 @@
 async function pagination(options){
-    let { page,model,query,sort,projection } = options;
+    let { page,model,query,sort,projection,populates } = options;
     const limit = 2;
-    page = parseInt(page);
-    
+    page = parseInt(page);    
     if(isNaN(page)){
         page = 1;
     }
@@ -12,7 +11,6 @@ async function pagination(options){
         page = 1;
     }
     const count = await model.countDocuments();  
-    //总页数
     const pages = Math.ceil(count / limit);
     
     //下一页边界值控制
@@ -22,16 +20,23 @@ async function pagination(options){
     if(page == 0){
         page = 1;
     }
-    //生成页码数组
+
     const list = [];
     for(let i = 1;i<=pages;i++){
         list.push(i);
     }
 
     const skip = (page-1)*limit;
-    const docs = await model.find(query,projection).sort(sort).skip(skip).limit(limit)
 
-    return {
+    let result = model.find(query,projection);
+    if(populates){
+        populates.forEach(populate=>{
+            result = result.populate(populate)
+        })
+    }
+    const docs = await result.sort(sort).skip(skip).limit(limit);
+
+    return{
         docs:docs,
         page:page,
         list:list,

@@ -13,3 +13,6 @@
 	margin-top: 20px;
 	min-height: 300px;
 }
+.ck-editor__editable{
+    min-height: 200px;
+}
