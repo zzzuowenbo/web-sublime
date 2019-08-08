@@ -124,7 +124,7 @@ router.post('/edit',(req,res)=>{
                     CategoryModel.updateOne({_id:id},{name,order})
                     .then(result=>{
                         res.render("admin/success",{
-                            message:"新增分类成功",
+                            message:"编辑分类成功",
                             url:'/category'
                         })
                     })

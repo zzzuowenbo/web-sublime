@@ -3,7 +3,7 @@ const UserModel = require('../models/user.js');
 const hmac = require('../util/hmac.js');
 const router = express.Router();
 
-/*注册*/
+//注册
 router.post('/register',(req,res)=>{
     const { username,password } = req.body
     UserModel.findOne({username:username})
@@ -45,7 +45,7 @@ router.post('/register',(req,res)=>{
     })
 })
 
-/*登录*/
+//登录
 router.post('/login',(req,res)=>{
     const { username,password } = req.body
     UserModel.findOne({username:username,password:hmac(password)},"-password -__v")
@@ -77,7 +77,7 @@ router.post('/login',(req,res)=>{
     })
 })
 
-/*退出*/
+//退出
 router.get('/logout',(req,res)=>{
     // req.cookies.set('userInfo',null);
     req.session.destroy();

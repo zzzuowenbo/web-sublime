@@ -10,7 +10,7 @@ async function pagination(options){
     if(page == 0){
         page = 1;
     }
-    const count = await model.countDocuments();  
+    const count = await model.countDocuments(query);  
     const pages = Math.ceil(count / limit);
     
     //下一页边界值控制

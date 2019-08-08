@@ -17,6 +17,7 @@ router.use((req,res,next)=>{
 
 //显示文章管理首页
 router.get('/',(req,res)=>{
+    /*
     let page = req.query.page
     const options = {
         page:req.query.page,
@@ -27,6 +28,8 @@ router.get('/',(req,res)=>{
         populates:[{path:'user',select:'username'},{path:'category',select:'name'}]
     }
     pagination(options)
+    */
+    ArticleModel.getPaginationArticlesData(req)
     .then(data=>{
         res.render("admin/article_list",{
             userInfo:req.userInfo,
