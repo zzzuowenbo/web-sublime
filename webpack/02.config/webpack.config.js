@@ -17,7 +17,7 @@ module.exports = {
     filename: '[name]-[hash]-bundle.js',
     path: path.resolve(__dirname,'dist')
   },
-    module: {
+  module: {
     rules: [
     //处理css
       {
