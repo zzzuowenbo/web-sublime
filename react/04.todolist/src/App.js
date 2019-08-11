@@ -19,7 +19,8 @@ class App extends Component{
         }))       
     }
     handleChange(ev){
-      const task = ev.target.value;
+      // const task = ev.target.value;
+      const task = this.input.value;
       this.setState(()=>({
          task:task
       }))
@@ -39,7 +40,11 @@ class App extends Component{
     render(){
         return( 
         <div className="App">
-            <input onChange={this.handleChange} value={this.state.task} />
+            <input 
+            	onChange={this.handleChange} 
+            	value={this.state.task} 
+            	ref={(input)=>{this.input = input}}
+            />
             <button onClick={this.handleAdd}>提交</button>
             <ul>
                 {
