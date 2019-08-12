@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 class Item extends Component{
     constructor(props){
         super(props);
-    }   
+    }
+    componentWillUnmount(){
+    	console.log("componentWillUnmount...");
+    }    
     render(){
     	const { handleDel,task } = this.props;
         return(
