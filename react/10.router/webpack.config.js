@@ -4,19 +4,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode:'development',
-  // mode:'production',
-  //单一入口
-  // entry: './src/index.js',
-  // entry: {main:'./src/index.js'},
-  //多入口
+  //入口
   entry: {
   	index: "./src/index.js"
   },
   //出口
   output: {
-    // filename: '[name]-bundle.js',
     filename: '[name]-[hash]-bundle.js',
-    path: path.resolve(__dirname,'dist')
+    path: path.resolve(__dirname,'dist'),
+    publicPath:'/'
   },
   module: {
     rules: [
@@ -46,7 +42,8 @@ module.exports = {
       use: {
           loader: 'babel-loader',
           options: {
-              presets: ['env', 'react'],
+              // presets: ['env', 'react'],
+              presets: ['env','es2015','react','stage-3'],
               plugins: [
                 ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] 
               ]
@@ -71,5 +68,6 @@ module.exports = {
   devServer:{
     contentBase: './dist',//内容的目录
     // port:8080//服务运行的端口
+    historyApiFallback:true
   }
 };
