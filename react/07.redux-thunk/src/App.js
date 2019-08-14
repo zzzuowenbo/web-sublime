@@ -1,6 +1,5 @@
 import React,{ Component } from 'react';
-import axios from 'axios';
-import { getChangeItemAction,getAddItemAction,getDelItemAction,getLoadInitDataAction } from './store/actionCreator.js';
+import { getChangeItemAction,getAddItemAction,getDelItemAction,getRequestInitDataAction } from './store/actionCreator.js';
 import store from './store';
 import AppUI from './AppUI.js';
 
@@ -14,13 +13,7 @@ class App extends Component{
         this.handleDel = this.handleDel.bind(this);
     }
     componentDidMount(){
-        axios.get('http://127.0.0.1:3000')
-        .then(result=>{
-            store.dispatch(getLoadInitDataAction(result.data));  
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+        store.dispatch(getRequestInitDataAction());
     }
     handleAdd(){
         store.dispatch(getAddItemAction());   
