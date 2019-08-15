@@ -13,6 +13,21 @@ const pagination = require('../util/pagination.js');
 const hmac = require('../util/hmac.js')
 
 const router = Router();
+
+router.get("/init",(req,res)=>{
+	UserModel.insertMany({
+		username:'admin',
+		password:hmac('admin'),
+		isAdmin:true
+	})
+	.then(result=>{
+		res.send('ok')
+	})
+	.catch(err=>{
+		res.send(err)
+	})
+})
+
 //检查用户名是否存在
 router.get("/checkUsername",(req,res)=>{
 	const username = req.query.username;
