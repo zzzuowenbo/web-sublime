@@ -1,4 +1,3 @@
-import axios from 'axios';
 import api from 'api';
 import { message } from 'antd';
 import { saveUsername } from 'util';

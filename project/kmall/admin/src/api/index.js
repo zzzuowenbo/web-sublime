@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { removeUsername } from 'util';
 import { SERVER,API_CONFIG } from './config.js';
 
 const getApiObj = (apiConfig)=>{
@@ -24,6 +25,11 @@ const request = (url,method,data)=>{
         })
         .then(result=>{
             const data  = result.data;
+            if(data.code == 10){
+                removeUsername();
+                window.location.href = '/login';
+                reject('用户没有权限');
+            }
             resolve(data)
         })
         .catch(err=>{

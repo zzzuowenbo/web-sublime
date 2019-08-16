@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import api from 'api';
 import "./index.css";
 import { Layout, Menu, Dropdown, Icon } from 'antd';
 import { getUsername,removeUsername } from 'util';
@@ -11,7 +11,14 @@ class AdminHeader extends Component {
         this.handleLogout = this.handleLogout.bind(this);
     }
     handleLogout(){
-        axios({
+        api.logout()
+        .then(result=>{
+            if(result.code == 0){
+                removeUsername()
+                window.location.href = '/login'
+            }
+        })
+        /*axios({
             method: 'delete',
             url:'http://127.0.0.1:3000/sessions/users',
         })
@@ -20,7 +27,7 @@ class AdminHeader extends Component {
                 removeUsername()
                 window.location.href = '/login'
             }
-        })
+        })*/
     }
     render() {
         const menu = (
