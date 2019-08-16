@@ -27,7 +27,7 @@ async function getCounts(){
     try{
         //不存在继发关系,同时触发
         const userPromise = UserModel.estimatedDocumentCount()
-        const orderPromise = UserModel.estimatedDocumentCount()
+        const orderPromise = OrderModel.estimatedDocumentCount()
         const productPromise = ProductModel.estimatedDocumentCount()
         
         const usernum = await userPromise

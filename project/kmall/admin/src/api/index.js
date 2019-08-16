@@ -12,17 +12,25 @@ const getApiObj = (apiConfig)=>{
             return request(url,method,data);
         }
     }
-    return apiObj
+    return apiObj;
 }
 
 const request = (url,method,data)=>{
     return new Promise((resolve,reject)=>{
-        axios({
+        const options = {
             method: method,
             url:url,
-            withCredentials:true,
-            data:data
-        })
+            withCredentials:true
+        }
+        switch(options.method.toUpperCase()){
+            case 'GET':
+            case 'DELETE':
+                options.params = data
+                break
+            default:
+                options.data = data
+        }
+        axios(options)
         .then(result=>{
             const data  = result.data;
             if(data.code == 10){
