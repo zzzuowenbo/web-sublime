@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import "./index.css";
 import { Layout, Menu, Icon } from 'antd';
 import { NavLink } from "react-router-dom";
-import "./index.css";
 const { Sider } = Layout;
 
 class AdminSider extends Component {

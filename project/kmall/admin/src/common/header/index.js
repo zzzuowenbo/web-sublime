@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Layout, Menu, Dropdown, Icon } from 'antd';
 import "./index.css";
+import { Layout, Menu, Dropdown, Icon } from 'antd';
 import { getUsername,removeUsername } from 'util';
 const { Header } = Layout;
 
