@@ -1,41 +1,32 @@
-import axios from 'axios'
-import { message } from 'antd'
+import axios from 'axios';
+import { message } from 'antd';
+import * as types  from './actionTypes.js';
+import { saveUsername } from 'util';
 
-import * as types  from './actionTypes.js'
-
-import { saveUsername } from 'util'
-
-const getLoginRequestStartAction = ()=>({
-    type:types.LOGIN_REQUEST_START,
-})
-const getLoginRequestDoneAction = ()=>({
-    type:types.LOGIN_REQUEST_DONE,
+const getSetCountAction = (payload)=>({
+    type:types.SET_COUNT,
+    payload
 })
 
-export const getLoginAction = (values)=>{
+export const getCountAction = (values)=>{
     return (dispatch,getState)=>{
-        dispatch(getLoginRequestStartAction())
-        values.role = 'admin'
+        
         axios({
-            method: 'post',
-            url:'http://127.0.0.1:3000/sessions/users',
-            data:values
+            method: 'get',
+            url:'http://127.0.0.1:3000/counts/',
+            withCredentials:true
         })
         .then(result=>{
-            const data  = result.data
+            const data = result.data
             if(data.code == 0){
-                saveUsername(data.data.username)
-                window.location.href = "/"
+                dispatch(getSetCountAction(data.data))
             }else{
-                message.error(data.message)
+                message.error('获取首页数据失败,请稍后再试')
             }
         })
         .catch(err=>{
             message.error('网络错误,请稍后再试')
-        })
-        .finally(()=>{
-            dispatch(getLoginRequestDoneAction())
-        })       
+        })    
     }
 }
 
