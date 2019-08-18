@@ -40,7 +40,7 @@ class CategoryList extends Component {
         super(props)
     }
     render() {
-        const dataSource = []
+        const dataSource = [];
         return (
             <div className="User">
              <Layout>
@@ -62,11 +62,11 @@ class CategoryList extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state)=>({
 
 })
 
-const mapDispatchToProps = (dispatch) =>({
+const mapDispatchToProps =(dispatch)=>({
 
 })
 

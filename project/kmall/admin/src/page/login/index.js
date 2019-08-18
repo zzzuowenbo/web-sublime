@@ -6,7 +6,7 @@ import "./index.css";
 
 class NormalLoginForm extends Component {
     constructor(props){
-        super(props)
+        super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleSubmit(e) {
@@ -17,7 +17,7 @@ class NormalLoginForm extends Component {
                 this.props.handleLogin(values);
             }
         });
-    };
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
