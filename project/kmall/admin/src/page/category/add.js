@@ -11,16 +11,20 @@ class CategoryAdd extends Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+    componentDidMount(){
+    	this.props.getLevelCategories()
+    }
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ',values);
+            	this.props.handleAdd(values);
             }
         });
     }
     render() {
     	const { getFieldDecorator } = this.props.form;
+    	const { categories } = this.props;
         return (
             <Layout>
                 <Breadcrumb style={{ margin: '16px 0' }}>
@@ -38,6 +42,11 @@ class CategoryAdd extends Component {
                             		placeholder="请选择父级分类"
                             	>
                             		<Option value="0">根分类</Option>
+                            		{
+                            			categories.map((category)=>{
+                            				return <Option key={category.get('_id')} value={category.get('_id')}>{category.get('name')}</Option>
+                            			})
+                            		}
                             	</Select>,
                         	)}
                         </Form.Item>                    
@@ -65,11 +74,16 @@ class CategoryAdd extends Component {
 
 const WrappedCategoryAdd = Form.create({ name: 'category' })(CategoryAdd);
 const mapStateToProps = (state)=>({
-      
+      categories:state.get('category').get('categories')
 })
 
 const mapDispatchToProps = (dispatch)=>({
-    
+    handleAdd:(values)=>{
+        dispatch(actionCreator.getAddAction(values))
+    },
+    getLevelCategories:()=>{
+    	dispatch(actionCreator.getLevelCategoriesAction())
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(WrappedCategoryAdd);
