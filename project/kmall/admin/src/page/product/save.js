@@ -6,10 +6,10 @@ const { Option } = Select;
 import Layout from 'common/layout';
 import UploadImage from 'common/upload-image';
 import RichEditor from 'common/rich-editor';
-import { UPLOAD_PRODUCT_IMAGE } from 'api/config.js';
+import { UPLOAD_PRODUCT_IMAGE,UPLOAD_PRODUCT_DETAIL_IMAGES } from 'api/config.js';
 import "./index.css";
 
-class CategoryAdd extends Component {
+class ProductSave extends Component{
     constructor(props){
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -17,111 +17,148 @@ class CategoryAdd extends Component {
     componentDidMount(){
         this.props.getLevelCategories()
     }
-    handleSubmit(e) {
+    handleSubmit(e){
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                this.props.handleAdd(values)
-            }
+        this.props.form.validateFields((err, values)=>{
+            this.props.handleSave(err,values)
         })
     }    
-    render() {
-        const { getFieldDecorator } = this.props.form
-        const {categories} = this.props
+    render(){
+        const { getFieldDecorator } = this.props.form;
+        const { categories,
+                mainImageValidateStatus,
+                mainImageHelp,
+                imagesValidateStatus,
+                imagesHelp,
+                handleMainImage,
+                handleImages,
+                handleDetail
+              } = this.props;
         return (
             <Layout>
-                 <Breadcrumb style={{ margin: '16px 0' }}>
-                  <Breadcrumb.Item>首页</Breadcrumb.Item>
-                  <Breadcrumb.Item>商品管理</Breadcrumb.Item>
-                  <Breadcrumb.Item>添加商品</Breadcrumb.Item>
+                <Breadcrumb style={{ margin: '16px 0' }}>
+                    <Breadcrumb.Item>首页</Breadcrumb.Item>
+                    <Breadcrumb.Item>商品管理</Breadcrumb.Item>
+                    <Breadcrumb.Item>添加商品</Breadcrumb.Item>
                 </Breadcrumb>
                 <div className="content">
                     <Form labelCol={{ span: 5 }} wrapperCol={{ span: 12 }} >
                         <Form.Item label="商品分类">
-                          {getFieldDecorator('category', {
-                            rules: [{ required: true, message: '请选择商品分类' }],
-                          })(
+                            {getFieldDecorator('category', {
+                                rules: [{ required: true, message: '请选择商品分类' }],
+                            })(
                             <Select
-                              placeholder="请选择父级分类"
+                                placeholder="请选择商品分类"
                             >
-                              {
-                                categories.map((category)=>{
-                                    return <Option key={category.get('_id')} value={category.get('_id')}>{category.get('name')}</Option>
-                                })
-                              }
+                                {
+                                    categories.map((category)=>{
+                                        return <Option key={category.get('_id')} value={category.get('_id')}>{category.get('name')}</Option>
+                                    })
+                                }
                             </Select>,
-                          )}
+                            )}
                         </Form.Item>                    
                         <Form.Item label="商品名称">
-                          {getFieldDecorator('name', {
-                            rules: [{ required: true, message: '请输入商品名称' }],
-                          })(<Input />)}
+                            {getFieldDecorator('name', {
+                                rules: [{ required: true, message: '请输入商品名称' }],
+                            })(<Input />)}
                         </Form.Item>
                         <Form.Item label="商品描述">
-                          {getFieldDecorator('description', {
-                            rules: [{ required: true, message: '请输入商品描述' }],
-                          })(<Input />)}
+                            {getFieldDecorator('description', {
+                                rules: [{ required: true, message: '请输入商品描述' }],
+                            })(<Input />)}
                         </Form.Item>
                         <Form.Item label="商品价格">
-                          {getFieldDecorator('price', {
-                            rules: [{ required: true, message: '请输入商品价格' }],
-                          })(<InputNumber />)}
+                            {getFieldDecorator('price', {
+                                rules: [{ required: true, message: '请输入商品价格' }],
+                            })(<InputNumber min={0}/>)}
                         </Form.Item>
                         <Form.Item label="商品库存">
-                          {getFieldDecorator('stock', {
-                            rules: [{ required: true, message: '请输入商品库存' }],
-                          })(<InputNumber />)}
+                            {getFieldDecorator('stock', {
+                                rules: [{ required: true, message: '请输入商品库存' }],
+                            })(<InputNumber min={0}/>)}
                         </Form.Item>
-                        <Form.Item label="封面图片">
-                          <UploadImage
-                            max={1}
-                            action={UPLOAD_PRODUCT_IMAGE}
-                            getFileList={
-                              (fileList)=>{
-                                console.log(fileList)
-                              }
-                            }
-                          />
+                        <Form.Item 
+                            label="封面图片" 
+                            required={true} 
+                            validateStatus={mainImageValidateStatus} 
+                            help={mainImageHelp}
+                        >
+                            <UploadImage
+                                max={1}
+                                action={ UPLOAD_PRODUCT_IMAGE }
+                                getFileList={
+                                    (fileList)=>{
+                                        handleMainImage(fileList)
+                                    }
+                                }
+                            />
                         </Form.Item>
-                        <Form.Item label="商品图片">
-                          <UploadImage
-                            max={3}
-                            action={UPLOAD_PRODUCT_IMAGE}
-                            getFileList={
-                              (fileList)=>{
-                                console.log(fileList)
-                              }
-                            }
-                          />
+                        <Form.Item 
+                            label="商品图片" 
+                            required={true}
+                            validateStatus={imagesValidateStatus} 
+                            help={imagesHelp}
+                        >
+                            <UploadImage
+                                max={3}
+                                action={ UPLOAD_PRODUCT_IMAGE }
+                                getFileList={
+                                    (fileList)=>{
+                                        handleImages(fileList)
+                                    }
+                                }
+                            />
                         </Form.Item>
                         <Form.Item label="商品详情">
-                          <RichEditor />
+                            <RichEditor 
+                                url={ UPLOAD_PRODUCT_DETAIL_IMAGES }
+                                getValues={
+                                    (values)=>{
+                                        handleDetail(values)
+                                    }
+                                }
+                            />
                         </Form.Item>                                                                                                                                                        
                         <Form.Item wrapperCol={{ span: 12, offset: 5 }}>
-                          <Button type="primary" onClick={this.handleSubmit}>
-                            提交
-                          </Button>
+                            <Button type="primary" onClick={this.handleSubmit}>
+                                提交
+                            </Button>
                         </Form.Item>
-                      </Form>                                  
+                    </Form>                                  
                 </div>                
             </Layout>
         )
     }
 }
 
-const WrappedCategoryAdd = Form.create({ name: 'category' })(CategoryAdd);
+const WrappedProductSave = Form.create({ name: 'product' })(ProductSave);
+const mapStateToProps = (state)=>{
+    return{
+        categories:state.get('product').get('categories'),
+        mainImageValidateStatus:state.get('product').get('mainImageValidateStatus'),
+        mainImageHelp:state.get('product').get('mainImageHelp'),
+        imagesValidateStatus:state.get('product').get('imagesValidateStatus'),
+        imagesHelp:state.get('product').get('imagesHelp'),
+    }   
+}
 
-const mapStateToProps = (state) => ({
-    categories:state.get('category').get('categories')
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    handleAdd:(values)=>{
-        dispatch(actionCreator.getAddAction(values))
+const mapDispatchToProps = (dispatch)=>({
+    handleMainImage:(fileList)=>{
+        dispatch(actionCreator.setMainImageAction(fileList))
+    },
+    handleImages:(fileList)=>{
+        dispatch(actionCreator.setImagesAction(fileList))
+    },
+    handleDetail:(values)=>{
+        dispatch(actionCreator.setDetailAction(values))
+    },
+    handleSave:(err,values)=>{
+        dispatch(actionCreator.getSaveAction(err,values))
     },
     getLevelCategories:()=>{
         dispatch(actionCreator.getLevelCategoriesAction())
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(WrappedCategoryAdd);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedProductSave);

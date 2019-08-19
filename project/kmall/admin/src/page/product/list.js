@@ -28,41 +28,12 @@ class CategoryList extends Component {
             handleUpdateIsShow 
         } = this.props
         const columns = [{
-                title: '分类名称',
+                title: '商品名称',
                 dataIndex: 'name',
-                width:'40%',
                 key: 'name',
-                render:(name,record)=><Input 
-                    style={{width:'60%'}}
-                    defaultValue={name}
-                    onBlur={
-                        (ev)=>{
-                            if(ev.target.value != name){
-                                handleUpdateName(record._id,ev.target.value)    
-                            }
-                        }
-                    }
-                />
             },
             {
-                title: '手机分类名称',
-                dataIndex: 'mobileName',
-                width:'40%',
-                key: 'mobileName',
-                render:(mobileName,record)=><Input 
-                    style={{width:'60%'}}
-                    defaultValue={mobileName}
-                    onBlur={
-                        (ev)=>{
-                            if(ev.target.value != mobileName){
-                                handleUpdateMobileName(record._id,ev.target.value)    
-                            }
-                        }
-                    }
-                />                
-            },
-            {
-                title: '是否显示',
+                title: '是否首页显示',
                 dataIndex: 'isShow',
                 key: 'isShow',
                 render:(isShow,record)=><Switch 
@@ -76,6 +47,36 @@ class CategoryList extends Component {
                     } 
                 />
             },
+            {
+                title: '上架/下架',
+                dataIndex: 'status',
+                key: 'status',
+                render:(status,record)=><Switch 
+                    checkedChildren="显示" 
+                    unCheckedChildren="隐藏" 
+                    checked={status == '0' ? false : true}
+                    onChange={
+                        (checked)=>{
+                            handleUpdateIsShow(record._id,checked ? '1' : '0')
+                        }
+                    } 
+                />
+            },
+            {
+                title: '是否热卖',
+                dataIndex: 'isHot',
+                key: 'isHot',
+                render:(isHot,record)=><Switch 
+                    checkedChildren="显示" 
+                    unCheckedChildren="隐藏" 
+                    checked={isHot == '0' ? false : true}
+                    onChange={
+                        (checked)=>{
+                            handleUpdateIsShow(record._id,checked ? '1' : '0')
+                        }
+                    } 
+                />
+            },                        
             {
                 title: '排序',
                 dataIndex: 'order',
@@ -91,6 +92,9 @@ class CategoryList extends Component {
                     }
                 />                 
             },
+            {
+                title:'操作'
+            }
         ]        
         const dataSource = list.toJS()        
         return (
@@ -102,7 +106,7 @@ class CategoryList extends Component {
                   <Breadcrumb.Item>商品列表</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{marginBottom:16,height:40}} className='claerfix'>
-                    <Link to="/product/add" style={{float:'right'}}>
+                    <Link to="/product/save" style={{float:'right'}}>
                         <Button type="primary">
                             添加商品
                         </Button>
@@ -137,11 +141,11 @@ class CategoryList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    list:state.get('category').get('list'),
-    current:state.get('category').get('current'),
-    total:state.get('category').get('total'),
-    pageSize:state.get('category').get('pageSize'), 
-    isFetching:state.get('category').get('isFetching'),  
+    list:state.get('product').get('list'),
+    current:state.get('product').get('current'),
+    total:state.get('product').get('total'),
+    pageSize:state.get('product').get('pageSize'), 
+    isFetching:state.get('product').get('isFetching'),  
 })
 
 const mapDispatchToProps = (dispatch) =>({
@@ -159,7 +163,7 @@ const mapDispatchToProps = (dispatch) =>({
     },
     handleUpdateIsShow:(id,newIsShow)=>{
         dispatch(actionCreator.getUpdateUpdateIsShowAction(id,newIsShow))
-    }              
+    },               
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryList);

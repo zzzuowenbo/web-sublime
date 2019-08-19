@@ -9,24 +9,66 @@ const getPageRequestStartAction = ()=>({
 const getPageRequestDoneAction = ()=>({
     type:types.PAGE_REQUEST_DONE
 })
-
 const getSetPageAction = (payload)=>({
     type:types.SET_PAGE,
     payload
 })
-
 const setCategoriesAction = (payload)=>({
     type:types.SET_CATEGORIES,
     payload
 })
+const setMainImageErrorAction = ()=>({
+    type:types.SET_MAIN_IMAGE_ERROR
+})
+const setImagesErrorAction = ()=>({
+    type:types.SET_IMAGES_ERROR
+})
 
-export const getAddAction = (values)=>{
+export const setMainImageAction = (payload)=>({
+    type:types.SET_MAIN_IMAGE,
+    payload
+})
+export const setImagesAction = (payload)=>({
+    type:types.SET_IMAGES,
+    payload
+})
+export const setDetailAction = (payload)=>({
+    type:types.SET_DETAIL,
+    payload
+})
+
+export const getSaveAction = (err,values)=>{
     return (dispatch,getState)=>{
-        api.addCategories(values)
+        const state = getState().get('product');
+        const mainImage = state.get('mainImage');
+        const images = state.get('images');
+        const detail = state.get('detail');
+        let hasErr = false;
+        if(err){
+            hasErr = true
+        }
+        if(!mainImage){
+            hasErr = true;
+            dispatch(setMainImageErrorAction())
+        }
+        if(!images){
+            hasErr = true;
+            dispatch(setImagesErrorAction())
+        }
+        if(hasErr){
+            return
+        }
+        api.addProducts({
+            ...values,
+            mainImage,
+            images,
+            detail
+        })
         .then(result=>{
             if(result.code == 0){
-                message.success('添加分类成功!')
-                dispatch(setCategoriesAction(result.data))
+                message.success('添加商品成功!',()=>{
+                    window.location.href = "/product"
+                })
             }else{
                 message.error(result.message)
             }
@@ -34,7 +76,7 @@ export const getAddAction = (values)=>{
         })
         .catch(err=>{
             message.error('网络错误,请稍后再试!')
-        })              
+        })             
     }
 }
 export const getLevelCategoriesAction = ()=>{

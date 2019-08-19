@@ -8,3 +8,6 @@
 .ant-upload-picture-card-wrapper{
     display: block !important;
 }
+.simditor .simditor-body{
+    overflow: hidden !important;
+}

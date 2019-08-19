@@ -4,14 +4,14 @@ import ProductSave from './save.js';
 import ProductList from './list.js';
 import "./index.css";
 
-class Product extends Component {
+class Product extends Component{
     constructor(props) {
         super(props)
     }
     render() {
         return (
            <Switch>
-                <Route path="/product/add" component={ProductSave} />
+                <Route path="/product/save" component={ProductSave} />
                 <Route path="/product/" component={ProductList} />
            </Switch> 
         )
