@@ -15,11 +15,11 @@ export const getCountAction = (values)=>{
             if(result.code == 0){
                 dispatch(getSetCountAction(result.data))
             }else{
-                message.error('获取首页数据失败,请稍后再试')
+                message.error('获取首页数据失败,请稍后再试!')
             }
         })
         .catch(err=>{
-            message.error('网络错误,请稍后再试')
+            message.error('网络错误,请稍后再试!')
         })    
         /*axios({
             method: 'get',
