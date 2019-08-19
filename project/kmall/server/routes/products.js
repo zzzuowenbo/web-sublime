@@ -112,8 +112,12 @@ router.use((req,res,next)=>{
 //处理商品图片
 router.post("/images",upload.single('file'),(req,res)=>{
 	const filePath = 'http://127.0.0.1:3000/product-images/'+req.file.filename;
-	res.send(filePath);
-	
+	res.send({
+    	"name": req.file.originalname,
+    	"status": "done",
+    	"url": filePath,
+    	"thumbUrl": filePath
+	});	
 })
 //处理商品详情图片
 router.post("/detailImages",upload.single('upload'),(req,res)=>{
