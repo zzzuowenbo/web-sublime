@@ -12,7 +12,7 @@ import "./index.css";
 class ProductSave extends Component{
     constructor(props){
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             productId:this.props.match.params.productId
         }
