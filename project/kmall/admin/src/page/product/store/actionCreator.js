@@ -100,12 +100,16 @@ export const getLevelCategoriesAction = ()=>{
     }
 }
 
-export const getPageAction = (page)=>{
+export const getPageAction = (page,keyword)=>{
     return (dispatch,getState)=>{
-        dispatch(getPageRequestStartAction())
-        api.getProductsList({
+        dispatch(getPageRequestStartAction());
+        const options = {
             page:page
-        })
+        }
+        if(keyword){
+            options.keyword = keyword
+        }
+        api.getProductsList(options)
         .then(result=>{
             if(result.code == 0){
                 dispatch(getSetPageAction(result.data))

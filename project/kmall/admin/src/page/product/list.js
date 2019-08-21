@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Breadcrumb, Table,Button,Input,InputNumber,Switch,Divider } from 'antd';
+const { Search } = Input;
 import moment from 'moment';
 import { Link } from "react-router-dom";
 import Layout from 'common/layout';
@@ -22,6 +23,7 @@ class ProductList extends Component {
             pageSize,
             handlePage,
             isFetching,
+            keyword,
             handleUpdateIsShow,
             handleUpdateStatus,
             handleUpdateIsHot,
@@ -31,6 +33,15 @@ class ProductList extends Component {
                 title: '商品名称',
                 dataIndex: 'name',
                 key: 'name',
+                render:(name)=>{
+                    if(keyword){
+                        const reg = new RegExp('('+keyword+')','ig');
+                        const html = name.replace(reg,'<b style="color:black;">$1</b>');
+                        return <span dangerouslySetInnerHTML={{__html:html}}></span>
+                    }else{
+                        return name
+                    }
+                }
             },
             {
                 title: '是否首页显示',
@@ -111,6 +122,14 @@ class ProductList extends Component {
                   <Breadcrumb.Item>商品列表</Breadcrumb.Item>
                 </Breadcrumb>
                 <div style={{marginBottom:16,height:40}} className='claerfix'>
+                    <Search 
+                        placeholder="请输入商品名称关键字" 
+                        onSearch={
+                            value => handlePage(1,value)
+                        } 
+                        enterButton 
+                        style={{ width: 300 }}
+                    />
                     <Link to="/product/save" style={{float:'right'}}>
                         <Button type="primary">
                             添加商品
@@ -129,7 +148,7 @@ class ProductList extends Component {
                         }}
                         onChange={
                             (page)=>{
-                                handlePage(page.current)
+                                handlePage(page.current,keyword)
                             }
                         }
                         loading={
@@ -152,11 +171,12 @@ const mapStateToProps = (state) => ({
     total:state.get('product').get('total'),
     pageSize:state.get('product').get('pageSize'), 
     isFetching:state.get('product').get('isFetching'),  
+    keyword:state.get('product').get('keyword')
 })
 
 const mapDispatchToProps = (dispatch) =>({
-    handlePage:(page)=>{
-        dispatch(actionCreator.getPageAction(page))
+    handlePage:(page,keyword)=>{
+        dispatch(actionCreator.getPageAction(page,keyword))
     },
     handleUpdateIsShow:(id,newIsShow)=>{
         dispatch(actionCreator.getUpdateIsShowAction(id,newIsShow))

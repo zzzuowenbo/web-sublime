@@ -21,7 +21,9 @@ const defaultState = fromJS({
     name:'',
     description:'',
     price:'',
-    stock:''
+    stock:'',
+
+    keyword:''
 })
 
 export default (state=defaultState,action)=>{
@@ -30,7 +32,8 @@ export default (state=defaultState,action)=>{
             list:fromJS(action.payload.list),
             current:action.payload.current,
             total:action.payload.total,
-            pageSize:action.payload.pageSize            
+            pageSize:action.payload.pageSize,
+            keyword:action.payload.keyword            
         })
     }
     if(action.type == types.PAGE_REQEST_START){
