@@ -8,13 +8,20 @@ const defaultState = fromJS({
     current:1,
     total:0,
     pageSize:0,
+
     mainImage:'',
     images:'',
     detail:'',
     mainImageValidateStatus:'',
     mainImageHelp:'',
     imagesValidateStatus:'',
-    imagesHelp:''  
+    imagesHelp:'', 
+
+    category:'',
+    name:'',
+    description:'',
+    price:'',
+    stock:''
 })
 
 export default (state=defaultState,action)=>{
@@ -37,15 +44,15 @@ export default (state=defaultState,action)=>{
     } 
     if(action.type == types.SET_MAIN_IMAGE){
         return state.merge({
-            'mainImage':action.payload,
+            mainImage:action.payload,
             mainImageValidateStatus:'',
             mainImageHelp:''
         })
     }   
     if(action.type == types.SET_IMAGES){
         return state.merge({
-            'images':action.payload,
-            imagesValidateStatus:'',    
+            images:action.payload,
+            imagesValidateStatus:'',   
             imagesHelp:''             
         })
     }
@@ -63,6 +70,19 @@ export default (state=defaultState,action)=>{
             imagesValidateStatus:'error',    
             imagesHelp:'请上传商品图片'             
         })
-    }      
+    }  
+    if(action.type == types.SET_PRODUCT_DETAIL){
+        return state.merge({
+            category:action.payload.category._id,
+            categoryName:action.payload.category.name,
+            name:action.payload.name,
+            description:action.payload.description,
+            price:action.payload.price,
+            stock:action.payload.stock,
+            detail:action.payload.detail,
+            mainImage:action.payload.mainImage,
+            images:action.payload.images
+        })
+    }    
     return state
 }

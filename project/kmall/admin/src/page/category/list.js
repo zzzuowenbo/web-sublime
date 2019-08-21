@@ -92,7 +92,7 @@ class CategoryList extends Component {
         }];
         const dataSource = list.toJS();
         return (
-            <div className="User">
+            <div className="CategoryList">
              <Layout>
                  <Breadcrumb style={{ margin: '16px 0' }}>
                   <Breadcrumb.Item>首页</Breadcrumb.Item>

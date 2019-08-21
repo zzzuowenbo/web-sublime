@@ -6,6 +6,9 @@ import $ from 'jquery';
 class RichEditor extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            isLoaded:false
+        }
         this.toolbar = [
             'title',
             'bold',
@@ -42,8 +45,16 @@ class RichEditor extends Component{
             }
         })
         this.editor.on('valuechanged',()=>{
-            this.props.getValues(this.editor.getValue())
+            this.setState({isLoaded:true},()=>{
+                this.props.getValues(this.editor.getValue())
+            })
         })
+    }
+    componentDidUpdate(){
+        if(this.props.values && !this.state.isLoaded){
+            this.editor.setValue(this.props.values)
+            this.setState({isLoaded:true})
+        }
     }
     render(){
         return(
