@@ -19,7 +19,8 @@ module.exports = {
         'common':'./src/pages/common/index.js',
         'index':'./src/pages/index/index.js',
         'list':'./src/pages/list/index.js',
-        'user-login':'./src/pages/user-login/index.js'
+        'user-login':'./src/pages/user-login/index.js',
+        'user-register':'./src/pages/user-register/index.js'
     },
     //出口
     output: {
@@ -82,14 +83,18 @@ module.exports = {
         new CleanWebpackPlugin(),
         new htmlWebpackPlugin(getHtmlConfig('index','首页')),
         new htmlWebpackPlugin(getHtmlConfig('list','列表页')), 
-        new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),       
+        new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
+        new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),       
         new MiniCssExtractPlugin({
             filename: 'css/[name]-[hash]-bundle.css'
         })
     ],
     devServer: {
         contentBase:'./dist',//内容的目录
-        port:3001,//指定服务端口
-        historyApiFallback:true//让h5路由不向后端发送请求
+        port:3002,//指定服务端口
+        proxy: [{
+            context: ['/sessions','/users'],
+            target: 'http://127.0.0.1:3000'
+        }]
     }               
 }
