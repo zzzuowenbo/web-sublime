@@ -3,9 +3,10 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const getHtmlConfig = (name)=>({
+const getHtmlConfig = (name,title)=>({
     template:'./src/views/'+name+'.html',
     filename:name+'.html',
+    title:title,
     hash:true,
     chunks:['common',name]
 })
@@ -15,9 +16,10 @@ module.exports = {
     mode:'development',
     //多入口
     entry:{
-        common:'./src/pages/common/index.js',
-        index:'./src/pages/index/index.js',
-        list:'./src/pages/list/index.js'
+        'common':'./src/pages/common/index.js',
+        'index':'./src/pages/index/index.js',
+        'list':'./src/pages/list/index.js',
+        'user-login':'./src/pages/user-login/index.js'
     },
     //出口
     output: {
@@ -25,14 +27,15 @@ module.exports = {
         //指定输出参考根路径
         publicPath:'/',
         //所有输出文件的目标路径
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname,'dist')
     },
     resolve:{
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
             common:path.resolve(__dirname,'./src/common'),
-            api:path.resolve(__dirname,'./src/api')
+            api:path.resolve(__dirname,'./src/api'),
+            node_modules:path.resolve(__dirname,'./node_modules')
         }
     },    
     module: {
@@ -42,8 +45,8 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
+                        loader:MiniCssExtractPlugin.loader,
+                        options:{
                         }
                     },
                     "css-loader"
@@ -51,12 +54,13 @@ module.exports = {
             },       
         //处理图片
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpg|gif|eot|svg|ttf|woff2|woff)\??.*$/i,
                 use: [
                     {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 400
+                        loader:'url-loader',
+                        options:{
+                            limit:400,
+                            name:'resource/[name].[ext]'
                         }
                     }
                 ]
@@ -64,11 +68,11 @@ module.exports = {
         //bable
             {
                 test:/\.js$/,
-                exclude: /(node_modules)/,
+                exclude:/(node_modules)/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env','es2015','stage-3'],
+                    loader:'babel-loader',
+                    options:{
+                        presets:['env','es2015','stage-3'],
                     },
                 }
             },           
@@ -76,14 +80,15 @@ module.exports = {
     },
     plugins:[
         new CleanWebpackPlugin(),
-        new htmlWebpackPlugin(getHtmlConfig('index')),
-        new htmlWebpackPlugin(getHtmlConfig('list')),        
+        new htmlWebpackPlugin(getHtmlConfig('index','首页')),
+        new htmlWebpackPlugin(getHtmlConfig('list','列表页')), 
+        new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),       
         new MiniCssExtractPlugin({
             filename: 'css/[name]-[hash]-bundle.css'
         })
     ],
     devServer: {
-        contentBase: './dist',//内容的目录
+        contentBase:'./dist',//内容的目录
         port:3001,//指定服务端口
         historyApiFallback:true//让h5路由不向后端发送请求
     }               

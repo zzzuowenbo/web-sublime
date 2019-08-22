@@ -1,2 +1,2 @@
 require('./index.css');
-console.log('index index.js...');
+require('pages/common/footer');
