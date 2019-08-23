@@ -25,7 +25,7 @@ var page = {
         this.bindEvent()
     },
     bindEvent: function() {
-        var _this = this
+        var _this = this;
         $('#btn-submit').on('click', function() {
             _this.submit()
         })
