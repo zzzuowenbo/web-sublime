@@ -6,42 +6,62 @@ var _util = require('util');
 var api = require('api');
 
 var formErr = {
-    hide: function() {
+    hide:function(){
         $('.error-item')
-            .hide()
-            .find('.error-msg')
-            .text('')
+        .hide()
+        .find('.error-msg')
+        .text('')
     },
-    show: function(msg) {
+    show:function(msg){
         $('.error-item')
-            .show()
-            .find('.error-msg')
-            .text(msg)
+        .show()
+        .find('.error-msg')
+        .text(msg)
     }
 }
 
 var page = {
-    init: function() {
+    init:function(){
         this.bindEvent()
     },
-    bindEvent: function() {
+    bindEvent:function(){
         var _this = this;
+        $('[name="username"]').on('blur',function(){
+            var username = $(this).val();
+            if(!_util.validate(username, 'require')){
+                return;
+            }
+            if(!_util.validate(username, 'username')){
+                return;
+            }
+            api.checkUsername({
+                data:{
+                    username:username
+                },
+                success:function(){
+                    formErr.hide();
+                },
+                error:function(msg){
+                    formErr.show(msg)
+                }
+            })
+        })
         $('#btn-submit').on('click', function() {
             _this.submit()
         })
         $('input').on('keyup', function(ev) {
-            if (ev.keyCode == 13) {
+            if(ev.keyCode == 13){
                 _this.submit()
             }
         })
     },
-    submit: function() {
+    submit:function(){
         var formData = {
-            username: $.trim($('[name="username"]').val()),
-            password: $.trim($('[name="password"]').val()),
-            repassword: $.trim($('[name="repassword"]').val()),
-            phone: $.trim($('[name="phone"]').val()),
-            email: $.trim($('[name="email"]').val()),
+            username:$.trim($('[name="username"]').val()),
+            password:$.trim($('[name="password"]').val()),
+            repassword:$.trim($('[name="repassword"]').val()),
+            phone:$.trim($('[name="phone"]').val()),
+            email:$.trim($('[name="email"]').val())
         }
         var validateResult = this.validate(formData);
         if(validateResult.status){
@@ -49,7 +69,7 @@ var page = {
             api.register({
                 data: formData,
                 success:function(data) {
-                    console.log(data)
+                    window.location.href = "./result.html"
                 },
                 error:function(msg){
                     formErr.show(msg) 
@@ -60,24 +80,24 @@ var page = {
             formErr.show(validateResult.msg)
         }
     },
-    validate: function(formData) {
+    validate:function(formData){
         var result = {
             status: false,
             msg: ''
         }
-        if (!_util.validate(formData.username, 'require')) {
+        if(!_util.validate(formData.username, 'require')){
             result.msg = "用户名不能为空";
             return result;
         }
-        if (!_util.validate(formData.username, 'username')) {
+        if(!_util.validate(formData.username, 'username')){
             result.msg = "用户名格式不正确";
             return result;
         }
-        if (!_util.validate(formData.password, 'require')) {
+        if(!_util.validate(formData.password, 'require')){
             result.msg = "密码不能为空";
             return result;
         }
-        if (!_util.validate(formData.password, 'password')) {
+        if(!_util.validate(formData.password, 'password')){
             result.msg = "密码格式不正确";
             return result;
         }
@@ -85,19 +105,19 @@ var page = {
             result.msg = "两次密码不一致";
             return result;           
         }
-        if (!_util.validate(formData.phone, 'require')) {
+        if(!_util.validate(formData.phone, 'require')){
             result.msg = "电话号码不能为空";
             return result;
         }
-        if (!_util.validate(formData.phone, 'phone')) {
+        if(!_util.validate(formData.phone, 'phone')){
             result.msg = "电话号码格式不正确";
             return result;
         }
-        if (!_util.validate(formData.email, 'require')) {
+        if(!_util.validate(formData.email, 'require')){
             result.msg = "email不能为空";
             return result;
         }
-        if (!_util.validate(formData.email, 'email')) {
+        if(!_util.validate(formData.email, 'email')){
             result.msg = "email格式不正确";
             return result;
         }                 
