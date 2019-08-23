@@ -9,7 +9,7 @@ var page = {
         $('#btn-search').on('click',function(){
             _this.submit();
         })
-        $('input').on('keyup',function(ev){
+        $('#search-input').on('keyup',function(ev){
             if(ev.keyCode == 13){
                 _this.submit();
             }

@@ -62,7 +62,7 @@ var page = {
 			api.login({
 				data:formData,
 				success:function(data){
-					window.location.href = "/"
+					window.location.href = _util.getParamFromUrl('redirect') || '/'
 				},
 				error:function(msg){
 					formErr.show(msg)

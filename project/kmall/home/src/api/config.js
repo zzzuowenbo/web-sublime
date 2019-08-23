@@ -3,7 +3,9 @@ var API_CONFIG = {
 	getUsername: 	['/sessions/username','get'],
 	logout:     	['/sessions/users','delete'],
 	register:   	['/users','post'],
-	checkUsername: 	['/users/checkUsername','get']
+	checkUsername: 	['/users/checkUsername','get'],
+	getUserinfo: 	['/sessions/users','get'],
+	updateUsers: 	['/users','put']
 }
 
 module.exports = {

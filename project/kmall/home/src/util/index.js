@@ -30,7 +30,7 @@ module.exports = {
         alert(msg)
     },
     goLogin:function(){
-        window.location.href = "/user-login.html"
+        window.location.href = "/user-login.html?redirect="+encodeURIComponent(window.location.href)
     },
     getParamFromUrl:function(key){
         var query = window.location.search.substr(1);
