@@ -8,7 +8,8 @@ var API_CONFIG = {
 	updateUsers: 		['/users','put'],
 	getHomeCategories: 	['/categories/homeCategories','get'],
 	getPositionAds:     ['/ads/positionAds','get'],
-    getFloors:          ['/floors','get']
+    getFloors:          ['/floors','get'],
+    getProductsList:   	['/products/list','get']
 }
 
 module.exports = {
