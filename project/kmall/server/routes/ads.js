@@ -1,8 +1,8 @@
 /*
 * @Author: Tom
 * @Date:   2018-08-06 09:23:30
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-07-11 15:51:16
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-22 22:19:25
 */
 const Router = require('express').Router;
 const AdModel = require('../models/ad.js');
@@ -28,7 +28,7 @@ const router = Router();
 //获取位置的广告
 router.get("/positionAds",(req,res)=>{
 	const position = req.query.position || 1
-	AdModel.find({position:position},"-createdAt -updatedAt -__v")
+	AdModel.find({position:position,isShow:1},"-createdAt -updatedAt -__v")
 	.sort({order:-1})
 	.then((ads)=>{
 		res.json({
@@ -120,7 +120,12 @@ router.get('/detail',(req,res)=>{
 //处理图片
 router.post("/image",upload.single('file'),(req,res)=>{
 	const filePath = 'http://127.0.0.1:3000/ad-images/'+req.file.filename;
-	res.send(filePath);
+	res.send({
+    	"name": req.file.originalname,
+    	"status": "done",
+    	"url": filePath,
+    	"thumbUrl": filePath
+	});
 	
 })
 
@@ -150,7 +155,7 @@ router.post("/",(req,res)=>{
 	})
 })
 
-//编辑商品
+//编辑广告
 router.put("/",(req,res)=>{
 	const {id,name,link,image,position}  = req.body;
 	const update = {
