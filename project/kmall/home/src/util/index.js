@@ -29,8 +29,14 @@ module.exports = {
     showSuccessMsg:function(msg){
         alert(msg)
     },
+    showConfirm:function(msg){
+        return window.confirm(msg)
+    },
     goLogin:function(){
         window.location.href = "/user-login.html?redirect="+encodeURIComponent(window.location.href)
+    },
+    goResult:function(type){
+        window.location.href = './result.html?type='+type
     },
     getParamFromUrl:function(key){
         var query = window.location.search.substr(1);

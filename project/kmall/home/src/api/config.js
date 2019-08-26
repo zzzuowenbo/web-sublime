@@ -10,7 +10,12 @@ var API_CONFIG = {
 	getPositionAds:     ['/ads/positionAds','get'],
     getFloors:          ['/floors','get'],
     getProductsList:   	['/products/list','get'],
-    getProductsDetail:  ['/products/detail','get']
+    getProductsDetail:  ['/products/detail','get'],
+    addCarts: 			['/carts','post'],
+    getCartsCount:      ['/carts/count','get'],
+    getCarts: 			['/carts','get'],
+    updateCartsChoices: ['/carts/choices','put'],
+    deleteCarts: 		['/carts','delete']
 }
 
 module.exports = {

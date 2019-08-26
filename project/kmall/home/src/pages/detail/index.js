@@ -27,6 +27,30 @@ var page = {
             var imgSrc = $this.find('img').attr('src');
             $('.product-main-img img').attr('src',imgSrc);
         })
+        this.$elem.on('click','.count-btn',function(){
+            var $this = $(this);
+            var $input = $('.count-input');
+            var current = parseInt($input.val());
+            //增加数量
+            if($this.hasClass('plus')){
+                $input.val(current == _this.stock ? _this.stock : current+1);
+            }
+            //减少数量
+            else if($this.hasClass('minus')){
+                $input.val(current == 1 ? 1 : current-1);
+            }
+        })
+        this.$elem.on('click','.add-cart-btn',function(){
+            api.addCarts({
+                data:{
+                    productId:_this.productsDetailParams.id,
+                    count:$('.count-input').val()
+                },
+                success:function(){
+                    _util.goResult('addCart')
+                }
+            })
+        })
     },
     productsDetail:function(){
         if(!this.productsDetailParams.id){
@@ -37,6 +61,7 @@ var page = {
             data:this.productsDetailParams,
             success:function(product){
                 if(product){
+                    _this.stock = product.stock;
                     product.images = product.images.split(',');
                     product.activeImage = product.images[0];
                     var html = _util.render(tpl,product);
@@ -46,7 +71,7 @@ var page = {
                 }
             }
         })
-    },
+    }
 }
 
 $(function() {

@@ -52,7 +52,8 @@ var page = {
             api.updateUsers({
                 data: formData,
                 success:function(data){
-                    window.location.href = './result.html?type=updatePassword';
+                    //window.location.href = './result.html?type=updatePassword';
+                    _util.goResult('updatePassword');
                 },
                 error:function(msg){
                     formErr.show(msg); 

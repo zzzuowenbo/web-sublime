@@ -5,6 +5,7 @@ var _util = require('util');
 var page = {
 	init:function(){
 		this.loadUsername();
+		this.loadCartsCount();
 		this.bindEvent();
 		return this;
 	},
@@ -29,7 +30,18 @@ var page = {
 				.text(data.username)
 			}
 		})
-	}
+	},
+	loadCartsCount:function(){
+        var $cartNum = $('.nav-list .cart-num')
+        api.getCartsCount({
+            success:function(count){
+                $cartNum.text(count || 0)
+            },
+            error:function(){
+                $cartNum.text(0)
+            }
+        })
+    }
 }
 
 module.exports = page.init();
