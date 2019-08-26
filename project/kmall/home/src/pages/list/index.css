@@ -69,9 +69,7 @@
     text-overflow: ellipsis;
     padding: 0px 10px;  
 }
-
-
-.pagination{
+/*.pagination{
     text-align: center;
 }
 .page-item{
@@ -97,4 +95,4 @@
     display: inline-block;
     font-size: 14px;
     margin-left: 10px;
-}
+}*/

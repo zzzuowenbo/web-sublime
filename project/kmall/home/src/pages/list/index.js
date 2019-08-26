@@ -21,7 +21,13 @@ var page = {
         this.loadProductList();
     },
     initPagination:function(){
-
+        var _this = this;
+    	this.$pagination = $('.pagination-box');
+    	this.$pagination.on('page-change',function(ev,page){
+            _this.productsListParams.page = page;
+            _this.loadProductList();
+        });
+        this.$pagination.pagination();
     },
     bindEvent:function(){
     	var _this = this;
@@ -55,6 +61,7 @@ var page = {
     	})
     },
     loadProductList:function(){
+    	var _this = this;
         api.getProductsList({
         	data:this.productsListParams,
             success:function(result){
@@ -62,9 +69,14 @@ var page = {
             		var html = _util.render(tpl,{
                     	list:result.list
                 	})
-                	$('.product-list-box').html(html)
+                	$('.product-list-box').html(html);
+                	_this.$pagination.pagination('render',{
+                		current:result.current,
+                		total:result.total,
+                		pageSize:result.pageSize               		
+                	})
             	}else{
-            		$('.product-list-box').html('<p class="empty-message">您找的商品不存在!</p>')
+            		$('.product-list-box').html('<p class="empty-message">您找的商品不存在!</p>');
             	}
             }
         })
