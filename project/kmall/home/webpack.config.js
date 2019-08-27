@@ -120,7 +120,8 @@ module.exports = {
                 '/floors',
                 '/products',
                 '/carts',
-                '/orders'
+                '/orders',
+                '/shippings'
             ],
             target: 'http://127.0.0.1:3000'
         }]

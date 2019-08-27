@@ -25,7 +25,6 @@ var page = {
         var _this = this;
         api.getOrdersProducts({
             success:function(result){
-                console.log(result);
                 if(result.cartList.length > 0){
                     var html = _util.render(productTpl,result);
                     _this.$productBox.html(html); 
