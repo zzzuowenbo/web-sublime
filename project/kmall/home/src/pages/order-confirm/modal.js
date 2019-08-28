@@ -19,14 +19,15 @@ var formErr = {
 }
 
 module.exports = {
-	show:function(){
+	show:function(shipping){
+        this.shipping = shipping;
 		this.$elem = $('.modal-box');
 		this.loadModal();
 		this.bindEvent();
 		this.loadProvinces();
 	},
 	loadModal:function(){
-		var html = _util.render(modalTpl);
+		var html = _util.render(modalTpl,this.shipping);
 		this.$elem.html(html);
 	},
 	loadProvinces:function(){
@@ -34,12 +35,19 @@ module.exports = {
         var provincesSelectOptions = this.getSelectOptions(provinces);
         var $provinceSelect = this.$elem.find('.province-select');
         $provinceSelect.html(provincesSelectOptions);
+        if(this.shipping){
+            $provinceSelect.val(this.shipping.province);
+            this.loadCities(this.shipping.province);
+        }
 	},
 	loadCities:function(provinceName){
 		var cities = _city.getCities(provinceName);
 		var citiesSelectOptions = this.getSelectOptions(cities);
         var $citySelect = this.$elem.find('.city-select');
         $citySelect.html(citiesSelectOptions);
+        if(this.shipping){
+            $citySelect.val(this.shipping.city);
+        }
 	},
 	getSelectOptions:function(arr){
 		var html = '<option value="">请选择</option>';
@@ -72,6 +80,7 @@ module.exports = {
         }) 
 	},
 	submit:function(){
+        var _this = this;
         var formData ={
             name:$.trim($('[name="name"]').val()),
             province:$.trim($('[name="province"]').val()),
@@ -83,13 +92,22 @@ module.exports = {
         var validateResult = this.validate(formData);
         if(validateResult.status){
             formErr.hide();
-            api.addShippings({
+            var request = api.addShippings;
+            var action = '新增';
+            if(_this.shipping){
+                formData.id = _this.shipping._id; 
+                request = api.updateShippings;
+                action = '编辑';
+            }
+            request({
                 data:formData,
                 success:function(shippings){
-                    console.log(shippings);
+                    $('.shipping-box').trigger('get-shippings',[shippings]);
+                    _util.showSuccessMsg(action+'地址成功!');
+                    _this.hideModal();
                 },
                 error:function(){
-                    _util.showErrorMsg('添加地址失败,请稍后再试!');
+                    _util.showErrorMsg(action+'地址失败,请稍后再试!');
                 }
             })
         }

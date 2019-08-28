@@ -22,11 +22,14 @@ module.exports = {
         'detail':               './src/pages/detail/index.js',
         'cart':                 './src/pages/cart/index.js',
         'order-confirm':        './src/pages/order-confirm/index.js',
+        'payment':              './src/pages/payment/index.js',
         'user-login':           './src/pages/user-login/index.js',
         'user-register':        './src/pages/user-register/index.js',
         'result':               './src/pages/result/index.js',
         'user-center':          './src/pages/user-center/index.js',
-        'user-update-password': './src/pages/user-update-password/index.js'
+        'user-update-password': './src/pages/user-update-password/index.js',
+        'order-list':           './src/pages/order-list/index.js',
+        'order-detail':         './src/pages/order-detail/index.js'
     },
     //出口
     output: {
@@ -99,11 +102,14 @@ module.exports = {
         new htmlWebpackPlugin(getHtmlConfig('detail','商品详情页')),
         new htmlWebpackPlugin(getHtmlConfig('cart','购物车')),
         new htmlWebpackPlugin(getHtmlConfig('order-confirm','订单确认')),
+        new htmlWebpackPlugin(getHtmlConfig('payment','订单支付')),
         new htmlWebpackPlugin(getHtmlConfig('user-login','用户登录')),
         new htmlWebpackPlugin(getHtmlConfig('user-register','用户注册')),
         new htmlWebpackPlugin(getHtmlConfig('result','结果提示页')), 
         new htmlWebpackPlugin(getHtmlConfig('user-center','个人中心')),
-        new htmlWebpackPlugin(getHtmlConfig('user-update-password','修改密码')),      
+        new htmlWebpackPlugin(getHtmlConfig('user-update-password','修改密码')),
+        new htmlWebpackPlugin(getHtmlConfig('order-list','订单列表')), 
+        new htmlWebpackPlugin(getHtmlConfig('order-detail','订单详情')),      
         new MiniCssExtractPlugin({
             filename: 'css/[name]-[hash]-bundle.css'
         })
@@ -121,7 +127,8 @@ module.exports = {
                 '/products',
                 '/carts',
                 '/orders',
-                '/shippings'
+                '/shippings',
+                '/payments'
             ],
             target: 'http://127.0.0.1:3000'
         }]
