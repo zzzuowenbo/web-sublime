@@ -27,5 +27,8 @@ export const API_CONFIG = {
     addAds:                     ["/ads","post"],
     updateAds:                  ["/ads","put"],
     updateAdsOrder:             ["/ads/order","put"],
-    updateAdsIsShow:            ["/ads/isShow","put"]  
+    updateAdsIsShow:            ["/ads/isShow","put"],
+    getOrdersList: 				["/orders/list","get"],
+    getOrdersDetail:           	['/orders/detail','get'],
+    updateOrdersStatus:         ["/orders/status","put"]
 }
