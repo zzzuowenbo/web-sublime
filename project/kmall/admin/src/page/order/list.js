@@ -24,7 +24,7 @@ class OrderList extends Component{
     		handlePage,
     		isPageFetching,
     		handleSearch
-    	}=this.props;
+    	} = this.props;
 		const columns = [
 			{
 			  title: '订单号',
@@ -146,4 +146,5 @@ const mapDispatchToProps = (dispatch)=>{
 		}							
 	}
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(OrderList);

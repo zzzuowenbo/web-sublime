@@ -7,7 +7,7 @@ import Layout from 'common/layout';
 import './detail.css';
 
 class OrderDetail extends Component{
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
         	orderNo:this.props.match.params.orderNo
