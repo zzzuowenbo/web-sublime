@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on修饰符.capture</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            background-color: pink;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 20px auto;
+            background-color: green;
+        }
+        .box3{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box1" @click.capture="clickBox1()">
+            <div class="box2" @click="clickBox2()">
+                <div class="box3" @click="clickBox3()"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            
+        },
+        methods:{
+            clickBox1(){
+                console.log("111");
+            },
+            clickBox2(){
+                console.log("222");
+            },
+            clickBox3(){
+                console.log("333");
+            }
+        }
+    })
+</script>
+</html>

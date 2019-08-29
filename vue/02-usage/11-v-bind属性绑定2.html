@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind属性绑定2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .active{
+            background:pink;
+        }
+        .colors{
+            color:green;
+        }
+        p{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p :class='{active:true,colors:true}'>v-bind</p>
+        <p :class='{active:isActive,colors:hasColors}'>v-bind</p>
+        <p :class='["active","colors"]'>v-bind</p>
+        <p :class='["isActive" ? "active" : "","colors"]'>v-bind</p>
+        <p :class='objClass'>v-bind</p>
+        <p :class='arrClass'>v-bind</p>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isActive:false,
+            hasColors:true,
+            objClass:{
+                active:true,
+                colors:true
+            },
+            arrClass:['active','colors']
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on修饰符.prevent</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a @click.prevent="goTo()" href="https://www.baidu.com">百度</a>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            
+        },
+        methods:{
+            goTo(){
+                console.log("go...");
+            }
+        }
+    })
+</script>
+</html>

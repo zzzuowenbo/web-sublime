@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind属性绑定3</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p style="background-color:pink;color:green">v-bind</p>
+        <p :style='{backgroundColor:"pink",color:"green"}'>v-bind</p>
+        <p :style='{backgroundColor:bg,color:clr}'>v-bind</p>
+        <p :style='[{backgroundColor:"pink"},{color:"green"}]'>v-bind</p>
+        <p :style='[{backgroundColor:bg},{color:clr}]'>v-bind</p>
+        <p :style='objStyle'>v-bind</p>
+        <p :style='arrStyle'>v-bind</p>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            bg:"pink",
+            clr:"green",
+            objStyle:{
+                backgroundColor:"pink",
+                color:"green"
+            },
+            arrStyle:[
+                {
+                    backgroundColor:"pink"
+                },
+                {
+                    color:"green"
+                }
+            ]
+        }
+    })
+</script>
+</html>

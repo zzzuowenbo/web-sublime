@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>年龄大于20</th>
+            </tr>
+            <tr v-for="person in persons">
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td v-if="person.age >= 20">是</td>
+                <td v-else>否</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            persons:[
+                {name:"jack",age:18},
+                {name:"rose",age:20}
+            ]
+        }
+    })
+</script>
+</html>

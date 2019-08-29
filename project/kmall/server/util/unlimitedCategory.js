@@ -1,10 +1,3 @@
-/*
-* @Author: Tom
-* @Date:   2019-06-25 17:04:43
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-06-28 17:14:52
-*/
-
 /**
  * [repeat 重复字符串]
  * @param  {[String]} src [字符串]

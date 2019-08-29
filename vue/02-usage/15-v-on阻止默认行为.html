@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on阻止默认行为</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a @click="goTo($event)" href="https://www.baidu.com">百度</a>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            
+        },
+        methods:{
+            goTo(ev){
+                ev.preventDefault();
+                console.log("go...");
+            }
+        }
+    })
+</script>
+</html>

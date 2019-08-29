@@ -1,9 +1,3 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-06 09:23:30
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-07-11 17:13:04
-*/
 const Router = require('express').Router;
 const CategoryModel = require('../models/category.js');
 const ProductModel = require('../models/product.js');
