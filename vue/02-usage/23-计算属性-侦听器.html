@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性-侦听器</title>
+</head>
+<body>
+    <div id="app" ref="hi">
+        <input type="text" v-model="getName">
+        <p>firseName:{{firseName}}</p>
+        <p>lastName:{{lastName}}</p>
+        <p>name:{{getName}}</p>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            firseName:"june",
+            lastName:"amy"
+        },
+        methods:{
+            
+        },
+        computed:{
+            getName:{
+                get(){
+                    return this.firseName + ' ' + this.lastName;
+                },
+                set(newValue){
+                    var names = newValue.split(' ');
+                    this.firseName = names[0];
+                    this.lastName = names[names.length - 1];
+                }
+            }
+        },
+        watch:{
+            getName(){
+                console.log("getName1...");
+            }
+        }
+    })
+    vm.$watch('getName',function(){
+        console.log("getName2...");
+    })
+</script>
+</html>

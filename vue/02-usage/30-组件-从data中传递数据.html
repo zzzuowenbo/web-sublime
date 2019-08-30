@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件-从data中传递数据</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <todo-item 
+            v-for="(item,index) in items" 
+            :task="item.task" 
+            :index="index" 
+            :key="item.id"
+        ></todo-item> -->
+        <todo-item 
+            v-for="(item,index) in items" 
+            :task="item.task" 
+            :index="index"
+            :key="index"
+        ></todo-item>
+    </div>
+    <template id="todo-item">
+        <div>{{index}}:{{task}}</div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var TodoItem = Vue.extend({
+        template:"#todo-item",
+        data(){
+            return{
+
+            }
+        },
+        props:{
+            task:String,
+            index:Number
+        }
+    })
+
+    Vue.component('todo-item',TodoItem);
+
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            items:[
+                {
+                    id:0,
+                    task:"工作"
+                },
+                {
+                    id:1,
+                    task:"学习"
+                }
+            ]
+        }
+    })
+</script>
+</html>

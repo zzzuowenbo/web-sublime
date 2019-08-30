@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件-传递数据</title>
+</head>
+<body>
+    <div id="app" ref="hi">
+        <todo-item task="工作"></todo-item>
+        <todo-item task="学习"></todo-item>
+    </div>
+    <template id="todo-item">
+        <div>{{task}}</div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var TodoItem = Vue.extend({
+        template:"#todo-item",
+        data(){
+            return{
+
+            }
+        },
+        // props:['task']
+        props:{
+            task:String
+        }
+    })
+
+    Vue.component('todo-item',TodoItem);
+
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            
+        }
+    })
+</script>
+</html>
