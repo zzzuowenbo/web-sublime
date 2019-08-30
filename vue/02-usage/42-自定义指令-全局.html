@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令-全局</title>
+</head>
+<body>
+    <div id="app1">
+        <input v-focus type="text">
+    </div>
+    <div id="app2">
+        <input v-focus type="text">
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.directive('focus',{
+        inserted:function(el){
+            el.focus()
+        }
+    })
+
+    let vm1 = new Vue({
+        el:'#app1',
+        data:{
+            
+        }
+    })
+
+    let vm2 = new Vue({
+        el:'#app2',
+        data:{
+            
+        }
+    })
+</script>
+</html>

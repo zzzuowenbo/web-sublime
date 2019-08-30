@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由-基本使用</title>
+</head>
+<body>
+    <div id="app">
+        <nav>
+            <router-link to="/home">home</router-link>
+            <router-link to="/articles">articles</router-link>
+            <router-link to="/about">about</router-link>
+        </nav>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="home">
+        <div>home page</div>
+    </template>
+    <template id="articles">
+        <div>articles page</div>
+    </template>
+    <template id="about">
+        <div>about page</div>
+    </template>         
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+    var Home = Vue.extend({
+        template:'#home'
+    })  
+
+    var Articles = Vue.extend({
+        template:'#articles'
+    })
+     
+    var About = Vue.extend({
+        template:'#about'
+    })
+
+    var routes = [
+      { path: '/home', component: Home },
+      { path: '/articles', component: Articles },
+      { path: '/about', component: About }
+    ] 
+
+    var router = new VueRouter({
+      routes:routes
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        router:router,
+        data: {
+
+        }
+    })   
+</script>
+</html>
