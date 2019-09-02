@@ -12,6 +12,7 @@
             <router-link to="/about">about</router-link>
         </nav>
         <div>
+            <!-- 路由出口 -->
             <router-view></router-view>
         </div>
     </div>
@@ -28,6 +29,7 @@
 <script src="js/vue.js"></script>
 <script src="js/vue-router.js"></script>
 <script>
+    //定义(路由)组件
     var Home = Vue.extend({
         template:'#home'
     })  
@@ -40,20 +42,23 @@
         template:'#about'
     })
 
+    //定义路由
     var routes = [
-      { path: '/home', component: Home },
-      { path: '/articles', component: Articles },
-      { path: '/about', component: About }
+      { path: '/home', component:Home },
+      { path: '/articles', component:Articles },
+      { path: '/about', component:About }
     ] 
 
+    //创建router实例
     var router = new VueRouter({
       routes:routes
     })
 
+    //创建和挂载根实例
     var vm = new Vue({
         el: '#app',
         router:router,
-        data: {
+        data:{
 
         }
     })   

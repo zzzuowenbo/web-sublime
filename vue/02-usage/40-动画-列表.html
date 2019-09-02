@@ -41,7 +41,7 @@
         <div class="wrap">
             <input type="text" v-model="task">
             <button @click="add()">添加</button>
-            <transition-group name="list" appear>
+            <transition-group name="list" appear tag="ul">
                 <li
                     v-for="(item,index) in items"
                     @click="del(index)"

@@ -18,51 +18,51 @@
         },
         beforeCreate(){
             console.log("beforeCreate");
-            console.log(this.$el);
-            console.log(this.$refs.hi);
-            console.log(this.message);
+            console.log(this.$el);      //undefined
+            console.log(this.$refs.hi); //undefined
+            console.log(this.message);  //undefined
         },
         created(){
             console.log("created");
-            console.log(this.$el);
-            console.log(this.$refs.hi);
-            console.log(this.message);
+            console.log(this.$el);      //undefined
+            console.log(this.$refs.hi); //undefined
+            console.log(this.message);  //hello
         },
         beforeMount(){
             console.log("beforeMount");
-            console.log(this.$el);
-            console.log(this.$refs.hi);
-            console.log(this.message);
+            console.log(this.$el);      //dom
+            console.log(this.$refs.hi); //undefined
+            console.log(this.message);  //hello
         },
         mounted(){
             console.log("mounted");
-            console.log(this.$el);
-            console.log(this.$refs.hi);
-            console.log(this.message);
+            console.log(this.$el);      //dom
+            console.log(this.$refs.hi); //dom
+            console.log(this.message);  //hello
         },
         beforeUpdate(){
             console.log("beforeUpdate");
             console.log(this.$el);      //dom
             console.log(this.$refs.hi); //dom
-            console.log(this.message);  //dom
+            console.log(this.message);  //hello
         },
         updated(){
             console.log("updated");
             console.log(this.$el);      //dom
             console.log(this.$refs.hi); //dom
-            console.log(this.message);  //dom
+            console.log(this.message);  //hello
         },
         beforeDestroy(){
             console.log("beforeDestroy");
             console.log(this.$el);      //dom
             console.log(this.$refs.hi); //dom
-            console.log(this.message);  //dom
+            console.log(this.message);  //hello
         },
         destroyed(){
             console.log("destroyed");
             console.log(this.$el);      //dom
             console.log(this.$refs.hi); //undefined
-            console.log(this.message);  //dom
+            console.log(this.message);  //hello
         }
     })
 </script>
