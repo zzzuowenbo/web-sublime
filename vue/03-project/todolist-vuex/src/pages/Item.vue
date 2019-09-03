@@ -12,12 +12,12 @@
 </template>
 
 <script>
+    import { DEL_TODO } from '../store/types.js';
     export default {
         name:'Item',
         props:{
             todo:Object,
             index:Number,
-            delTodo:Function
         },
         data(){
             return {
@@ -27,12 +27,12 @@
         },
         methods:{
             handleShow(flag){
-                this.bgColor = flag ? '#ccc' : '#fff'
-                this.isShow = flag
+                this.bgColor = flag ? '#ccc' : '#fff';
+                this.isShow = flag;
             },
             handleDel(){
-                if(window.confirm("您确定要删除"+this.todo.task+"吗?")){
-                    this.delTodo(this.index);
+                if(window.confirm('您确定要删除'+this.todo.task+'吗?')){
+                    this.$store.dispatch(DEL_TODO,this.index);
                 }
             }
         }

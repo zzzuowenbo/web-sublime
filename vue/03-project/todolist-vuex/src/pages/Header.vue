@@ -11,28 +11,30 @@
 </template>
 
 <script>
+    import { ADD_TODO } from '../store/types.js';
     export default {
         name:'Header',
-        props:{
-            addTodo:Function
-        },
         data(){
-            return{
+            return {
                 task:''
             }
         },
         methods:{
             handleAdd(){
+                //1.校验数据
                 const task = this.task.trim();
                 if(!task){
                     alert('请输入任务:');
                     return;
                 }
+                //2.封装任务对象
                 const todo = {
                     task,
                     done:false
                 }
-                this.addTodo(todo);
+                //3.将任务对象插入到任务数组
+                this.$store.dispatch(ADD_TODO,todo);
+                //4.清空输入框
                 this.task = '';
             }
         }

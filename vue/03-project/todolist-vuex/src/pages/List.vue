@@ -1,23 +1,18 @@
 <template>
     <div class="List">
         <Item 
-            v-for="(todo,index) in todos"
+            v-for="(todo,index) in this.$store.state.todos"
             :todo="todo"
             :index="index"
             :key="index"
-            :delTodo="delTodo"
         />
     </div>
 </template>
 
 <script>
-    import Item from './Item.vue'
+    import Item from './Item.vue';
     export default {
-        name:'List',
-        props:{
-            todos:Array,
-            delTodo:Function
-        },
+        name:'List',       
         components:{
             Item
         }
