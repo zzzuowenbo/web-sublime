@@ -4,7 +4,7 @@ var url = require('url');
 var server = http.createServer(function(req,res){
 	var parm = url.parse(req.url,true).query;
 	var handleBack = parm.getData;
-	var data = '{mane:"rose",age:18}';
+	var data = '{name:"rose",age:18}';
 	res.end(handleBack+"("+data+")");
 });
 

@@ -31,6 +31,7 @@
                 get(){
                     return this.firseName + ' ' + this.lastName;
                 },
+                //值发生变化时进行设置
                 set(newValue){
                     var names = newValue.split(' ');
                     this.firseName = names[0];
