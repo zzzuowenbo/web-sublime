@@ -46,7 +46,7 @@
                     autoplay:true,
                     //分页器
                     pagination: {
-                      el: '.swiper-pagination',
+                      el:'.swiper-pagination',
                       clickable:true
                     },
                 })                
