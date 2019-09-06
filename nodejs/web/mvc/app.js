@@ -33,7 +33,7 @@ const server = http.createServer((req,res)=>{
 		const controller = paths[1] || "Index";
 		const action = paths[2] || "index";
 		const args = paths.splice(3);
-		/*所以Controller文件都保存在./Controller/目录下面*/
+		/*所有Controller文件都保存在./Controller/目录下面*/
 		try{
 			const mode = require(path.normalize(__dirname+"/Controller/"+controller));
 			mode[action] && mode[action](...[req,res].concat(args));
