@@ -7,10 +7,10 @@ Page({
   data: {
     articles: [
       {
-        avatar: '/images/1.jpg',
+        avatar: '/images/bi.jpg',
         date: '2019-10-10',
         title: '我是文章标题1',
-        img: '/images/1.jpg',
+        img: '/images/rabbit.jpg',
         desc: '我是描述1',
         star: 30,
         view: 20
@@ -19,7 +19,7 @@ Page({
         avatar: '/images/3.jpg',
         date: '2019-10-10',
         title: '我是文章标题2',
-        img: '/images/3.jpg',
+        img: '/images/tea.jpg',
         desc: '我是描述2',
         star: 30,
         view: 20

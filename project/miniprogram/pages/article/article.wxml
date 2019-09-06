@@ -3,13 +3,13 @@
   <swiper indicator-dots="true"
   autoplay="true" interval="5000" duration="500">
     <swiper-item>
-      <image src="/images/1.jpg" class="slide-image"/>
+      <image src="/images/year.jpg" class="slide-image"/>
     </swiper-item>
     <swiper-item>
-      <image src="/images/3.jpg" class="slide-image"/>
+      <image src="/images/sweet.jpg" class="slide-image"/>
     </swiper-item>
     <swiper-item>
-      <image src="/images/4.jpg" class="slide-image"/>
+      <image src="/images/dog.jpg" class="slide-image"/>
     </swiper-item>
   </swiper>
   <view class='article-wrap'>
@@ -23,9 +23,9 @@
         <image class='article-img' src='{{article.img}}'></image>
         <text class='article-desc'>{{article.desc}}</text>
         <view class='article-footer'>
-          <image class='article-footer-icon' src='/images/4.jpg'></image>
+          <image class='article-footer-icon' src='/images/star.jpg'></image>
           <text class='article-footer-text'>{{article.star}}</text>
-          <image class='article-footer-icon' src='/images/4.jpg'></image>
+          <image class='article-footer-icon' src='/images/eye.jpg'></image>
           <text class='article-footer-text'>{{article.view}}</text> 
         </view>
       </view>
