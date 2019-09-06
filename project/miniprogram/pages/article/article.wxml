@@ -1,0 +1,34 @@
+<!--pages/article/article.wxml-->
+<view>
+  <swiper indicator-dots="true"
+  autoplay="true" interval="5000" duration="500">
+    <swiper-item>
+      <image src="/images/1.jpg" class="slide-image"/>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/3.jpg" class="slide-image"/>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/4.jpg" class="slide-image"/>
+    </swiper-item>
+  </swiper>
+  <view class='article-wrap'>
+    <block wx:for="{{articles}}" wx:for-index="idx" wx:for-item="article" wx:key="idx">
+      <view class='article-item'>
+        <view class='article-head'>
+          <image class='article-head-avatar' src='{{article.avatar}}'></image>
+          <text class='article-head-date'>{{article.date}}</text>
+        </view>
+        <text class='article-title'>{{article.title}}</text>
+        <image class='article-img' src='{{article.img}}'></image>
+        <text class='article-desc'>{{article.desc}}</text>
+        <view class='article-footer'>
+          <image class='article-footer-icon' src='/images/4.jpg'></image>
+          <text class='article-footer-text'>{{article.star}}</text>
+          <image class='article-footer-icon' src='/images/4.jpg'></image>
+          <text class='article-footer-text'>{{article.view}}</text> 
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
