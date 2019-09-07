@@ -1,9 +1,4 @@
-@import "./article-item-template/article-item-template.wxss";
-.slide-image{
-  width: 100%;
-  height: 480rpx;
-}
-/*.article-wrap{
+.article-wrap{
   width: 100%;
 }
 .article-item{
@@ -52,4 +47,4 @@
   color: #ccc;
   margin-left: 5px;
   margin-right: 10px;
-}*/
+}

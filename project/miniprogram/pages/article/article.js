@@ -1,11 +1,19 @@
 // pages/article/article.js
+var {articles} = require("../../data/db.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articles: [
+    articles:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    /*var articles = [
       {
         avatar: '/images/bi.jpg',
         date: '2019-10-10',
@@ -24,14 +32,8 @@ Page({
         star: 30,
         view: 20
       },
-    ]
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+    ]*/
+    this.setData({articles:articles})
   },
 
   /**
@@ -81,5 +83,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  tapArticleItem:function(ev){
+    var articleId = ev.currentTarget.dataset.articleId;
+    wx.navigateTo({
+      url: "/pages/article/article-detail/article-detail?articleId="+articleId,
+    })
   }
+
 })
