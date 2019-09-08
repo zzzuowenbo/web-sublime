@@ -62,7 +62,7 @@ Page({
     /*wx.redirectTo({
       url: "/pages/article/article"
     })*/
-    wx.navigateTo({
+    wx.switchTab({
       url:"/pages/article/article"
     })
   }

@@ -1,7 +1,11 @@
 <view class='container article-detail'>
   <view class='focus'>
     <image class='focus-bg' src='{{img}}'></image>
-    <image bindtap='tapMusic' class='focus-music' src='/images/player.png'></image>
+    <image 
+      bindtap='tapMusic' 
+      class='focus-music' 
+      src='{{ isPlaying ? "/images/pause.png" : "/images/player.png"}}'>
+    </image>
   </view>
   <view class='head'>
     <image class='avatar' src='{{avatar}}'></image>
@@ -23,7 +27,7 @@
       class='operation-collection' 
       src='/images/collection-none.png'>
     </image>
-    <image bindtap='tapShare' class='operation-share' src='/images/share.png'></image>
+    <image catchtap='tapShare' class='operation-share' src='/images/share.png'></image>
     <view class='operation-line'></view>    
   </view>
   <text class='content'>{{content}}</text>
