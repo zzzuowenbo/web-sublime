@@ -32,7 +32,7 @@ router.use((req,res,next)=>{
 /* GET users listing. */
 router.get('/forward', function(req, res, next) {
     //
-  res.render('msg', { msg: '转转成功' });
+  res.render('msg', { msg: '转账成功' });
 });
 
 module.exports = router;

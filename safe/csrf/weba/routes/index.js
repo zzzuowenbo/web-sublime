@@ -18,11 +18,13 @@ router.get('/login', function(req, res, next) {
     token:token
   })
 });
+
 router.get('/logout', function(req, res, next) {
-req.session.destroy()
+  req.session.destroy()
   res.json({
     code:0,
     message:"退出成功"
   })
 });
+
 module.exports = router;
