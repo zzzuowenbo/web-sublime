@@ -60,6 +60,8 @@ module.exports = {
 6.听海
 封面：http://oxoxtpvtn.bkt.clouddn.com/%E5%90%AC%E6%B5%B7.jpg
 歌曲：http://oxoxtpvtn.bkt.clouddn.com/%E5%BC%A0%E6%83%A0%E5%A6%B9%20-%20%E5%90%AC%E6%B5%B7%20%28Live%29.mp3
+7.白色风车
+src:'https://win-web-ra03-sycdn.kuwo.cn/56092fd7939db07a39cac667f49a6cfb/5d74ea32/resource/a1/48/29/68/3595396126.aac',
  */
 
 /*
